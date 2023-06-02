@@ -9,61 +9,51 @@ import { useState } from "react";
 //Styles
 //import styles from "./Turnstone.module.css";
 //components
-import SearchBar from "./SearchBar/Searchbar"
+import SearchBar from "./SearchBar/Searchbar";
 import FilterSelector from "./FilterSelector/FilterSelector";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 //Styles
-import"./searchcontainer.css"
+import "./searchcontainer.css";
 
+const SearchContainer = ({ onSearch, onFilterDepartement, onFilterCP }) => {
+  const [searchValue, setSearchValue] = useState("");
+  const [departementValue, setDepartementValue] = useState("");
+  const [postalCodeValue, setPostalCodeValue] = useState("");
 
-const SearchContainer =({
-  onSearch, 
-  onFilterDepartement, 
-  onFilterCP
-}) => {
-
-  const [searchValue, setSearchValue] = useState('');
-  const [departementValue, setDepartementValue] = useState ('');
-  const [postalCodeValue, setPostalCodeValue] = useState('');
-  
   const handleSearch = () => {
     onSearch(searchValue);
   };
 
   const handleDepartementFilter = () => {
-    console.log("this on cherche less dep")
+    // console.log("this on cherche less dep")
     onFilterDepartement(departementValue);
   };
 
   const handlePostalCodeFilter = () => {
-    console.log("this on cherche less CP")
+    // console.log("this on cherche less CP")
     onFilterCP(postalCodeValue);
   };
 
   return (
     <div className="searchContainer container-fluid p-3 bg-dark text">
-     <SearchBar
+      <SearchBar
         placeholder="Rechercher"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         onSearch={handleSearch}
       />
       <div className="selector">
-      <FilterSelector
+        <FilterSelector
           placeholder={"filtrer par DEP"}
-          onFilterDepartementChange={(e) =>
-            setDepartementValue(e.target.value)
-          }
+          onFilterDepartementChange={(e) => setDepartementValue(e.target.value)}
           onFilterDepartement={handleDepartementFilter}
           onFilterCPChange={(e) => setPostalCodeValue(e.target.value)}
           onFilterCP={handlePostalCodeFilter}
         />
-
-   </div>
-    <ToggleSwitch/>
+      </div>
+      <ToggleSwitch />
     </div>
   );
-}
+};
 export default SearchContainer;
-
