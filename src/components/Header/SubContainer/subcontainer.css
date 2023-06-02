@@ -1,0 +1,18 @@
+/* Style the top navigation bar */
+
+.sub-container {
+  background-color: #28292a;
+  color: #e3e3e3;
+}
+
+.btn {
+  background-color: #fff;
+  border-radius: 7%;
+}
+/* Change color on hover */
+.btn:hover {
+  background-color: #e3e3e3;
+  color: #1f1f1f;
+}
+
+

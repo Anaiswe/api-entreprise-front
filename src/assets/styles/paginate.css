@@ -1,0 +1,23 @@
+.paginate {
+  display: flex;
+  flex-direction: row;
+  /* background-color: red; */
+  color: black;
+  width: 500px;
+  /* background-color: lightblue; */
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.paginate li {
+  color: white;
+  display: inline;
+  margin-right: 20px;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.active {
+  font-weight: 600;
+}

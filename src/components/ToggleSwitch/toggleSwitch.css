@@ -1,0 +1,67 @@
+.toggle-switch-container {
+    display: flex;
+    width: 100%;
+    border: solid hotpink 2px;
+}
+
+.toggle-switch {
+  
+    position: relative;
+    width: 60px;
+    height: 34px;
+    border : solid salmon 4px;
+  }
+  
+  .toggle-switch-checkbox {
+    display: none;
+  }
+  
+  .toggle-switch-label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 17px;
+    background-color: #ccc;
+    position: relative;
+    transition: background-color 0.3s;
+  }
+  
+  .toggle-switch-inner {
+    display: block;
+    width: 50%;
+    height: 100%;
+    border-radius: 17px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left 0.3s;
+  }
+  
+  .toggle-switch-switch {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 4px;
+    transition: left 0.3s, background-color 0.3s;
+  }
+  
+  .toggle-switch-checkbox:checked + .toggle-switch-label {
+    background-color: #86c232;
+  }
+  
+  .toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-inner {
+    left: 50%;
+  }
+  
+  .toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-switch {
+    background-color: #fff;
+    left: calc(100% - 4px);
+  }

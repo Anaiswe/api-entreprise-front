@@ -1,0 +1,13 @@
+.searchContainer {
+  display: flex;
+  border: solid whitesmoke 2px;
+  background-color: black;
+  
+}
+
+.selector {
+  display: flex;
+}
+
+
+
