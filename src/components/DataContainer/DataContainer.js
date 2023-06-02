@@ -6,17 +6,24 @@ import "./dataContainer.css";
 
 const DataContainer = ({ data }) => {
   const getIdccStrings = (data) => {
-    console.log("THIS GETIDCC TEST");
+    // console.log("THIS GETIDCC TEST");
+
     if (Array.isArray(data)) {
-      data.forEach((item) => {
-        let idccToString = item.siege.liste_idcc;
-        if (idccToString?.length > 0) {
-          console.log("THIS IDCC: ", item.siege.liste_idcc.join(", "));
-          return item.siege.liste_idcc.join("", "");
+      const idccToString = [];
+
+      data.forEach((item, index) => {
+        const listIdcc = item.siege.liste_idcc;
+        //let idccToString = item.siege.liste_idcc;
+        if (listIdcc && listIdcc?.length > 0) {
+          listIdcc.forEach((idcc, subIndex) => {
+            console.log("this IDCC", idcc);
+            idccToString.push(<p key={`${index}_${subIndex}`}>{idcc}</p>);
+          });
         } else {
           console.log("THIS IDCC: non");
         }
       });
+      return idccToString;
     } else {
       console.log("THIS Invalid data format.");
     }
@@ -37,8 +44,9 @@ const DataContainer = ({ data }) => {
             <DataInformation data={data} />
             <div className="d-flex table-data" key={index}>
               <p>NOM: {item.nom_complet}</p>
-              <p>TEST DATA : {data[1]}</p>
-              <p>TEST DATA : {getIdccStrings(data[0])}</p>
+              {/* <p>TEST DATA : {data[1]}</p> */}
+              {/* <p>TEST DATA : {getIdccStrings(data[0])}</p> */}
+              <div>Liste IDCC {getIdccStrings(item)}</div>
               <p>NOM: {index.nom_complet}</p>
               <p>
                 Convention collective disponible :{" "}
