@@ -1,6 +1,6 @@
 //pkg
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 //styles
 import "../FilterSelector/filterSelector.css"
@@ -29,28 +29,35 @@ const FilterSelector = ({
 
     return (
         <div className="filter-selector">
-            <input
+            <input className="input-filter"
             id="filter-dep"
             type="text"
-            placeholder={placeholder}
+            placeholder="département (ex: 75)"
             value={departementValue}
             autoCapitalize="none"
             onChange={onFilterDepartementChange}
             />
-             <button onClick={handleDepartementFilter}>
-             <FontAwesomeIcon icon={faMagnifyingGlass}/>
-             </button>
-              <input
+             <div className="btn-search"
+             onClick={handleDepartementFilter}>
+                <span className="icon-search">
+                <FontAwesomeIcon icon={faCaretDown}/>
+                </span>
+            
+             </div>
+              <input className="input-filter"
             id="filter-postalCode"
             type="text"
-            placeholder={placeholder}
+            placeholder="code postal (ex: 75020)"
             value={postalCodeValue}
             autoCapitalize="none"
             onChange={onFilterCPChange}
             />
-            <button onClick={handlePostalCodeFilter}>
-            <FontAwesomeIcon icon={faMagnifyingGlass}/>
-            </button>
+            <div className="btn-search"
+            onClick={handlePostalCodeFilter}>
+              <span className="icon-search">
+                <FontAwesomeIcon icon={faCaretDown }/>
+                </span>
+            </div>
    
         </div>
     );

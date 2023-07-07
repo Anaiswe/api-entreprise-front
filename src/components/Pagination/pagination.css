@@ -1,0 +1,29 @@
+.pagination-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+   
+}
+
+.button {
+    color: #424242;
+    border: none;
+    border-radius: 50%;
+    background-color: #52D278;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .button:hover {
+    background-color:rgb(196, 147, 186) ;
+  }
+  
+  .button.active {
+    background-color:rgb(196, 147, 186) ;
+  }

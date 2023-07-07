@@ -1,3 +1,29 @@
 .search-bar {
     display: flex;
+    height: 50px;
+    width: 35%;
+    background-color: #52D278;
+    border: solid #52D278 1px;
+    border-radius: 2px;
+  }
+
+  .input-search {
+    border: none;
+    font-size: 15px;
+    width: 85%;
+  }
+
+  .btn-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .icon-search {
+    padding: 10px;
+  }
+
+  .btn-search :hover {
+    cursor: pointer;
+    color: rgb(196, 147, 186);
   }

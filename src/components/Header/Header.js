@@ -7,13 +7,8 @@ const Header = () => {
 
   return (
     <>
-    <span>YO</span>
 <div className="header">
-
-  <h1>
-My First Bootstrap Page</h1>
   <SubContainer/>
-
 </div>
     </>
   );

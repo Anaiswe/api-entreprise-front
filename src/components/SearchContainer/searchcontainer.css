@@ -1,12 +1,8 @@
-.searchContainer {
+.search-container {
   display: flex;
-  border: solid whitesmoke 2px;
-  background-color: black;
-  
-}
-
-.selector {
-  display: flex;
+  justify-content: space-between;
+  border: solid red 2px;
+  padding: 30px;
 }
 
 

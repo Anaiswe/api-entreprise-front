@@ -8,9 +8,7 @@
     }
   } */
   
-.home {
-padding: 10px;
-}
+
 
 .spantest {
   border: solid hotpink 2px;
@@ -33,9 +31,7 @@ padding: 10px;
 }
 
 .table-data {
-  background-color: rgb(101, 170, 101);
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  border: solid plum 2px
 }
-

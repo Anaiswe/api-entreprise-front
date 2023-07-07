@@ -1,18 +1,23 @@
 /* Style the top navigation bar */
 
 .sub-container {
-  background-color: #28292a;
-  color: #e3e3e3;
+  display: flex;
+  border: solid #d0f0c0 2px;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.btn {
-  background-color: #fff;
+.extraT {
+  width: 20%;
+}
+
+.home-btn {
   border-radius: 7%;
 }
 /* Change color on hover */
-.btn:hover {
-  background-color: #e3e3e3;
-  color: #1f1f1f;
+.home-btn:hover {
+color: rgb(196, 147, 186);
+cursor: pointer;
 }
 
 

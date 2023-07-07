@@ -1,0 +1,30 @@
+.theme-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: solid #d0f0c0 2px;
+    padding: 10px;
+  }
+
+  .theme-selector {
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      
+  }
+
+  .theme-selector :hover {
+    cursor: pointer;
+    color:rgb(196, 147, 186);
+}
+
+  .bg-dark {
+    background-color: #424242;
+    color: #ffff;;
+          }
+          
+  .light {
+    background-color: #ffff;;
+    color: #424242;
+          }
