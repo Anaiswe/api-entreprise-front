@@ -11,7 +11,6 @@ const FetchData = async (
   limitMatchingEtablissments
 ) => {
 
-
   let url = process.env.REACT_APP_URL;
   
   const link = "&";

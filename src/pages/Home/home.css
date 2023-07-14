@@ -1,20 +1,3 @@
-  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other
-  @media screen and (max-width: 800px) {
-    .home {   
-      width: 100%;
-      padding: 0;
-      background-color: pink;
-    border: solid lightseagreen 3px;
-    }
-  } */
-  
-
-
-.spantest {
-  border: solid hotpink 2px;
-  color: hotpink;
-  margin-top: 100px;
-}
 
 .home-text {
   display: flex;
@@ -23,15 +6,4 @@
   font-weight: 900;
 }
 
-.data-container {
-  border: solid #bdc1c6 0.2px;
-  border-radius:2%;
-  margin-top: 20px;
-  padding: 10px
-}
 
-.table-data {
-  display: flex;
-  flex-direction: column;
-  border: solid plum 2px
-}

@@ -1,69 +1,65 @@
+
 //styles
 import "./dataContainer.css";
+//function
+// import { useTheme } from "../../functions/SetTheme";
+//component
+// import Switch from "../Switch/Switch";
 
-const DataContainer = ({ data }) => {
+
+const DataContainer = ({ data, theme }) => {
+  const theme1 = theme;
+  console.log("this theme", theme1)
+  const  nbOfResults = data[1];
 
   return (
     <div className="data-container">
-      <div>
-        <table >
-          <thead>
+      <span className="data-container-title">Résultats trouvés</span>
+        <table className="table-data">
+          <thead >
                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Nom</th>
-                  <th scope="col">Raison sociale</th>
-                  <th scope="col">dep</th>
-                  <th scope="col">CP</th>
-                  <th scope="col">Convention collective disponible </th>
-                  <th scope="col">SIRET</th>
-                  <th scope="col">IDCC</th>
-                  <th scope="col">EFFECTIF</th>
+                  <th>Résultats trouvés : {nbOfResults}</th>
+                  {/* <th>Nom</th> */}
+                  <th>Raison sociale</th>
+                  <th>adresse</th>
+                  {/* <th>dep</th>
+                  <th>CP</th> */}
+                  {/* <th>Convention collective disponible </th> */}
+                  <th>SIRET</th>
+                  {/* <th>IDCC</th> */}
+                  {/* <th>EFFECTIF</th> */}
                 </tr>
                 </thead>
-                {data[0]?.map((item) => {
+                {data[0]?.map((item, index) => {
                   return (
                   <>
-                  <tbody>
-                    <tr> #
-                      <th scope="row" className="data-container"></th>
-                      <td>{item.nom_complet}</td>
+                  <tbody className="btn" 
+                  onClick={() => {
+                    const url = `/Details/${item.siege.siret}`;
+                    window.open(url, "_blank");
+                    }}>
+                      <tr key={index}>
+                        <td>{index + 1} / {nbOfResults}</td>
+                        <th scope="row" className="data-container">
+                                LOL
+                               </th>
+                      {/* <td>{item.nom_complet}</td> */}
                       <td>{item.nom_raison_sociale}</td>
-                      <td>{item.siege.departement}</td>
-                      <td>{item.siege.code_postal}</td>
-                      <td>{" "}
-                      {item.complements.convention_collective_renseignee === true ? "oui" : "non"} 
+                      <td>{item.siege.adresse}</td>
+                      <td>
+                 
                       </td>
-                      <td>{item.siege.siret} 
-                      <button
-                      className="btn"
-                      onClick={() => {
-                        const url = `/Details/${item.siege.siret}`;
-                        window.open(url, "_blank");
-                        }}
-                        >
-                          En Savoir plus
-                          </button>
-                      </td>
-                      {/* <td> IDCC:{" "}
-                      {item.siege.liste_idcc != null
-                      ? item.siege.liste_idcc[0] : "non"}
-                      <a
-                  href={`https://www.legifrance.gouv.fr/search/kali?tab_selection=kali&searchField=IDCC&query=2120&searchType=ALL&texteBase=TEXTE_BASE&typePagination=DEFAUT&sortValue=PERTINENCE&pageSize=10&page=1&tab_selection=kali#kali`}>
-                    Consultez la convention collective
-                    </a>
-                    {" "}
-                    {item.siege.liste_idcc != null ? item.siege.liste_idcc[1] : "non"}
-                    </td> */}
                     <td>{" "}
                     {item.tranche_effectif_salarie != null ? item.tranche_effectif_salarie : 0} </td>
             </tr>
           </tbody>
+
+
           </>
         )
       })}
       </table>
       </div>
-    </div>
   );
 };
 

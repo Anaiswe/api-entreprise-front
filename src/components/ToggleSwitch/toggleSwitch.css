@@ -21,7 +21,7 @@
     display: block;
     width: 50px;
     height: 26px;
-    background-color: #4caf50; /* Couleur verte */
+    background-color:rgba(210, 230, 210, 0.8);
     border-radius: 13px;
     position: relative;
   }
@@ -39,20 +39,19 @@
   }
   
   .toggle-switch-switch {
-    content: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg');
     position: absolute;
     top: 4px;
     left: 2px; /* Modifier la valeur initiale pour correspondre à la position du .toggle-switch-inner */
     width: 20px;
     height: 18px;
-    background-color: #fff;
+    background-color: rgba(210, 230, 210, 0.8);
     border-radius: 10px;
     transition: left 0.3s; /* Ajouter une transition pour la propriété left */
   }
   
   /* Toggle switch mauve lorsqu'il est désélectionné */
   .toggle-switch-checkbox:checked + .toggle-switch-label {
-    background-color: #9c27b0; /* Couleur mauve */
+    background-color: rgb(196, 147, 186) ;
   }
   
   .toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-inner {
@@ -61,5 +60,5 @@
   
   .toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-switch {
     left: calc(100% - 22px); /* Modifier la valeur pour correspondre à la position du .toggle-switch-inner */
-    background-color: #9c27b0; /* Couleur mauve */
+    background-color:rgb(196, 147, 186) ;
   }

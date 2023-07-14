@@ -1,7 +1,7 @@
 .search-container {
   display: flex;
   justify-content: space-between;
-  border: solid red 2px;
+  /* border: solid red 2px; */
   padding: 30px;
 }
 

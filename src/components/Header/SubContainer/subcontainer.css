@@ -2,7 +2,7 @@
 
 .sub-container {
   display: flex;
-  border: solid #d0f0c0 2px;
+  /* border: solid #d0f0c0 2px; */
   justify-content: center;
   align-items: flex-end;
 }

@@ -3,20 +3,57 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
-    border: solid #bdc1c6 0.2px;
+    /* border: solid #bdc1c6 0.2px; */
     border-radius:2%;
     margin-top: 20px;
     padding: 10px;
   }
 
+  .data-container-title {
+    color: #ffffff;
+    text-shadow:  0 0 7px #fff, 
+             0 0 10px #fff, 
+             0 0 42px rgb(230, 18, 124),   
+             0 0 77px rgb(230, 18, 124), 
+             0 0 100px rgb(230, 18, 124) 
+  }
+
+  .table-data {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .table-data th,
+  .table-data td {
+    padding: 10px;
+    text-align: left;
+    white-space: normal;
+  }
+  
+  .table-data th {
+    font-weight: bold;
+  }
+  
+  .table-data tbody tr:nth-child(even) {
+    background-color: inherit;
+  }
+  
+  .table-data tbody tr:nth-child(odd) {
+    background-color: inherit;
+  }
+  
+  .table-data tbody tr:hover {
+    cursor: pointer;
+    background-color: rgba(210, 230, 210, 0.8); /* Couleur verte très pâle */
+    color: inherit;
+  }
+
   .btn {
-    background-color: #fff;
-    border-radius: 7%;
-    width: 100px;
-    height: 40px;
+    color: inherit;
+    border-radius: 10%;
+    background: linear-gradient();
+    box-shadow:  8px 8px 9px #d2e6d2cc,
+                 -8px -8px 9px #d2e6d2cc;
   }
-  /* Change color on hover */
-  .btn:hover {
-    background-color: #e3e3e3;
-    color: #1f1f1f;
-  }
+  

@@ -10,7 +10,7 @@
     color: #424242;
     border: none;
     border-radius: 50%;
-    background-color: #52D278;
+    background-color:rgb(196, 147, 186) ;
     width: 30px;
     height: 30px;
     display: flex;
@@ -21,9 +21,9 @@
   }
   
   .button:hover {
-    background-color:rgb(196, 147, 186) ;
+    background-color:  rgba(210, 230, 210, 0.8);
   }
   
   .button.active {
-    background-color:rgb(196, 147, 186) ;
+    background-color:  rgba(210, 230, 210, 0.8);
   }

@@ -1,6 +1,8 @@
 // import PKG
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+
+//function
+import { useTheme } from "./functions/SetTheme";
 
 // components
 import Header from "./components/Header/Header";
@@ -9,20 +11,13 @@ import Footer from "./components/Footer/Footer";
 import Details from "./pages/Details/Details";
 import Switch from "./components/Switch/Switch";
 
+
 //styles
 import "./index.css";
 import "./App.css";
 
 function App() {
-  const [theme, setTheme] = useState("bg-dark");
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("bg-dark");
-    } else {
-      setTheme("light");
-    }
-  };
+  const [theme, toggleTheme] = useTheme();
 
   return (
     <>
