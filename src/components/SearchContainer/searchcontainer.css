@@ -1,9 +1,17 @@
-.search-container {
+.search-container-dark {
   display: flex;
-  justify-content: space-between;
-  /* border: solid red 2px; */
-  padding: 30px;
+  border: 1px solid rgb(196, 147, 186);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgb(196, 147, 186);
+  background-color: inherit
 }
 
-
-
+.search-container-light {
+  display: flex;
+  border: 1px solid rgba(210, 230, 210, 0.8);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: inherit;
+  box-shadow: 0 0 10px rgba(210, 230, 210, 0.8);
+}

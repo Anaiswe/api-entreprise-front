@@ -47,6 +47,9 @@ const Details = () => {
                     if (idcc.startsWith("00")) {
                       idcc = idcc.substring(2);
                     }
+                    if (idcc.startsWith("0")) {
+                      idcc = idcc.substring(1);
+                    }
                     return (
                       <li key={idccIndex}>
                         {idcc === "0" || idcc === "9999" ? (
@@ -81,14 +84,7 @@ const Details = () => {
               </a>
             </span>
   
-            {/* Itérer sur matching_etablissements */}
-            {/* {item.matching_etablissements &&
-              item.matching_etablissements.map((etablissement, etablissementIndex) => (
-                <div key={etablissementIndex}>
-                  <p>Liste IDCC: {etablissement.listeIdcc.join(", ")}</p>
-                  <p>Siret: {etablissement.siret}</p>
-                </div>
-              ))} */}
+
           </div>
         ))}
       </div>

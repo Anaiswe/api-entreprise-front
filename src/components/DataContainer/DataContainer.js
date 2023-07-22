@@ -1,65 +1,80 @@
 
 //styles
 import "./dataContainer.css";
-//function
-// import { useTheme } from "../../functions/SetTheme";
-//component
-// import Switch from "../Switch/Switch";
+
+//components
+
 
 
 const DataContainer = ({ data, theme }) => {
-  const theme1 = theme;
-  console.log("this theme", theme1)
-  const  nbOfResults = data[1];
+  // Fonction pour récupérer les informations siret et ville
+  const getMatchingEtablissementsInfo = () => {
+    const matchingEtablissementsInfo = {};
+
+    data[0].forEach((etablissement, index) => {
+      if (etablissement.matching_etablissements) {
+        const matchingEtablissements = etablissement.matching_etablissements.map(
+          (matchingEtablissement) => {
+            const { siret, libelle_commune, est_siege } = matchingEtablissement;
+            return { siret, libelle_commune, est_siege };
+          }
+        );
+        matchingEtablissementsInfo[index] = matchingEtablissements;
+      }
+    });
+
+    return matchingEtablissementsInfo;
+  };
+
+  const matchingEtablissementsInfo = getMatchingEtablissementsInfo();
+  console.log("this matching etablissement22", matchingEtablissementsInfo);
+
+  const nbOfResults = data[1];
+  const className = theme === null || "bg-dark" ? "-dark" : "-light";
 
   return (
-    <div className="data-container">
-      <span className="data-container-title">Résultats trouvés</span>
-        <table className="table-data">
-          <thead >
-               <tr>
-                  <th>Résultats trouvés : {nbOfResults}</th>
-                  {/* <th>Nom</th> */}
-                  <th>Raison sociale</th>
-                  <th>adresse</th>
-                  {/* <th>dep</th>
-                  <th>CP</th> */}
-                  {/* <th>Convention collective disponible </th> */}
-                  <th>SIRET</th>
-                  {/* <th>IDCC</th> */}
-                  {/* <th>EFFECTIF</th> */}
-                </tr>
-                </thead>
-                {data[0]?.map((item, index) => {
-                  return (
-                  <>
-                  <tbody className="btn" 
+    <div className={`data-container${className}`}>
+      <table className={`table-data${className}`}>
+        <thead>
+          <tr>
+            <th>Résultats trouvés : {nbOfResults}</th>
+            <th>Raison sociale</th>
+            <th>Adresse</th>
+            <th>Établissements</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data[0]?.map((item, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td>{item.nom_raison_sociale}</td>
+              <td>{item.siege.adresse}</td>
+          
+              <td>
+                {matchingEtablissementsInfo[index]?.map((matchingEtablissement, i) => (
+                  <div key={i}>
+                    <div>{matchingEtablissement.libelle_commune}</div>
+                    <div>{matchingEtablissement.siret}</div>
+                    <div>{matchingEtablissement.est_siege ? 'Siège social' : 'Non siège social'}</div>
+                  </div>
+                ))}
+              </td>
+              <td>
+                <button
+                  className={`btn-info${className}`}
                   onClick={() => {
                     const url = `/Details/${item.siege.siret}`;
                     window.open(url, "_blank");
-                    }}>
-                      <tr key={index}>
-                        <td>{index + 1} / {nbOfResults}</td>
-                        <th scope="row" className="data-container">
-                                LOL
-                               </th>
-                      {/* <td>{item.nom_complet}</td> */}
-                      <td>{item.nom_raison_sociale}</td>
-                      <td>{item.siege.adresse}</td>
-                      <td>
-                 
-                      </td>
-                    <td>{" "}
-                    {item.tranche_effectif_salarie != null ? item.tranche_effectif_salarie : 0} </td>
+                  }}
+                >
+                  <p className="btn-text">Voir les informations</p>
+                </button>
+              </td>
             </tr>
-          </tbody>
-
-
-          </>
-        )
-      })}
+          ))}
+        </tbody>
       </table>
-      </div>
+    </div>
   );
 };
 

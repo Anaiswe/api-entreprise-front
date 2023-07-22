@@ -14,7 +14,8 @@ import FetchData from "../../functions/FetchData/FetchData";
 import "./home.css";
 
 
-const Home = () => {
+const Home = ({theme}) => {
+  console.log("this theme",  theme)
 
   //States
   const [data, setData] = useState([]);
@@ -94,10 +95,12 @@ const Home = () => {
     <>
     <div className="home-container">
       <div className="home-search">
-      <SearchContainer
-          onSearch={handleSearch}
-          onFilterDepartement={handleDepartementFilter}
-          onFilterCP={handlePostalCodeFilter}
+        <SearchContainer
+        data={data} 
+        theme = {theme}
+        onSearch={handleSearch}
+        onFilterDepartement={handleDepartementFilter}
+        onFilterCP={handlePostalCodeFilter}
         />
       </div>
             <div className="home-text">
@@ -111,10 +114,10 @@ const Home = () => {
             </div>
 
             <div className="data-informations">
-              <DataInformations data={data}/>
+              <DataInformations data={data} theme = {theme}/>
             </div>
             <div className="pagination">
-              <Pagination data={data} onPaginate={handlePageChange} />
+              <Pagination data={data} onPaginate={handlePageChange} theme = {theme} />
             </div>
      
         {isLoading ? ( 
@@ -122,7 +125,10 @@ const Home = () => {
         ) : (
           <>
             <div className="table-data">
-              <DataContainer data={data} />
+              <DataContainer search= {search} data={data} theme={theme} />
+            </div>
+            <div className="pagination">
+              <Pagination data={data} onPaginate={handlePageChange} theme = {theme} />
             </div>
           </>
         )};

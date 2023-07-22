@@ -3,16 +3,19 @@ import { useState } from "react";
 //Styles
 
 import SearchBar from "./SearchBar/Searchbar";
+// import SearchBarTest from "./SearchBarTest/SearchBarTest"
 import FilterSelector from "./FilterSelector/FilterSelector";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+// import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 //Styles
 import "./searchcontainer.css";
 
-const SearchContainer = ({ onSearch, onAutosuggest, onFilterDepartement, onFilterCP }) => {
+const SearchContainer = ({ onSearch, onFilterDepartement, onFilterCP, data, theme }) => {
   const [searchValue, setSearchValue] = useState("");
   const [departementValue, setDepartementValue] = useState("");
   const [postalCodeValue, setPostalCodeValue] = useState("");
+
+  const tableClassName = theme === "" || theme === "bg-dark" ? "dark" : "light";
 
   const handleSearch = () => {
     console.log("this target value", searchValue)
@@ -28,29 +31,32 @@ const SearchContainer = ({ onSearch, onAutosuggest, onFilterDepartement, onFilte
     onFilterCP(postalCodeValue);
   };
 
-  const handleAutosuggest = (suggestion) => {
-    setSearchValue(suggestion);
-    onAutosuggest(suggestion);
-  };
 
   return (
-    <div className="search-container">
+  <div className={`search-container-${tableClassName}`}>
+      <div className={`search-bar-container-${tableClassName}`}>
+
+      {/* <SearchBarTest data={data}/> */}
      
       <SearchBar
+        theme = {theme}
+        data={data}
         placeholder="Rechercher un employeur"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         onSearch={handleSearch}
-        onAutosuggest={handleAutosuggest}
       />
-        <FilterSelector
+      </div>
+      <div className={`filter-selector-container-${tableClassName}`}>
+
+      <FilterSelector
           onFilterDepartementChange={(e) => setDepartementValue(e.target.value)}
           onFilterDepartement={handleDepartementFilter}
           onFilterCPChange={(e) => setPostalCodeValue(e.target.value)}
           onFilterCP={handlePostalCodeFilter}
         />
-         
-      <ToggleSwitch />
+      </div>
+      {/* <ToggleSwitch /> */}
     </div>
   );
 };

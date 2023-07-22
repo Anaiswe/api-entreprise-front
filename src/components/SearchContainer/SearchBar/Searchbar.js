@@ -5,27 +5,32 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "./searchbar.css";
 import { useState } from "react";
 
-const SearchBar = ({ placeholder, onSearch, value, onChange }) => {
-  const [prefix, setPrefix] = useState("");
-  const [suggestion, setSuggestion] = useState("");
+const SearchBar = ({ placeholder, onSearch, value, onChange, data, theme }) => {
+  // console.log("this data seatcj",)
+  const [suggestions, setSuggestions] = useState([]);
+
 
   //const [searchValue, setSearchValue] = useState('');
 
   const handleSearch = () => {
     onSearch(value);
   };
-   console.log("THIS SEARCH VALUEE", value)
+  //  console.log("THIS SEARCH VALUEE", value)
 
-   const handleAutosuggest = (e) => {
-    const searchValue = e.target.value;
-    console.log("this autosuggest", searchValue)
-    // Faites votre logique d'autosuggestion ici et mettez à jour le state de la suggestion
-    // Exemple : fetchSuggestions(searchValue).then((suggestions) => setSuggestion(suggestions));
+   const handleInputChange = (e) => {
+    const searchValue = e.target.value.toLowerCase();
+    const filteredSuggestions = data[0]?.filter(
+      (item) =>
+        item.nom_raison_sociale.toLowerCase().includes(searchValue) ||
+        (item.sigle && item.sigle.toLowerCase().includes(searchValue))
+    );
+    setSuggestions(filteredSuggestions);
+    // console.log("this is")
+    onChange(e);
   };
 
-  const handleAutocomplete = () => {
-    // Faites votre logique d'autocomplétion ici en utilisant la suggestion actuelle
-    // Exemple : setPrefix(suggestion);
+  const handleSuggestionClick = (suggestion) => {
+    onSearch(suggestion.nom_raison_sociale);
   };
 
 
@@ -38,15 +43,27 @@ const SearchBar = ({ placeholder, onSearch, value, onChange }) => {
         value={value}
         autoCapitalize="none"
         onChange={onChange}
-        onKeyUp={handleAutosuggest}
-        onKeyDown={handleAutocomplete}
       />
-      <div className="btn-search" onClick={handleSearch}>
+<div className="btn-search" onClick={handleSearch}>
         <span className="icon-search">
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
         </span>
       </div>
-    </div>
+      {suggestions.length > 0 && (
+        <ul className="suggestions">
+          {suggestions.map((suggestion, index) => (
+            <li
+              key={index}
+              onClick={() => handleSuggestionClick(suggestion)}
+              className="suggestion-item"
+            >
+              {suggestion.nom_raison_sociale}
+            </li>
+          ))}
+        </ul>
+      )}
+      </div>
+
   );
 };
 

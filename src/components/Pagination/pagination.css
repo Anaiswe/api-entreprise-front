@@ -1,4 +1,4 @@
-.pagination-container {
+.pagination-container-dark {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -6,24 +6,42 @@
    
 }
 
-.button {
-    color: #424242;
-    border: none;
-    border-radius: 50%;
-    background-color:rgb(196, 147, 186) ;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .button:hover {
-    background-color:  rgba(210, 230, 210, 0.8);
-  }
-  
-  .button.active {
-    background-color:  rgba(210, 230, 210, 0.8);
-  }
+.pagination-container-light {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+   
+}
+
+.button-dark {
+  height: 40px;
+  width: 40px;
+  border: solid rgb(196, 147, 186) 1px;
+  background-color: rgb(196, 147, 186);
+  border-radius: 50%;
+}
+
+.button-light {
+  height: 40px;
+  width: 40px;
+  border: solid rgba(210, 230, 210, 0.8);
+  background-color: rgba(210, 230, 210, 0.8);
+  border-radius: 50%;
+}
+
+.pagination-button-dark {
+  height: 40px;
+  width: 40px;
+  border: solid rgb(196, 147, 186) 1px;
+  background-color: rgb(196, 147, 186);
+  border-radius: 50%;
+}
+
+.pagination-button-light {
+  height: 40px;
+  width: 40px;
+  border: solid rgba(210, 230, 210, 0.8);
+  background-color: rgba(210, 230, 210, 0.8);
+  border-radius: 50%;
+}

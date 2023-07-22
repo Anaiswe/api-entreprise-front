@@ -27,8 +27,8 @@ function App() {
           <Router>
             <Header />
             <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/Details/:siret" element={<Details />}></Route>
+              <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />}></Route>
+              <Route path="/Details/:siret" element={<Details theme={theme} toggleTheme={toggleTheme} />}></Route>
             </Routes>
             <Footer />
           </Router>
