@@ -1,0 +1,72 @@
+.theme-container {
+    padding: 20px;
+  }
+
+  .container-fluid-bg-dark {
+    background-color: #1e1e2f;
+    color: #525f7f;
+  }
+          
+  .container-fluid-light {
+    color: #525f7f;
+    background-color: #e4e4e4;
+          }
+
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  --background: #28096b;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background);
+  /* background-image: url('https://unblast.com/wp-content/uploads/2018/10/Sky-Stars-Pattern.jpg'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: .5s;
+  border-radius: 30px;
+  border: 1px solid #a8ccff;;
+  box-shadow: 0 0 10px #a8ccff;;
+}
+
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 10%;
+  bottom: 15%;
+  box-shadow: inset 8px -4px 0px 0px #a8ccff;
+  background: var(--background);
+  transition: .5s;
+}
+
+input:checked + .slider {
+  background-color: #a8ccff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(100%);
+  box-shadow: inset 15px -4px 0px 15px #ffcc66;
+}

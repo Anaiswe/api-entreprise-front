@@ -6,6 +6,7 @@
    
 }
 
+
 .pagination-container-light {
   width: 100%;
   display: flex;
@@ -15,33 +16,96 @@
 }
 
 .button-dark {
+  color: #525f7f;
   height: 40px;
   width: 40px;
-  border: solid rgb(196, 147, 186) 1px;
-  background-color: rgb(196, 147, 186);
+  border: none;
   border-radius: 50%;
+  background: linear-gradient(225deg, #1b1b2a, #202032);
+  box-shadow:  -5px 5px 6px #0c0c13,
+             5px -5px 6px #30304b;
 }
+
+.button-dark:hover {
+  border-radius: 50%;
+  background: #1e1e2f;
+  box-shadow: inset -5px 5px 6px #0c0c13,
+              inset 5px -5px 6px #30304b;
+}
+
+
 
 .button-light {
+  color: #525f7f;
   height: 40px;
   width: 40px;
-  border: solid rgba(210, 230, 210, 0.8);
-  background-color: rgba(210, 230, 210, 0.8);
+  border: none;
   border-radius: 50%;
+  background: linear-gradient(225deg, #cdcdcd, #f4f4f4);
+  box-shadow:  -5px 5px 6px #5b5b5b,
+             5px -5px 6px #ffffff;
 }
 
+.button-light:hover {
+  border-radius: 50%;
+  background: #e4e4e4;
+  box-shadow: inset -5px 5px 6px #5b5b5b,
+              inset 5px -5px 6px #ffffff;
+}
+
+
 .pagination-button-dark {
+  color: #525f7f;
   height: 40px;
   width: 40px;
-  border: solid rgb(196, 147, 186) 1px;
-  background-color: rgb(196, 147, 186);
+  border: none;
   border-radius: 50%;
+  background: linear-gradient(225deg, #1b1b2a, #202032);
+  box-shadow:  -5px 5px 6px #0c0c13,
+             5px -5px 6px #30304b;
+}
+
+.pagination-button-dark:hover {
+  border-radius: 50%;
+  background: #1e1e2f;
+  box-shadow: inset -5px 5px 6px #0c0c13,
+              inset 5px -5px 6px #30304b;
+}
+
+.pagination-button-dark.active {
+  border-radius: 50%;
+  background: #1e1e2f;
+  box-shadow: inset -5px 5px 6px #0c0c13,
+              inset 5px -5px 6px #30304b;
+
 }
 
 .pagination-button-light {
+  color: #525f7f;
   height: 40px;
   width: 40px;
-  border: solid rgba(210, 230, 210, 0.8);
-  background-color: rgba(210, 230, 210, 0.8);
+  border: none;
   border-radius: 50%;
+  background: linear-gradient(225deg, #cdcdcd, #f4f4f4);
+  box-shadow:  -5px 5px 6px #5b5b5b,
+             5px -5px 6px #ffffff;
 }
+
+.pagination-button-light:hover {
+  border-radius: 50%;
+  background: #e4e4e4;
+  box-shadow: inset -5px 5px 6px #5b5b5b,
+              inset 5px -5px 6px #ffffff;
+
+}
+
+.pagination-button-light.active {
+  border-radius: 50%;
+  background: #e4e4e4;
+  box-shadow: inset -5px 5px 6px #5b5b5b,
+              inset 5px -5px 6px #ffffff;
+
+}
+
+
+

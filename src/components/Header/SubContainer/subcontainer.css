@@ -7,17 +7,11 @@
   align-items: flex-end;
 }
 
-.extraT {
-  width: 20%;
-}
-
-.home-btn {
-  border-radius: 7%;
-}
 /* Change color on hover */
 .home-btn:hover {
-color: rgb(196, 147, 186);
+color: #818ca8;
 cursor: pointer;
+box-shadow:  0 0 40px #818ca8;
 }
 
 

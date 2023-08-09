@@ -1,2 +1,0 @@
-//styles
-import "./matchingEtablissementsInfo.css";

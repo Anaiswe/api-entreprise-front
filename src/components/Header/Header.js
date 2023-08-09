@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import SubContainer from "./SubContainer/SubContainer";
 
 import "./header.css";
-const Header = () => {
-
+const Header = ({theme }) => {
+  const tableClassName = theme === "" || theme === "bg-dark" ? "dark" : "light";
 
   return (
     <>
-<div className="header">
+<div className={`header-${tableClassName}`}>
   <SubContainer/>
 </div>
     </>

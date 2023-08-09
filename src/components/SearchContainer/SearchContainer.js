@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+
+
 //Styles
 
 import SearchBar from "./SearchBar/Searchbar";
@@ -32,22 +34,24 @@ const SearchContainer = ({ onSearch, onFilterDepartement, onFilterCP, data, them
   };
 
 
+
+
   return (
   <div className={`search-container-${tableClassName}`}>
-      <div className={`search-bar-container-${tableClassName}`}>
+      <div className={`prout-${tableClassName}`}>
 
       {/* <SearchBarTest data={data}/> */}
      
       <SearchBar
         theme = {theme}
         data={data}
-        placeholder="Rechercher un employeur"
+        placeholder="Nom, Raison sociale, siret"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         onSearch={handleSearch}
       />
       </div>
-      <div className={`filter-selector-container-${tableClassName}`}>
+      <div className={`filters-${tableClassName}`}>
 
       <FilterSelector
           onFilterDepartementChange={(e) => setDepartementValue(e.target.value)}

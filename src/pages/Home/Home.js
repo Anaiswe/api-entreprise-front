@@ -25,14 +25,14 @@ const Home = ({theme}) => {
   const [postalCode, setPostalCode] = useState("");
   const [isIdcc, setIdcc] = useState(true);
   const [page, setPage] = useState(1);
-  const [perPage, setPerpage] = useState(10);
+  const [perPage, setPerpage] = useState(12);
   const [limitMatchingEtablissments, setLimitMatchingEtablissments] = useState(100);
 
   useEffect(() => {
     const fetchDataApi = async () => {
  
       try {
-        setIsLoading(true);
+         setIsLoading(true);
         const response = await FetchData(
           search,
           departement,
@@ -44,8 +44,9 @@ const Home = ({theme}) => {
         );
 
         setData(response);
-        setIsLoading(false);
-        //console.log("THIS RESPONSE DATA", response);
+         setIsLoading(false);
+         //setIsLoading(true);
+        //  console.log("THIS RESPONSE DATA", response);
 
       } catch (error) {
         console.log("THIS ERROR", error);
@@ -63,16 +64,16 @@ const Home = ({theme}) => {
     perPage,
     limitMatchingEtablissments,
   ]);
-  console.log(
-    "THIS I RECEIVED",
-    search,
-    departement,
-    postalCode,
-    isIdcc,
-    page,
-    perPage,
-    limitMatchingEtablissments
-  );
+  // console.log(
+  //   "THIS I RECEIVED",
+  //   search,
+  //   departement,
+  //   postalCode,
+  //   isIdcc,
+  //   page,
+  //   perPage,
+  //   limitMatchingEtablissments
+  // );
 
   const handleSearch = (searchValue) => {
     setSearch(searchValue);
@@ -87,7 +88,7 @@ const Home = ({theme}) => {
   };
 
   const handlePageChange = (page) => {
-    console.log("this is PAGE", page)
+    // console.log("this is PAGE", page)
     setPage(page);
   };
 
@@ -120,8 +121,9 @@ const Home = ({theme}) => {
               <Pagination data={data} onPaginate={handlePageChange} theme = {theme} />
             </div>
      
+     
         {isLoading ? ( 
-          <Loader />
+          <Loader theme={theme} />
         ) : (
           <>
             <div className="table-data">

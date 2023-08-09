@@ -1,21 +1,25 @@
-import { RevolvingDot } from  'react-loader-spinner'
-import "./loader.css"
+import "./loader.css";
 
-const Loader = () => {
-    return (
-      <div className="loader">
-        <span className='loader-text'>Loading</span>
-        <RevolvingDot
-          visible={true}
-          height="160"
-          color = "black"
-          width="160"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper"
-        />
-      </div>
-    );
-  };
+const Loader = ({theme}) => {
+  const className = theme === "bg-dark" ? "-dark" : "-light";
+  const skeletons = Array(12).fill(null); // Créer un tableau de 12 éléments pour générer 12 cartes de squelette
+
+  return (
+    <div className={`cards-container${className}`}>
+      {skeletons.map((_, index) => (
+        <div className={`card${className}`} key={index}>
+          <div className={`card-content${className}`}>
+            <h3 className= "c-skeleton-line"/>
+            <p className="c-skeleton-line"/> 
+            <button className="c-skeleton-line"/> 
+            <button className="c-skeleton-line"/> 
+         
+       
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
   
-  export default Loader;
+export default Loader;

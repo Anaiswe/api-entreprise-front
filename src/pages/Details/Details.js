@@ -7,6 +7,7 @@ import "./details.css";
 
 const Details = () => {
   const { siret } = useParams();
+  
   const [companyData, setCompanyData] = useState(null);
 
   useEffect(() => {

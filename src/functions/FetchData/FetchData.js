@@ -55,7 +55,7 @@ const FetchData = async (
     return Object.values(response.data);
   } catch (error) {
     // console.log("THIS ERROR", error);
-    return 0;
+    return null;
   }
 };
 

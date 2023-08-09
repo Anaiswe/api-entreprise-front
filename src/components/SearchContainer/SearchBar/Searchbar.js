@@ -1,41 +1,58 @@
 //pkg
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+//hooks
+import { useState, useEffect, useRef } from "react";
+
 
 import "./searchbar.css";
-import { useState } from "react";
+
 
 const SearchBar = ({ placeholder, onSearch, value, onChange, data, theme }) => {
-  // console.log("this data seatcj",)
-  const [suggestions, setSuggestions] = useState([]);
+  console.log("this data seatcj", data)
 
+  const [recentSearches, setRecentSearches] = useState([]);
+  const [showRecentSearches, setShowRecentSearches] = useState(false);
+
+
+  const className = theme === "bg-dark" ? "-dark" : "-light";
+  const searchRef = useRef(null);
 
   //const [searchValue, setSearchValue] = useState('');
 
   const handleSearch = () => {
     onSearch(value);
+    setShowRecentSearches(false);
+        // Ajouter la recherche actuelle aux recherches récente
+    if (value.trim() !== "" && !recentSearches.includes(value)) {
+      const updatedRecentSearches = [...recentSearches, value];
+      setRecentSearches(updatedRecentSearches);
+    }
   };
   //  console.log("THIS SEARCH VALUEE", value)
 
-   const handleInputChange = (e) => {
-    const searchValue = e.target.value.toLowerCase();
-    const filteredSuggestions = data[0]?.filter(
-      (item) =>
-        item.nom_raison_sociale.toLowerCase().includes(searchValue) ||
-        (item.sigle && item.sigle.toLowerCase().includes(searchValue))
-    );
-    setSuggestions(filteredSuggestions);
-    // console.log("this is")
-    onChange(e);
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
   };
 
-  const handleSuggestionClick = (suggestion) => {
-    onSearch(suggestion.nom_raison_sociale);
-  };
+  useEffect(() => {
+    // Récupérer les recherches récentes du localStorage au chargement du composant
+    const storedRecentSearches = localStorage.getItem("recentSearches");
+    if (storedRecentSearches) {
+      setRecentSearches(JSON.parse(storedRecentSearches));
+    }
+  }, []);
+  
+  useEffect(() => {
+    // Stocker les recherches récentes dans le localStorage à chaque changement
+    localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+  }, [recentSearches]);
 
 
   return (
-    <div className="search-bar">
+    <div className={`search-bar${className}`} ref={searchRef}>
       <input className="input-search"
         id="search-bar"
         type="text"
@@ -43,25 +60,31 @@ const SearchBar = ({ placeholder, onSearch, value, onChange, data, theme }) => {
         value={value}
         autoCapitalize="none"
         onChange={onChange}
+        onKeyDown={handleKeyDown}
+        onFocus={() => setShowRecentSearches(true)} // Show recent searches
       />
-<div className="btn-search" onClick={handleSearch}>
+      <div className="btn-search" onClick={handleSearch}>
         <span className="icon-search">
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <FontAwesomeIcon icon={faMagnifyingGlass} size="l" className="glass-icon" />
         </span>
       </div>
-      {suggestions.length > 0 && (
-        <ul className="suggestions">
-          {suggestions.map((suggestion, index) => (
+      <div className="search-stored">
+      {showRecentSearches && recentSearches.length > 0 && (
+        <ul className="recent-searches">
+          {recentSearches.map((search, index) => (
             <li
               key={index}
-              onClick={() => handleSuggestionClick(suggestion)}
-              className="suggestion-item"
+              onClick={() => onSearch(search)}
+              className="recent-search-item"
             >
-              {suggestion.nom_raison_sociale}
+              {search}
             </li>
           ))}
         </ul>
       )}
+      </div>
+
+
       </div>
 
   );
