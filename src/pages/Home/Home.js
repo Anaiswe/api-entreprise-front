@@ -16,6 +16,7 @@ import "./home.css";
 
 const Home = ({theme}) => {
   console.log("this theme",  theme)
+  // console.log("this selecteditem",  setSelectedItem)
 
   //States
   const [data, setData] = useState([]);

@@ -6,10 +6,15 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import "./dataContainer.css";
 
-const DataContainer = ({ data, theme, search }) => {
+const DataContainer = ({ data, theme, search}) => {
   console.log("THIs ça c'est ma search dans dataconontainer", search)
   console.log("THIs ça c'est ma data dans dataconontainer", data)
   const [showEtablissements, setShowEtablissements] = useState({});
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleSelectedItem = (item) => {
+    setSelectedItem(item);
+  };
 
 
 
@@ -50,10 +55,6 @@ const DataContainer = ({ data, theme, search }) => {
     // Get the navigate function from the react-router-dom
     const navigate = useNavigate();
 
-    // Function to navigate to the selected item's page
-    const navigateToSelectedItem = (itemId) => {
-      navigate(`/Selected/${itemId}`);
-    };
 
   return (
     <div className={`data-container${className}`}>
@@ -102,14 +103,21 @@ const DataContainer = ({ data, theme, search }) => {
                 Voir l'item
               </button>
               <Link
-              to={{
-                pathname: "/Test",
-                state: { selectedItem: item }
-              }}
-              className={`btn-info${className}`}
+                to="/Test"
+                className={`btn-info${className}`}
+                onClick={() => setSelectedItem(item)}
+                target="_blank"
+                
               >
-                Voir les détails
-                </Link>
+                Voir les détailssss
+              </Link>
+              <Link
+  to={`/Test?selectedItem=${encodeURIComponent(JSON.stringify(item))}`}
+  className={`btn-info${className}`}
+  target="_blank"
+>
+  Voir les détailssss
+</Link>
               {/* <Link to={`/Details/${index}`} className={`btn-info${className}`}>
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </Link> */}

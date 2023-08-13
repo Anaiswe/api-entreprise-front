@@ -1,10 +1,12 @@
 // import PKG
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+//states
+import { useState } from "react";
+
 //function
 import { useTheme } from "./functions/SetTheme";
-
-import { DataProvider } from "./functions/DataContext";
+import { SelectedItemProvider } from "./functions/SelectedItemContext";
 
 // components
 import Header from "./components/Header/Header";
@@ -21,6 +23,9 @@ import "./App.css";
 
 function App() {
   const [theme, toggleTheme] = useTheme();
+  // const [selectedItem, setSelectedItem] = useState(null); // Ici, nous définissons le state
+  const selectedEntreprise = 2;
+  console.log("THIS SELECTED ENTReprISE :", selectedEntreprise);
 
   return (
     <>
@@ -30,14 +35,16 @@ function App() {
           <Router>
             <Header theme={theme} toggleTheme={toggleTheme} />
             {/* <DataProvider> */}
+            <SelectedItemProvider selectedEntreprise={selectedEntreprise}>
             <Routes>
            
               <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />}></Route>
               <Route path="/Details/:siret" element={<Details theme={theme} toggleTheme={toggleTheme} />}></Route>
               {/* <Route path="/Test/:id" element={<Test />}></Route> */}
-              <Route path="/Test" element={<Test />}></Route>
+              <Route path="/Test" element={<Test  />}></Route>
             
             </Routes>
+            </SelectedItemProvider >
             {/* </DataProvider> */}
             <Footer />
           </Router>
