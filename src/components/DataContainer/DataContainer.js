@@ -1,42 +1,46 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import { useData } from "../../functions/DataContext";
+import Loader from "../Loader/Loader";
 import "./dataContainer.css";
 
-const DataContainer = ({ data, theme, search}) => {
-  console.log("THIs ça c'est ma search dans dataconontainer", search)
-  console.log("THIs ça c'est ma data dans dataconontainer", data)
+const DataContainer = ({ theme }) => {
+  const {
+    data,
+    isLoading,
+    setSelectedItem,
+    // Ajoutez d'autres variables du contexte si nécessaire
+  } = useData();
+
+  console.log("this data", data)
+
   const [showEtablissements, setShowEtablissements] = useState({});
-  const [selectedItem, setSelectedItem] = useState(null);
+
+
+  const navigate = useNavigate();
 
   const handleSelectedItem = (item) => {
     setSelectedItem(item);
   };
 
-
-
   const getMatchingEtablissementsInfo = () => {
     const matchingEtablissementsInfo = {};
 
-    data[0].forEach((etablissement, index) => {
-      if (etablissement.matching_etablissements) {
-        const matchingEtablissements = etablissement.matching_etablissements.map(
-          (matchingEtablissement) => {
-            const {
-              siret,
-              libelle_commune,
-              est_siege,
-              liste_idcc
-            } = matchingEtablissement;
-            return { siret, libelle_commune, est_siege, liste_idcc };
-          }
-        );
-        matchingEtablissementsInfo[index] = matchingEtablissements;
-      }
-    });
+    if (data[0]) { // Vérifier si data[0] est défini
+      data[0].forEach((etablissement, index) => {
+        if (etablissement.matching_etablissements) {
+          const matchingEtablissements = etablissement.matching_etablissements.map(
+            (matchingEtablissement) => {
+              const { siret, libelle_commune, est_siege, liste_idcc } = matchingEtablissement;
+              return { siret, libelle_commune, est_siege, liste_idcc };
+            }
+          );
+          matchingEtablissementsInfo[index] = matchingEtablissements;
+        }
+      });
+    }
 
     return matchingEtablissementsInfo;
   };
@@ -52,110 +56,57 @@ const DataContainer = ({ data, theme, search}) => {
     }));
   };
 
-    // Get the navigate function from the react-router-dom
-    const navigate = useNavigate();
-
-
-  return (
-    <div className={`data-container${className}`}>
-      <h2>Résultats trouvés : {nbOfResults}</h2>
-      <div className={`cards-container${className}`}>
-        {data[0]?.map((item, index) => (
-          <div className={`card${className}`} key={index}>
-            <div className={`card-content${className}`}>
-              <h3>{item.nom_raison_sociale}</h3>
-              <p>{item.siege.adresse}</p>
-              <p>siret :{item.siege.siret}</p>
-              <p>siren :{item.siren}</p>
-              <p>{item.nom_complet}</p>
-              <div className="details-link">
-              <span>Accéder aux informations détaillées</span>
-              <button
-              className={`btn-info${className}`}
-              onClick={() => {
-                const url = `/Details/${item.siege.siret}`;
-                // const url = `/Details/${encodeURIComponent(item.nom_complet)}`;
-                // navigate(url);
-                window.open(url, "_blank");
-                }}
-                >
-                  <FontAwesomeIcon icon={faMagnifyingGlass} />
-                  </button>
+  if (isLoading) {
+    return <Loader theme={theme} />;
+  } else {
+    return (
+      <div className={`data-container${className}`}>
+        <p>Résultats trouvés : {nbOfResults}</p>
+        
+        <div className={`cards-container${className}`}>
+          {data[0]?.map((item, index) => (
+            <div className={`card${className}`} key={index}>
+              <div className={`card-content${className}`}>
+                <h3>{item.nom_raison_sociale}</h3>
+                <p>{item.siege.adresse}</p>
+                <p>siret :{item.siege.siret}</p>
+                <p>siren :{item.siren}</p>
+                <p>{item.nom_complet}</p>
+                <div className="details-link">
+                  {/* Utilisez le hook navigate pour la navigation */}
+                  <Link
+                    to={`/Details/${item.id}`}
+                    className={`btn-info${className}`}
+                    onClick={() => {
+                      console.log("this f**", item);
+                      handleSelectedItem(item); // Mettre à jour l'élément sélectionné
+                      // navigate(`/Details/${item.id}`); 
+                    }}
+                    // target="_blank"
+                  >
+                    Voir les détails
+                  </Link>
                   <button
-              className={`btn-info${className}`}
-              onClick={() => {
-                const url = `/Details/${item.nom_raison_sociale}`;
-          
-                // const url = `/Details/${encodeURIComponent(item.nom_complet)}`;
-                // navigate(url);
-                window.open(url, "_blank");
-                }}
-                >
-                  <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    className={`btn-toggle${className}`}
+                    onClick={() => toggleEtablissements(index)}
+                  >
+                    {showEtablissements[index] ? (
+                      <>
+                        Masquer les Établissements
+                        <span className="icon-display">
+                          <FontAwesomeIcon icon={faCaretUp} />
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        Afficher les Établissements
+                        <span className="icon-display">
+                          <FontAwesomeIcon icon={faCaretDown} />
+                        </span>
+                      </>
+                    )}
                   </button>
-                  <button
-                className={`btn-info${className}`}
-                onClick={() => {
-                  // Changez la route selon vos besoins. Ici, nous naviguons vers "/ItemDetail" suivi de l'index de l'item.
-                  navigate(`/Details/${item}`);
-                }}
-              >
-                Voir l'item
-              </button>
-              <Link
-                to="/Test"
-                className={`btn-info${className}`}
-                onClick={() => setSelectedItem(item)}
-                target="_blank"
-                
-              >
-                Voir les détailssss
-              </Link>
-              <Link
-  to={`/Test?selectedItem=${encodeURIComponent(JSON.stringify(item))}`}
-  className={`btn-info${className}`}
-  target="_blank"
->
-  Voir les détailssss
-</Link>
-              {/* <Link to={`/Details/${index}`} className={`btn-info${className}`}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </Link> */}
-              {/* <button
-                className={`btn-info${className}`}
-                onClick={() => {
-                  const url = `/Details/${item.siren}`;
-                  window.open(url, "_blank");
-                }}
-              > 
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-              </button> */}
-              
-              </div>
-           
-            </div>
-            {matchingEtablissementsInfo[index]?.length > 1 && (
-              <>
-                <button
-                  className={`btn-toggle${className}`}
-                  onClick={() => toggleEtablissements(index)}
-                >
-                  {showEtablissements[index] ? (
-                    <>
-                      Masquer les Établissements
-                      <span className="icon-display">
-                        <FontAwesomeIcon icon={faCaretUp} />
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      Afficher les Établissements
-                      <span className="icon-display">
-                        <FontAwesomeIcon icon={faCaretDown} />
-                      </span>
-                    </>
-                  )}
-                </button>
+                </div>
                 {showEtablissements[index] && (
                   <div className={`etablissements-list${className}`}>
                     <h4>Établissements</h4>
@@ -177,7 +128,7 @@ const DataContainer = ({ data, theme, search}) => {
                           <button
                             className={`btn-info${className}`}
                             onClick={() => {
-                              const url = `/Details/${matchingEtablissement.siret}`;
+                              const url = `/Details`;
                               window.open(url, "_blank");
                             }}
                           >
@@ -188,13 +139,15 @@ const DataContainer = ({ data, theme, search}) => {
                     )}
                   </div>
                 )}
-              </>
-            )}
-          </div>
-        ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  
 };
 
 export default DataContainer;

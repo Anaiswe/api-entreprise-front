@@ -43,21 +43,13 @@ const SearchContainer = ({ onSearch, onFilterDepartement, onFilterCP, data, them
       {/* <SearchBarTest data={data}/> */}
      
       <SearchBar
-        theme = {theme}
-        data={data}
-        placeholder="Nom, Raison sociale, siret"
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
-        onSearch={handleSearch}
+        theme = {theme}    
       />
       </div>
       <div className={`filters-${tableClassName}`}>
 
       <FilterSelector
-          onFilterDepartementChange={(e) => setDepartementValue(e.target.value)}
-          onFilterDepartement={handleDepartementFilter}
-          onFilterCPChange={(e) => setPostalCodeValue(e.target.value)}
-          onFilterCP={handlePostalCodeFilter}
+
         />
       </div>
       {/* <ToggleSwitch /> */}

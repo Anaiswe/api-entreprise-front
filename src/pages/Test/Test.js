@@ -1,29 +1,25 @@
-// pages/Test/Test.js
-import { useState, useEffect } from "react";
-import { useData } from "../../functions/SelectedItemContext";
-import { useLocation } from "react-router-dom";
+import React from "react";
+import { useData } from "../../functions/DataContext";
 
 const Test = () => {
-  // const location = useLocation();
-  // const [selectedItem, setSelectedItem] = useState(null);
+  console.log("this fbdjskbfkjsdb")
+  const {
+    data, 
+    setData, 
+    isLoading, 
+    setIsLoading,
+    search,
+    setSearch,
+    departement,
+    setDepartement
+    // Ajoutez d'autres variables si nécessaire
+  } = useData();
 
-  // useEffect(() => {
-  //   const params = new URLSearchParams(location.search);
-  //   const selectedItemStr = params.get('selectedItem');
-    
-  //   if (selectedItemStr) {
-  //     const parsedSelectedItem = JSON.parse(decodeURIComponent(selectedItemStr));
-  //     setSelectedItem(parsedSelectedItem);
-  //   }
-  // }, [location.search]);
-
-
+  
 
   return (
     <div>
-      <h2>Informations détaillées</h2>
-
-
+      <h2>Informations détaillées : {search}</h2>
 
     </div>
   );

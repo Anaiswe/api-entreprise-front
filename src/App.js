@@ -6,7 +6,7 @@ import { useState } from "react";
 
 //function
 import { useTheme } from "./functions/SetTheme";
-import { SelectedItemProvider } from "./functions/SelectedItemContext";
+import { DataProvider } from "./functions/DataContext";
 
 // components
 import Header from "./components/Header/Header";
@@ -23,9 +23,6 @@ import "./App.css";
 
 function App() {
   const [theme, toggleTheme] = useTheme();
-  // const [selectedItem, setSelectedItem] = useState(null); // Ici, nous définissons le state
-  const selectedEntreprise = 2;
-  console.log("THIS SELECTED ENTReprISE :", selectedEntreprise);
 
   return (
     <>
@@ -35,17 +32,18 @@ function App() {
           <Router>
             <Header theme={theme} toggleTheme={toggleTheme} />
             {/* <DataProvider> */}
-            <SelectedItemProvider selectedEntreprise={selectedEntreprise}>
+            <DataProvider>
             <Routes>
-           
-              <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />}></Route>
-              <Route path="/Details/:siret" element={<Details theme={theme} toggleTheme={toggleTheme} />}></Route>
-              {/* <Route path="/Test/:id" element={<Test />}></Route> */}
-              <Route path="/Test" element={<Test  />}></Route>
-            
+            <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />}></Route> 
+            <Route
+                  path="/Details/:id"
+                  element={<Details theme={theme} toggleTheme={toggleTheme} />}
+                />
+            {/* <Route path="/Details" element={<Details theme={theme} toggleTheme={toggleTheme} />}></Route> */}
+            <Route path="/Test" element={<Test  />}></Route>
             </Routes>
-            </SelectedItemProvider >
-            {/* </DataProvider> */}
+            {/* </DataProvider > */}
+            </DataProvider>
             <Footer />
           </Router>
         </div>
@@ -55,3 +53,5 @@ function App() {
 }
 
 export default App;
+      {/* */}
+              {/* <Route path="/Details/:siret" element={<Details theme={theme} toggleTheme={toggleTheme} />}></Route> */}

@@ -1,80 +1,43 @@
-import { useState, useEffect } from "react";
+import React from "react";
+import { useData } from "../../functions/DataContext";
 
-//components
+// //components
 import Loader from "../../components/Loader/Loader";
 import SearchContainer from "../../components/SearchContainer/SearchContainer";
 import DataContainer from "../../components/DataContainer/DataContainer";
 import Pagination from "../../components/Pagination/Pagination";
 import DataInformations from "../../components/DataInformations/DataInformations";
 
-//functions
-import FetchData from "../../functions/FetchData/FetchData";
-
 // styles
 import "./home.css";
 
 
-const Home = ({theme}) => {
+ const Home = ({theme}) => {
   console.log("this theme",  theme)
   // console.log("this selecteditem",  setSelectedItem)
 
-  //States
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [search, setSearch] = useState("");
-  const [departement, setDepartement] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [isIdcc, setIdcc] = useState(true);
-  const [page, setPage] = useState(1);
-  const [perPage, setPerpage] = useState(12);
-  const [limitMatchingEtablissments, setLimitMatchingEtablissments] = useState(100);
-
-  useEffect(() => {
-    const fetchDataApi = async () => {
- 
-      try {
-         setIsLoading(true);
-        const response = await FetchData(
-          search,
-          departement,
-          postalCode,
-          isIdcc,
-          page,
-          perPage,
-          limitMatchingEtablissments
-        );
-
-        setData(response);
-         setIsLoading(false);
-         //setIsLoading(true);
-        //  console.log("THIS RESPONSE DATA", response);
-
-      } catch (error) {
-        console.log("THIS ERROR", error);
-      }
-    };
-
-    fetchDataApi();
-
-  }, [
+  const {
+    data, 
+    setData, 
+    isLoading, 
+    setIsLoading,
     search,
+    setSearch,
     departement,
-    postalCode,
-    isIdcc,
+    setDepartement,
     page,
+    setPage,
     perPage,
-    limitMatchingEtablissments,
-  ]);
-  // console.log(
-  //   "THIS I RECEIVED",
-  //   search,
-  //   departement,
-  //   postalCode,
-  //   isIdcc,
-  //   page,
-  //   perPage,
-  //   limitMatchingEtablissments
-  // );
+    setPerpage,
+    postalCode,
+    setPostalCode,
+    isIdcc,
+    setIdcc,
+    limitMatchingEtablissments
+    // Ajoutez d'autres variables si nécessaire
+  } = useData();
+  
+  console.log("THIS JFHSBS HOOOOME DATA", data[0])
 
   const handleSearch = (searchValue) => {
     setSearch(searchValue);
@@ -95,12 +58,14 @@ const Home = ({theme}) => {
 
   return (
     <>
+    <div>PACHOUR</div>
     <div className="home-container">
+    
       <div className="home-search">
         <SearchContainer
-        data={data} 
+  
         theme = {theme}
-        onSearch={handleSearch}
+     
         onFilterDepartement={handleDepartementFilter}
         onFilterCP={handlePostalCodeFilter}
         />
@@ -116,10 +81,27 @@ const Home = ({theme}) => {
             </div>
 
             <div className="data-informations">
-              <DataInformations data={data} theme = {theme}/>
+              <DataInformations 
+              data={data} 
+              theme = {theme}/>
             </div>
             <div className="pagination">
-              <Pagination data={data} onPaginate={handlePageChange} theme = {theme} />
+              <Pagination 
+              data={data} 
+              onPaginate={handlePageChange} 
+              theme = {theme} />
+            </div>
+            <div className="table-data">
+              <DataContainer 
+              search= {search} 
+              data={data} 
+              theme={theme} />
+            </div>
+            <div className="pagination">
+              <Pagination 
+              data={data} 
+              onPaginate={handlePageChange} 
+              theme = {theme} />
             </div>
      
      

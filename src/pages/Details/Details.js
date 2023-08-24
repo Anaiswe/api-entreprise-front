@@ -1,96 +1,155 @@
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import FetchData from "../../functions/FetchData/FetchData";
-import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass, faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import { useData } from "../../functions/DataContext";
+// import fetchCodesNaf from "../../functions/FetchNaf";
+import { trancheEffectifData, activitePrincipaleData } from "../../functions/ExportDefinitions";
 
-// styles
+
 import "./details.css";
 
-const Details = () => {
-  const { siret } = useParams();
-  
-  const [companyData, setCompanyData] = useState(null);
+const Details = ({ theme }) => {
+  const { id } = useParams(); 
+  const { data } = useData(); 
+  const [showEtablissements, setShowEtablissements] = useState(false);
+  const [selectedEtablissementIndex, setSelectedEtablissementIndex] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await FetchData(siret);
-        setCompanyData(data);
-      } catch (error) {
-        console.log("this error", error);
-      }
-    };
+  const className = theme === "bg-dark" ? "-dark" : "-light";
 
-    fetchData();
-  }, [siret]);
+  const toggleEtablissements = () => {
+    setShowEtablissements(!showEtablissements);
+  };
 
-  if (!companyData) {
-    return <div>Loading...</div>;
+  const toggleSelectedEtablissement = (index) => {
+    if (selectedEtablissementIndex === index) {
+      setSelectedEtablissementIndex(null);
+    } else {
+      setSelectedEtablissementIndex(index);
+    }
+  };
+
+
+  let selectedDataItem;
+  if (data && data.length > 0) {
+    selectedDataItem = data[0].find((item) => item.id === Number(id));
+  } else {
+    const storedData = JSON.parse(localStorage.getItem("storedData")) || [];
+    selectedDataItem = storedData.find((item) => item.id === Number(id));
   }
 
-  console.log("this comppanyData", companyData[0])
+  if (!selectedDataItem) {
+    return <div>Chargement...</div>;
+  };
+
+  console.log("this item", selectedDataItem)
+
+    // Extracting the siège (headquarters) establishment from the matching etablissements
+    const headquarters = selectedDataItem.matching_etablissements.find(
+      etablissement => etablissement.est_siege
+    );
+
+      // Filtering out the headquarters from the list of etablissements
+  const otherEtablissements = selectedDataItem.matching_etablissements.filter(
+    etablissement => !etablissement.est_siege
+  );
+
+
 
   return (
-    <>
-      <div className="details-container">
-        <h2>Company Details</h2>
-        <p>Siret: {siret}</p>
-  
-        {companyData[0].map((item, index) => (
-          <div key={index}>
-            <p>Nom complet: {item.nom_complet}</p>
-            <p>Nom raison sociale: {item.nom_raison_sociale}</p>
-            {item.siege.liste_idcc != null && (
-              <div>
-                <p>IDCC:{" "}</p>
-                <ul>
-                  {item.siege.liste_idcc.map((idcc, idccIndex) => {
-                    // Filtrer les deux derniers chiffres si idcc commence par "00"
-                    if (idcc.startsWith("00")) {
-                      idcc = idcc.substring(2);
-                    }
-                    if (idcc.startsWith("0")) {
-                      idcc = idcc.substring(1);
-                    }
-                    return (
-                      <li key={idccIndex}>
-                        {idcc === "0" || idcc === "9999" ? (
-                          "Aucune convention collective répertoriée"
-                        ) : (
-                          <>
-                            {idcc}{" "}
-                            <a
-                              href={`https://www.legifrance.gouv.fr/search/kali?tab_selection=kali&searchField=IDCC&query=${idcc}&searchType=ALL&texteBase=TEXTE_BASE&typePagination=DEFAUT&sortValue=PERTINENCE&pageSize=10&page=1&tab_selection=kali`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Consultez la convention convention_collective_renseignee
-                            </a>
-                          </>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
+    <div className={`details-container${className}`}>
+      <div>
+        <p>Raison sociale: {selectedDataItem.nom_raison_sociale}</p>
+        <p>Nom complet: {selectedDataItem.nom_complet}</p>
+        <p>Siren: {selectedDataItem.siren}</p>
+        <p>Catégorie entreprise: {selectedDataItem.categorie_entreprise}</p>
+        <p>Nature juridique: {selectedDataItem.nature_juridique}</p>
+        <p>Activité principale: {selectedDataItem.section_activite_principale}</p>
+        <p>Nombre d'établissements: {selectedDataItem.nombre_etablissements_ouverts}</p>
+        <p>Tranche effectifs: {trancheEffectifData[selectedDataItem.tranche_effectif_salarie]}</p>
+        <p>Tranche effectifs: {selectedDataItem.tranche_effectif_salarie}</p>
+        <p>Egapro: {selectedDataItem.complements.egapro_renseignee ?
+          <a href={`https://egapro.travail.gouv.fr/index-egapro/recherche?query=${selectedDataItem.siren}`} target="_blank" rel="noopener noreferrer">Consulter l'index sur le site du ministère du travail</a> : "NON"}</p>
+        <h2>Siège</h2>
+        <p>Activité principale : {selectedDataItem.siege.activite_principale}</p>
+        <p>Siret: {selectedDataItem.siege.siret}</p>
+        <p>Adresse: {selectedDataItem.siege.adresse}</p>
+      </div>
+      <button className={`btn-toggle${className}`} onClick={toggleEtablissements}>
+      {showEtablissements 
+        ? "Masquer les établissements affiliés" 
+        : "Afficher les établissements affiliés"}
+    </button>
+
+    {showEtablissements && (
+      <div className={`etablissements-list${className}`}>
+        {headquarters ? (
+          <div className={`etablissement-card${className}`}>
+            <div className={`etablissement-header${className}`}>
+            <h2>Siège</h2>
+            <p>{headquarters.libelle_commune}</p>
+            
+              <button
+                className={`btn-toggle${className}`}
+                onClick={() => toggleSelectedEtablissement(0)}
+              >
+                {selectedEtablissementIndex === 0 
+                  ? "Masquer les détails" 
+                  : "Afficher les détails"}
+              </button>
+            </div>
+            {selectedEtablissementIndex === 0 && (
+              <div className={`etablissement-details${className}`}>
+                
+                <p>Activité principale : {headquarters.activite_principale}</p>
+                <p>Siret: {headquarters.siret}</p>
+                <p>Adresse: {headquarters.adresse}</p>
+                {headquarters.liste_idcc && headquarters.liste_idcc.length > 0 && (
+                  <p>Liste IDCC: {headquarters.liste_idcc.join(", ")}</p>
+                )}
+                {selectedDataItem.siege.tranche_effectif_salarie && (
+                  <p>Tranche effectifs: {trancheEffectifData[selectedDataItem.tranche_effectif_salarie]}</p>
+                  
+                )}
               </div>
             )}
-  
-            {/* Ajoutez d'autres informations sur l'entreprise selon votre besoin */}
-            <span>
-              <a
-                href={`https://www.legifrance.gouv.fr/search/acco?tab_selection=acco&searchField=ALL&query=*&searchProximity=&searchType=ALL&isAdvancedResult=&isAdvancedResult=&dateDiffusion=&dateSignature=&siret=${siret}&typePagination=DEFAULT&sortValue=PERTINENCE&pageSize=10&page=1&tab_selection=acco#acco`}
-                target="_blank"
-                rel="noopener noreferrer"
+          </div>
+        ) : <p>Aucun siège identifié pour cet élément de données.</p>}
+        
+        {otherEtablissements.map((etablissement, index) => (
+          <div key={index} className={`etablissement-card${className}`}>
+            <div className={`etablissement-header${className}`}>
+              <p>Siret: {etablissement.siret}</p>
+              <p>Libellé commune: {etablissement.libelle_commune}</p>
+              <p>Est siège: Non</p>
+              <button
+                className={`btn-toggle${className}`}
+                onClick={() => toggleSelectedEtablissement(index + 1)}
               >
-                Consultez les accords d'entreprise disponibles sur Legifrance
-              </a>
-            </span>
-  
-
+                {selectedEtablissementIndex === (index + 1) 
+                  ? "Masquer les détails" 
+                  : "Afficher les détails"}
+              </button>
+            </div>
+            {selectedEtablissementIndex === (index + 1) && (
+              <div className={`etablissement-details${className}`}>
+                <h2>Établissement</h2>
+                <p>Activité principale : {etablissement.activite_principale}</p>
+                <p>Siret: {etablissement.siret}</p>
+                <p>Adresse: {etablissement.adresse}</p>
+                {etablissement.liste_idcc && etablissement.liste_idcc.length > 0 && (
+                  <p>Liste IDCC: {etablissement.liste_idcc.join(", ")}</p>
+                )}
+                {etablissement.tranche_effectif_salarie && (
+                  <p>Tranche effectifs: {etablissement.tranche_effectif_salarie}</p>
+                )}
+              </div>
+            )}
           </div>
         ))}
       </div>
-    </>
-  );
-  };
-  
+    )}
+  </div>
+);};
+
 export default Details;

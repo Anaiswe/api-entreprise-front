@@ -1,5 +1,22 @@
 import axios from "axios";
 
+// Fonction pour effectuer une copie profonde d'un objet ou d'un tableau
+function deepCopy(data) {
+  if (Array.isArray(data)) {
+    return data.map((item) => deepCopy(item));
+  } else if (typeof data === 'object' && data !== null) {
+    const copiedObject = {};
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        copiedObject[key] = deepCopy(data[key]);
+      }
+    }
+    return copiedObject;
+  } else {
+    return data;
+  }
+}
+
 
 const FetchData = async (
   search,
@@ -12,6 +29,7 @@ const FetchData = async (
 ) => {
 
   let url = process.env.REACT_APP_URL;
+  // console.log("this URLAPI", url)
   
   const link = "&";
 
@@ -51,8 +69,19 @@ const FetchData = async (
 
   try {
     const response = await axios.get(url);
-     console.log("THIS IS RESPONSE FETCHDATA", Object.values(response.data));
-    return Object.values(response.data);
+    const valuesOfData = Object.values(response.data);
+    const copiedValues = deepCopy(valuesOfData); // Effectuer une copie profonde
+
+    console.log("THIS COPIED RESPONSE FETCHDATA", copiedValues);
+
+    // Calculer des ID uniques basés sur le numéro de page et l'index
+    copiedValues[0].forEach((item, index) => {
+      item.id = (page - 1) * perPage + index + 1; // Calcul d'un ID unique
+    });
+ 
+
+    // return Object.values(response.data);
+    return copiedValues;
   } catch (error) {
     // console.log("THIS ERROR", error);
     return null;

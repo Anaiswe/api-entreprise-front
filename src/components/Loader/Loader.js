@@ -11,10 +11,8 @@ const Loader = ({theme}) => {
           <div className={`card-content${className}`}>
             <h3 className= "c-skeleton-line"/>
             <p className="c-skeleton-line"/> 
-            <button className="c-skeleton-line"/> 
-            <button className="c-skeleton-line"/> 
-         
-       
+            <p className="c-skeleton-line"/> 
+            <p className="c-skeleton-line"/> 
           </div>
         </div>
       ))}
