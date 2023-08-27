@@ -107,7 +107,7 @@ const DataContainer = ({ theme }) => {
                     )}
                   </button>
                 </div>
-                {showEtablissements[index] && (
+                {/* {showEtablissements[index] && (
                   <div className={`etablissements-list${className}`}>
                     <h4>Établissements</h4>
                     {matchingEtablissementsInfo[index]?.map(
@@ -138,7 +138,7 @@ const DataContainer = ({ theme }) => {
                       )
                     )}
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           ))}

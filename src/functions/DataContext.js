@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import FetchData from "./FetchData";
 import FetchCodesNaf from "./FetchCodesNaf";
+import fetchIdcc from "./FetchIdcc";
 
 const DataContext = createContext();
 
@@ -17,6 +18,7 @@ export const DataProvider = ({ children }) => {
   const [limitMatchingEtablissments, setLimitMatchingEtablissments] = useState(100);
   const [selectedItem, setSelectedItem] = useState({});
   const [codesNaf, setCodesNaf] = useState([]);
+  const [idccData, setIdccData] = useState([]);
 
 
   useEffect(() => {
@@ -96,9 +98,20 @@ export const DataProvider = ({ children }) => {
     fetchAndSetCodesNaf();
   }, []);
 
-  console.log("this codes Naf", codesNaf )
+  console.log("this codes Naf",codesNaf[0]  )
 
+  useEffect(() => {
+    const fetchAndSetIdccData = async () => {
+      const fetchedIdccData = await fetchIdcc(); 
+      if (fetchedIdccData) {
+        setIdccData(fetchedIdccData);
+      }
+    };
+  
+    fetchAndSetIdccData();
+  }, []);
 
+  console.log("this idcc siret", idccData )
 
   return (
     <DataContext.Provider value={{ data, 
@@ -117,7 +130,8 @@ export const DataProvider = ({ children }) => {
       setLimitMatchingEtablissments,
       selectedItem,
       setSelectedItem,
-      codesNaf
+      codesNaf,
+      idccData,
    
 
      }}>

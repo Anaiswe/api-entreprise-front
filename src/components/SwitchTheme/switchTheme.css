@@ -3,13 +3,14 @@
   }
 
   .container-fluid-bg-dark {
-    background-color: #1e1e2f;
-    color: #525f7f;
+    background-color: #202123;
+    color: rgba(255,255,255);
+    /* color: #97a6f7; */
   }
           
   .container-fluid-light {
     color: #525f7f;
-    background-color: #e4e4e4;
+    background-color: #ffffff;
           }
 
 /* The switch - the box around the slider */

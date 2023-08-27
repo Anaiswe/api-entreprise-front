@@ -15,6 +15,9 @@ const Details = ({ theme }) => {
   const [showEtablissements, setShowEtablissements] = useState(false);
   const [selectedEtablissementIndex, setSelectedEtablissementIndex] = useState(null);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
   const className = theme === "bg-dark" ? "-dark" : "-light";
 
   const toggleEtablissements = () => {
@@ -44,15 +47,28 @@ const Details = ({ theme }) => {
 
   console.log("this item", selectedDataItem)
 
-    // Extracting the siège (headquarters) establishment from the matching etablissements
-    const headquarters = selectedDataItem.matching_etablissements.find(
-      etablissement => etablissement.est_siege
-    );
-
-      // Filtering out the headquarters from the list of etablissements
-  const otherEtablissements = selectedDataItem.matching_etablissements.filter(
-    etablissement => !etablissement.est_siege
+  const headquarters = selectedDataItem.matching_etablissements.find(
+    (etablissement) => etablissement.est_siege
   );
+
+  const otherEtablissements = selectedDataItem.matching_etablissements.filter(
+    (etablissement) => !etablissement.est_siege
+  );
+
+  let allEtablissements;
+
+if (headquarters) {
+  allEtablissements = [headquarters, ...otherEtablissements];
+} else {
+  allEtablissements = otherEtablissements;
+}
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentEtablissements = allEtablissements.slice(indexOfFirstItem, indexOfLastItem);
+  console.log("this currentEtablissements", currentEtablissements)
+  const totalPages = Math.ceil(allEtablissements.length / itemsPerPage);
+  console.log("this total page", totalPages)
+
 
 
 
@@ -75,80 +91,100 @@ const Details = ({ theme }) => {
         <p>Siret: {selectedDataItem.siege.siret}</p>
         <p>Adresse: {selectedDataItem.siege.adresse}</p>
       </div>
-      <button className={`btn-toggle${className}`} onClick={toggleEtablissements}>
-      {showEtablissements 
-        ? "Masquer les établissements affiliés" 
-        : "Afficher les établissements affiliés"}
+      <button
+      className={`btn-toggle${className}`}
+      onClick={toggleEtablissements}
+    >
+      {showEtablissements ? (
+        <>
+          Masquer les établissements affiliés
+          <span className="icon-display">
+            <FontAwesomeIcon icon={faCaretUp} />
+          </span>
+        </>
+      ) : (
+        <>
+          Afficher les établissements affiliés
+          <span className="icon-display">
+            <FontAwesomeIcon icon={faCaretDown} />
+          </span>
+        </>
+      )}
     </button>
-
-    {showEtablissements && (
-      <div className={`etablissements-list${className}`}>
-        {headquarters ? (
-          <div className={`etablissement-card${className}`}>
-            <div className={`etablissement-header${className}`}>
-            <h2>Siège</h2>
-            <p>{headquarters.libelle_commune}</p>
-            
-              <button
-                className={`btn-toggle${className}`}
-                onClick={() => toggleSelectedEtablissement(0)}
-              >
-                {selectedEtablissementIndex === 0 
-                  ? "Masquer les détails" 
-                  : "Afficher les détails"}
-              </button>
-            </div>
-            {selectedEtablissementIndex === 0 && (
-              <div className={`etablissement-details${className}`}>
-                
-                <p>Activité principale : {headquarters.activite_principale}</p>
-                <p>Siret: {headquarters.siret}</p>
-                <p>Adresse: {headquarters.adresse}</p>
-                {headquarters.liste_idcc && headquarters.liste_idcc.length > 0 && (
-                  <p>Liste IDCC: {headquarters.liste_idcc.join(", ")}</p>
-                )}
-                {selectedDataItem.siege.tranche_effectif_salarie && (
-                  <p>Tranche effectifs: {trancheEffectifData[selectedDataItem.tranche_effectif_salarie]}</p>
-                  
-                )}
-              </div>
-            )}
-          </div>
-        ) : <p>Aucun siège identifié pour cet élément de données.</p>}
-        
-        {otherEtablissements.map((etablissement, index) => (
-          <div key={index} className={`etablissement-card${className}`}>
-            <div className={`etablissement-header${className}`}>
-              <p>Siret: {etablissement.siret}</p>
-              <p>Libellé commune: {etablissement.libelle_commune}</p>
-              <p>Est siège: Non</p>
-              <button
-                className={`btn-toggle${className}`}
-                onClick={() => toggleSelectedEtablissement(index + 1)}
-              >
-                {selectedEtablissementIndex === (index + 1) 
-                  ? "Masquer les détails" 
-                  : "Afficher les détails"}
-              </button>
-            </div>
-            {selectedEtablissementIndex === (index + 1) && (
-              <div className={`etablissement-details${className}`}>
-                <h2>Établissement</h2>
-                <p>Activité principale : {etablissement.activite_principale}</p>
-                <p>Siret: {etablissement.siret}</p>
-                <p>Adresse: {etablissement.adresse}</p>
-                {etablissement.liste_idcc && etablissement.liste_idcc.length > 0 && (
-                  <p>Liste IDCC: {etablissement.liste_idcc.join(", ")}</p>
-                )}
-                {etablissement.tranche_effectif_salarie && (
-                  <p>Tranche effectifs: {etablissement.tranche_effectif_salarie}</p>
-                )}
-              </div>
-            )}
-          </div>
+      {showEtablissements && (
+  <div className={`etablissements-list${className}`}>
+    {currentEtablissements.map((etablissement, index) => (
+      <div key={index} className={`etablissement-card${className}`}>
+        <div className={`etablissement-header${className}`}>
+          <h2>{etablissement.est_siege ? "Siège" : "Établissement"}</h2>
+          <p>{etablissement.libelle_commune}</p>
+          <button
+            className={`btn-toggle${className}`}
+            onClick={() => toggleSelectedEtablissement(index)}
+          >
+            {selectedEtablissementIndex === index
+              ? "Masquer les détails"
+              : "Afficher les détails"}
+          </button>
+        </div>
+        {selectedEtablissementIndex === index && (
+  <div className={`etablissement-details${className}`}>
+    <p>Activité principale : {etablissement.activite_principale}</p>
+    <p>Siret: {etablissement.siret}</p>
+    <p>Adresse: {etablissement.adresse}</p>
+    {etablissement.liste_idcc && etablissement.liste_idcc.length > 0 && (
+      <p>
+        Liste IDCC:{" "}
+        {etablissement.liste_idcc.map((idcc, idccIndex) => (
+          <span key={idccIndex}>
+            <a
+              href={`https://www.legifrance.gouv.fr/search/kali?tab_selection=kali&searchField=IDCC&query=${idcc}&searchType=ALL&texteBase=TEXTE_BASE&typePagination=DEFAUT&sortValue=PERTINENCE&pageSize=10&page=1&tab_selection=kali#kali`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {idcc}
+            </a>
+            {idccIndex < etablissement.liste_idcc.length - 1 ? ", " : ""}
+          </span>
         ))}
-      </div>
+      </p>
     )}
+    {etablissement.est_siege && (
+      <p>Tranche effectif : {selectedDataItem.siege.tranche_effectif_salarie}</p>
+    )}
+  </div>
+)}
+
+      </div>
+    ))}
+
+    {/* Contrôles de pagination */}
+    {allEtablissements.length > itemsPerPage && (
+            <div className={`pagination-controls${className}`}>
+              <button
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+              >
+                Précédent
+              </button>
+              <span>
+                Page {currentPage} sur {totalPages}
+              </span>
+              <button
+                onClick={() =>
+                  setCurrentPage((prev) =>
+                  Math.min(prev + 1, totalPages)
+                  )
+                }
+                disabled={currentPage === totalPages}
+              >
+                Suivant
+              </button>
+            </div>
+          )}
+  </div>
+  )}
+
   </div>
 );};
 
