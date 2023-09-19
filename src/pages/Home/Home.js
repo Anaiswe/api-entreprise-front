@@ -37,11 +37,7 @@ import "./home.css";
     // Ajoutez d'autres variables si nécessaire
   } = useData();
   
-  console.log("THIS JFHSBS HOOOOME DATA", data[0])
-
-  const handleSearch = (searchValue) => {
-    setSearch(searchValue);
-  };
+  // console.log("THIS JFHSBS HOOOOME DATA", data[0])
 
   const handleDepartementFilter = (departementValue) => {
     setDepartement(departementValue);
@@ -82,26 +78,19 @@ import "./home.css";
 
             <div className="data-informations">
               <DataInformations 
-              data={data} 
-              theme = {theme}/>
+              data={data} />
             </div>
             <div className="pagination">
               <Pagination 
-              data={data} 
-              onPaginate={handlePageChange} 
-              theme = {theme} />
+              theme={theme}/>
             </div>
             <div className="table-data">
               <DataContainer 
-              search= {search} 
-              data={data} 
               theme={theme} />
             </div>
             <div className="pagination">
-              <Pagination 
-              data={data} 
-              onPaginate={handlePageChange} 
-              theme = {theme} />
+              <Pagination
+              theme={theme}/>
             </div>
      
      

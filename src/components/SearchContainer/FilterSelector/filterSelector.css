@@ -38,3 +38,24 @@
 .caret-icon {
 margin: 8px;
 }
+
+.suggestions {
+    position: absolute;
+    top: 40px; /* Adjust this value to position the suggestions correctly */
+    left: 0;
+    width: 100%;
+    background-color: rgb(30, 39, 203);
+    border: 1px solid #ccc;
+    /* z-index: 1000; */
+    /* max-height: 200px; */
+    overflow-y: auto;
+}
+
+.suggestion {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #a54b4b;
+}

@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 //hooks
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useData } from "../../../functions/DataContext";
 
 
@@ -55,7 +55,8 @@ const SearchBar = ({  theme }) => {
       />
 
       <div className="btn-search" >
-        <span className="icon-search">
+        <span className="icon-search"
+        onChange={handleInputChange}>
           <FontAwesomeIcon icon={faMagnifyingGlass} size="l" className="glass-icon" />
         </span>
       </div>

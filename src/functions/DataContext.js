@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import FetchData from "./FetchData";
 import FetchCodesNaf from "./FetchCodesNaf";
-import fetchIdcc from "./FetchIdcc";
+import FetchPostalCode from "./FetchPostalCode";
+// import fetchIdcc from "./FetchIdcc";
 
 const DataContext = createContext();
 
@@ -18,21 +19,19 @@ export const DataProvider = ({ children }) => {
   const [limitMatchingEtablissments, setLimitMatchingEtablissments] = useState(100);
   const [selectedItem, setSelectedItem] = useState({});
   const [codesNaf, setCodesNaf] = useState([]);
-  const [idccData, setIdccData] = useState([]);
+  const [codesPostauxAPI, setCodesPostauxAPI] = useState([]);
+  // const [idccData, setIdccData] = useState([]);
 
 
   useEffect(() => {
-    // Sauvegarder la valeur de la recherche dans le stockage local chaque fois qu'elle est mise à jour
     localStorage.setItem("currentSearch", search);
 }, [search]);
 
-  // Mettre à jour le localStorage chaque fois que les données sont mises à jour dans le contexte
   useEffect(() => {
     localStorage.setItem("storedData", JSON.stringify(data));
   }, [data]);
 
   useEffect(() => {
-      // Sauvegarder les données dans le stockage local
 
     const fetchDataApi = async () => {
       if (search !== "") {
@@ -98,20 +97,28 @@ export const DataProvider = ({ children }) => {
     fetchAndSetCodesNaf();
   }, []);
 
-  console.log("this codes Naf",codesNaf[0]  )
+  console.log("this codes Naf",codesNaf[0]);
 
   useEffect(() => {
-    const fetchAndSetIdccData = async () => {
-      const fetchedIdccData = await fetchIdcc(); 
-      if (fetchedIdccData) {
-        setIdccData(fetchedIdccData);
+    const fetchAndSetCodesPostaux = async () => {
+      const fetchedCodesPostaux = await FetchPostalCode();
+      if (fetchedCodesPostaux) {
+        setCodesPostauxAPI(fetchedCodesPostaux);
       }
     };
-  
-    fetchAndSetIdccData();
+     fetchAndSetCodesPostaux();
   }, []);
 
-  console.log("this idcc siret", idccData )
+  console.log("this codes POSTAUX",codesPostauxAPI);
+
+  // const updateIdccData = (siret, fetchedIdccData) => {
+  //   setIdccData(prevIdccData => {
+  //     return {
+  //       ...prevIdccData,
+  //       [siret]: fetchedIdccData
+  //     };
+  //   });
+  // };
 
   return (
     <DataContext.Provider value={{ data, 
@@ -131,7 +138,8 @@ export const DataProvider = ({ children }) => {
       selectedItem,
       setSelectedItem,
       codesNaf,
-      idccData,
+      // idccData,
+      // updateIdccData
    
 
      }}>
