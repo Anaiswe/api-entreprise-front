@@ -21,9 +21,9 @@
   width: 40px;
   border: none;
   border-radius: 50%;
-  background: linear-gradient(225deg, #1b1b2a, #202032);
-  box-shadow:  -5px 5px 6px #0c0c13,
-             5px -5px 6px #30304b;
+  background: linear-gradient(145deg, #1d1e20, #222325);
+  box-shadow:  6px 6px 12px #0f0f10,
+               -6px -6px 12px #313336;
 }
 
 .button-dark:hover {
@@ -40,17 +40,16 @@
   height: 40px;
   width: 40px;
   border: none;
-  border-radius: 50%;
-  background: linear-gradient(225deg, #cdcdcd, #f4f4f4);
-  box-shadow:  -5px 5px 6px #5b5b5b,
-             5px -5px 6px #ffffff;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  box-shadow:  16px 16px 39px #bdbdbd,
+               -16px -16px 39px #ffffff;
 }
 
 .button-light:hover {
   border-radius: 50%;
-  background: #e4e4e4;
-  box-shadow: inset -5px 5px 6px #5b5b5b,
-              inset 5px -5px 6px #ffffff;
+  box-shadow: inset 10px 10px 20px #cccccc,
+              inset -10px -10px 20px #ffffff;
 }
 
 
@@ -60,23 +59,23 @@
   width: 40px;
   border: none;
   border-radius: 50%;
-  background: linear-gradient(225deg, #1b1b2a, #202032);
-  box-shadow:  -5px 5px 6px #0c0c13,
-             5px -5px 6px #30304b;
+  background: linear-gradient(145deg, #1d1e20, #222325);
+  box-shadow:  6px 6px 12px #0f0f10,
+               -6px -6px 12px #313336;
 }
 
 .pagination-button-dark:hover {
   border-radius: 50%;
-  background: #1e1e2f;
-  box-shadow: inset -5px 5px 6px #0c0c13,
-              inset 5px -5px 6px #30304b;
+  background: #202123;
+  box-shadow: inset 6px 6px 12px #0f0f10,
+              inset -6px -6px 12px #313336;
 }
 
 .pagination-button-dark.active {
   border-radius: 50%;
-  background: #1e1e2f;
-  box-shadow: inset -5px 5px 6px #0c0c13,
-              inset 5px -5px 6px #30304b;
+  background: #202123;
+  box-shadow: inset 6px 6px 12px #0f0f10,
+              inset -6px -6px 12px #313336;
 
 }
 
@@ -86,24 +85,22 @@
   width: 40px;
   border: none;
   border-radius: 50%;
-  background: linear-gradient(225deg, #cdcdcd, #f4f4f4);
-  box-shadow:  -5px 5px 6px #5b5b5b,
-             5px -5px 6px #ffffff;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  box-shadow:  16px 16px 39px #bdbdbd,
+               -16px -16px 39px #ffffff;
 }
 
 .pagination-button-light:hover {
   border-radius: 50%;
-  background: #e4e4e4;
-  box-shadow: inset -5px 5px 6px #5b5b5b,
-              inset 5px -5px 6px #ffffff;
+  box-shadow: inset 10px 10px 20px #cccccc,
+              inset -10px -10px 20px #ffffff;
 
 }
 
 .pagination-button-light.active {
   border-radius: 50%;
-  background: #e4e4e4;
-  box-shadow: inset -5px 5px 6px #5b5b5b,
-              inset 5px -5px 6px #ffffff;
+  box-shadow: inset 10px 10px 20px #cccccc,
+              inset -10px -10px 20px #ffffff;
 
 }
 

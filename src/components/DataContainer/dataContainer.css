@@ -1,6 +1,5 @@
 /* dataContainer.css */
 
-/* Styles for the data container */
 .data-container-dark {
     border: solid #1e1e2f 0.5px;
     box-shadow: 0 0 10px #1e1e2f;
@@ -35,11 +34,10 @@
     display: flex;
     flex-direction: column;
     background-color: #1e1e2f;
-    color : #525f7f;
     border-radius: 34px;
-    background: linear-gradient(145deg, #202032, #1b1b2a);
-    box-shadow:  7px 7px 14px #0c0c13,
-                 -7px -7px 14px #30304b;
+    background: #202123;
+    box-shadow:  32px 32px 64px #0d0d0e,
+                 -32px -32px 64px #333538;
     margin: 10px;
     padding: 20px;
     font-weight: bold;
@@ -49,19 +47,16 @@
   .card-light {
     background-color: #e4e4e4;
     color : #525f7f;
-    border-radius: 8px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 34px;
+    background: #ffffff;
+    box-shadow:  9px 9px 18px #c7c7c7,
+             -9px -9px 18px #ffffff;
     margin: 10px;
     padding: 20px;
     font-weight: bold;
     flex: 1 0 calc(25% - 20px);
   }
   
-  /* Styles for the card content */
-
-  
-  /* Styles for the toggle button */
-
   .btn-toggle-light {
     border: none;
     color : #525f7f;

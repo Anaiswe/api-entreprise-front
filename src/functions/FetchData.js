@@ -29,7 +29,6 @@ const FetchData = async (
 ) => {
 
   let url = process.env.REACT_APP_URL;
-  // console.log("this URLAPI", url)
   
   const link = "&";
 
@@ -47,7 +46,6 @@ const FetchData = async (
   if (postalCode) {
     url += `postalCode=${postalCode}${link}`;
   }
-  //else alert ("Vous devez entrez au moins 4 chiffres")
 
   if (isIdcc !== undefined) {
     url += `isIdcc=${isIdcc}${link}`;
@@ -65,18 +63,17 @@ const FetchData = async (
     url += `limitMatchingEtablissments=${limitMatchingEtablissments}${link}`;
     console.log(url);
   }
-  //jkroi kc a koi sa sert
 
   try {
     const response = await axios.get(url);
     const valuesOfData = Object.values(response.data);
-    const copiedValues = deepCopy(valuesOfData); // Effectuer une copie profonde
+    const copiedValues = deepCopy(valuesOfData);
 
-    console.log("THIS COPIED RESPONSE FETCHDATA", copiedValues);
+    // console.log(copiedValues);
 
     // Calculer des ID uniques basés sur le numéro de page et l'index
     copiedValues[0].forEach((item, index) => {
-      item.id = (page - 1) * perPage + index + 1; // Calcul d'un ID unique
+      item.id = (page - 1) * perPage + index + 1;
     });
  
 

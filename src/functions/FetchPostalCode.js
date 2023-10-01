@@ -1,16 +1,26 @@
-import axios from 'axios';
+import axios from "axios";
 
-const GetPostalCodeData = async (postalCode) => {
+const FetchPostalCode = async (departement) => {
 
-  let postalCodeURL = process.env.REACT_APP_POSTALURL;
-  console.log("this POSTALURL", postalCodeURL )
+  if (!departement) {
+
+    return null;
+  }
+
+  let postalUrl = process.env.REACT_APP_POSTAL;
+  
   try {
-    const response = await axios.get(`${postalCodeURL}${postalCode}`);
-    return response.data;
+    const response = await axios.get(`${postalUrl}${departement}`);
+
+    const data =  response.data;
+
+    const deepCopy = JSON.parse(JSON.stringify(data));
+
+    return deepCopy;
   } catch (error) {
-    console.error('Une erreur s\'est produite lors de la récupération des données :', error);
-    throw error; 
+    console.error("Error fetching POSTAL:", error);
+    return null;
   }
 };
 
-export default GetPostalCodeData;
+export default FetchPostalCode;

@@ -1,7 +1,4 @@
 import React, { useState } from "react"; 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
-import { useData } from "../../functions/DataContext";
 import fetchIdcc from "../../functions/FetchIdcc";
 
 
@@ -89,7 +86,6 @@ const EtablissementsDisplay = ({
                   )}
                    </div>
                    ))}
-          {/* Contrôles de pagination */}
           {currentEtablissements.length > 0 && (
         <div className={`pagination-controls${className}`}>
           <button

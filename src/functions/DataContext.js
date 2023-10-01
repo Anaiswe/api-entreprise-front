@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import FetchData from "./FetchData";
-import FetchCodesNaf from "./FetchCodesNaf";
-import FetchPostalCode from "./FetchPostalCode";
+
 // import fetchIdcc from "./FetchIdcc";
 
 const DataContext = createContext();
@@ -18,9 +17,7 @@ export const DataProvider = ({ children }) => {
   const [perPage, setPerpage] = useState(12);
   const [limitMatchingEtablissments, setLimitMatchingEtablissments] = useState(100);
   const [selectedItem, setSelectedItem] = useState({});
-  const [codesNaf, setCodesNaf] = useState([]);
-  const [codesPostauxAPI, setCodesPostauxAPI] = useState([]);
-  // const [idccData, setIdccData] = useState([]);
+
 
 
   useEffect(() => {
@@ -52,8 +49,6 @@ export const DataProvider = ({ children }) => {
          setData(response);
          console.log("THIS AATTAAADDD", response);
           setIsLoading(false);
-          //setIsLoading(true);
-         //  console.log("THIS RESPONSE DATA", response);
  
        } catch (error) {
          console.log("THIS ERROR", error);
@@ -86,31 +81,6 @@ export const DataProvider = ({ children }) => {
   perPage,
   limitMatchingEtablissments,);
 
-  useEffect(() => {
-    const fetchAndSetCodesNaf = async () => {
-      const fetchedCodesNaf = await FetchCodesNaf();
-      if (fetchedCodesNaf) {
-        setCodesNaf(fetchedCodesNaf); // Stockez le premier objet du tableau
-      }
-    };
-  
-    fetchAndSetCodesNaf();
-  }, []);
-
-  console.log("this codes Naf",codesNaf[0]);
-
-  useEffect(() => {
-    const fetchAndSetCodesPostaux = async () => {
-      const fetchedCodesPostaux = await FetchPostalCode();
-      if (fetchedCodesPostaux) {
-        setCodesPostauxAPI(fetchedCodesPostaux);
-      }
-    };
-     fetchAndSetCodesPostaux();
-  }, []);
-
-  console.log("this codes POSTAUX",codesPostauxAPI);
-
   // const updateIdccData = (siret, fetchedIdccData) => {
   //   setIdccData(prevIdccData => {
   //     return {
@@ -129,19 +99,18 @@ export const DataProvider = ({ children }) => {
       setSearch,
       departement,
       setDepartement, 
+      postalCode,
+      setPostalCode,
       page,
       setPage,
       perPage,
+      isIdcc,
+      setIdcc,
       setPerpage,
       limitMatchingEtablissments,
       setLimitMatchingEtablissments,
       selectedItem,
       setSelectedItem,
-      codesNaf,
-      // idccData,
-      // updateIdccData
-   
-
      }}>
       {children}
     </DataContext.Provider>

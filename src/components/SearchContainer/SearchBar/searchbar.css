@@ -46,7 +46,7 @@ box-shadow: inset 5px 5px 23px #a6a6a6,
 
 .input-search:focus {
   outline: none;
-  box-shadow: 0 0 15px #a8ccff; /* Effet néon accentué au focus */
+  box-shadow: 0 0 15px #a8ccff;
 }
 
 .btn-search {

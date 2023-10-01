@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { useData } from "../../functions/DataContext";
 // import fetchCodesNaf from "../../functions/FetchNaf";
-import fetchIdcc from "../../functions/FetchIdcc";
+// import fetchIdcc from "../../functions/FetchIdcc";
 import DetailsHeader from "../../components/Details/DetailsHeader";
 import EtablissementsDisplay from "../../components/Details/EtablissementsDisplay";
 
 
-import { trancheEffectifData, activitePrincipaleData } from "../../functions/ExportDefinitions";
+// import { trancheEffectifData, activitePrincipaleData } from "../../functions/ExportDefinitions";
 
 
 import "./details.css";
 
 const Details = ({ theme }) => {
   const { id } = useParams(); 
-  const { data, idccData, updateIdccData } = useData(); 
+  const { data, idccData } = useData();
+  // const { data, idccData, updateIdccData } = useData(); 
   console.log("this idccData", idccData)
   const [showEtablissements, setShowEtablissements] = useState(false);
   const [selectedEtablissementIndex, setSelectedEtablissementIndex] = useState(null);

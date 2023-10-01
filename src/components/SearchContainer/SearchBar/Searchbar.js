@@ -2,7 +2,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 //hooks
-import { useState } from "react";
 import { useData } from "../../../functions/DataContext";
 
 
@@ -11,18 +10,16 @@ import "./searchbar.css";
 
 const SearchBar = ({  theme }) => {
   const {
-    data, 
-    setData, 
     search,
     setSearch,
-    // Ajoutez d'autres variables si nécessaire
   } = useData();
 
 
-  const [showResults, setShowResults] = useState(false); 
-  const [searchResults, setSearchResults] = useState([]);
+  // const [showResults, setShowResults] = useState(false); 
+  // const [searchResults, setSearchResults] = useState([]);
 
   const className = theme === "bg-dark" ? "-dark" : "-light";
+  console.log("THEME", theme)
 
 
   const handleInputChange = (event) => {
@@ -30,18 +27,11 @@ const SearchBar = ({  theme }) => {
     setSearch(inputValue);
   };
 
-  
-
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      // Exécuter la recherche lorsque l'utilisateur appuie sur Enter
       setSearch(event.target.value);
     }
   };
-
-  
-
-
 
   return (
     <div className={`search-bar${className}`} >
