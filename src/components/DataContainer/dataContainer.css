@@ -57,86 +57,41 @@
     flex: 1 0 calc(25% - 20px);
   }
   
-  .btn-toggle-light {
-    border: none;
-    color : #525f7f;
-    padding: 8px 12px;
-    margin-top: 10px;
-    margin-bottom: 14px;
-    cursor: pointer;
-    border-radius: 9px;
-    background: linear-gradient(225deg, #cdcdcd, #f4f4f4);
-    box-shadow:  -5px 5px 8px #a2a2a2,
-                 5px -5px 8px #ffffff;
-
-  }
-
-
-.btn-toggle-light:hover {
-  background: #e4e4e4;
-  box-shadow: inset -5px 5px 8px #a2a2a2,
-              inset 5px -5px 8px #ffffff;
-}
-
-
-  .btn-toggle-dark {
-    color : #525f7f;
-    border: none;
-    padding: 8px 12px;
-    margin-top: 10px;
-    margin-bottom: 14px;
-    cursor: pointer;
-    border-radius: 10px;
-    background: linear-gradient(225deg, #1b1b2a, #202032);
-    box-shadow:  -5px 5px 0px #0c0c13,
-                 5px -5px 0px #30304b;
-  }
-
-  .btn-toggle-dark:hover {
-    background: #1e1e2f;
-    box-shadow: inset -5px 5px 0px #0c0c13,
-                inset 5px -5px 0px #30304b;
-  }
-
-  .icon-display {
-    padding-left:3px;
-  }
-
 
 .btn-info-dark {
+  margin-left: 30px;
+  padding: 15px;
+  color: #ffffff;
   border: none;
-  width: 50px;
   height: 50px;
-  color : #525f7f;
   border-radius: 10px;
-  background: linear-gradient(225deg, #1b1b2a, #202032);
-  box-shadow:  -5px 5px 0px #0c0c13,
-               5px -5px 0px #30304b;
+  box-shadow:  10px 10px 39px #151517,
+  -10px -10px 39px #2b2d2f;
 }
 
 .btn-info-dark:hover {
   border: none;
   background: #1e1e2f;
-  box-shadow: inset -5px 5px 0px #0c0c13,
-              inset 5px -5px 0px #30304b;
+  box-shadow: inset 10px 10px 39px #151517,
+  inset -10px -10px 39px #2b2d2f;
 }
 
 .btn-info-light {
   border: none;
-  width: 50px;
+  padding: 15px;
+  margin-left: 30px;
   height: 50px;
   color : #525f7f;
   border-radius: 9px;
-  background: linear-gradient(225deg, #cdcdcd, #f4f4f4);
-  box-shadow:  -5px 5px 8px #a2a2a2,
-               5px -5px 8px #ffffff;
+  box-shadow:  10px 10px 39px #a6a6a6,
+  -10px -10px 39px #ffffff;
 }
 
 .btn-info-light:hover {
   border: none;
   background: #e4e4e4;
-  box-shadow: inset -5px 5px 8px #a2a2a2,
-              inset 5px -5px 8px #ffffff;
+  box-shadow: inset 10px 10px 39px #a6a6a6,
+  inset -10px -10px 39px #ffffff;
 }
 
   

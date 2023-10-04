@@ -37,7 +37,6 @@ const FilterPostal = ({  theme }) => {
     const fetchData = async () => {
       try {
         const fetchedCodes = await FetchPostalCode(departement);
-        console.log("Valeurs des codes postaux :", fetchedCodes);
         setCodesPostaux(fetchedCodes);
       } catch (error) {
         console.error("Erreur lors de la récupération des codes postaux :", error);
@@ -51,14 +50,12 @@ const filteredPostalCodes = codesPostaux
   ? codesPostaux.filter((codePostal) => {
       const codePostalValue = codePostal.Code_postal.toString();
       const doesStartWith = codePostalValue.startsWith(inputPostalValue);
-      console.log("Filtering ", codePostalValue, " with ", inputPostalValue, " Result: ", doesStartWith);
       return doesStartWith;
     })
   : [];
 
 
 const handlePostalClick = (codePostal) => {
-  console.log("Code postal cliqué :", codePostal);
   if (codePostal && codePostal.Code_postal) {
     setInputPostalValue(codePostal.Code_postal.toString());
     setIsPostalDropdownOpen(false);
@@ -69,38 +66,44 @@ const handlePostalClick = (codePostal) => {
 
   return (
     <div className={`filter-selector${className}`}>
+      <div className="filter-container">
+        <div className="input-container">
+          <div className="filter-wrapper">
+        <span className="icon-filter" onClick={togglePostalDropdown}>
+            <FontAwesomeIcon icon={faCaretDown} />
+        </span>
+
+      <div className="input-container">
       <input
-        className="input-filter"
+        className={`input-filter${className}`}
         placeholder="Code postal"
         value={inputPostalValue}
         onChange={(e) => handleInputChange(e)}
       />
-      <div className="suggestions-list">
+      </div>
+      {/* <div className="suggestions-list"> */}
       {isPostalDropdownOpen && (
-          <div style={{ maxHeight: "300px", overflowY: "auto" }}>
+          <div className="suggestion-data">
+            <div className={`list-container${className}`}>
             {filteredPostalCodes.map((codePostal) => (
-              <div
+              <div className={`card-container${className}`}>
+                <div
                 key={codePostal._id}
-                className="suggestion"
+                className={`card-content${className}`}
                 onClick={() => handlePostalClick(codePostal)}
               >
                 <div>{codePostal.Code_postal}</div>
                 <div>{codePostal.Nom_commune}</div>
               </div>
-            ))}
-          </div>
-        )}
-   
-
-      </div>
-      <div className="btn-filter">
-        <span className="icon-filter" onClick={togglePostalDropdown}>
-          <div className="caret-icon">
-            <FontAwesomeIcon icon={faCaretDown} />
-          </div>
-        </span>
-      </div>
-    </div>
+               </div>
+               ))}
+               </div>
+               </div>
+               )}
+               </div>
+               </div>
+               </div>
+               </div>
   );
 };
 

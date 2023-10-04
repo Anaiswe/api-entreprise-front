@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { useData } from "../../functions/DataContext";
 
@@ -12,22 +12,17 @@ const Pagination = ({ theme}) => {
   const {
     data,
     page,
-    setPage,
-    // Ajoutez d'autres variables du contexte si nécessaire
+    setPage
   } = useData();
 
-    // State to keep track of the active page
-
-
-  // const currentPage = Number(data[2]) || 1;
   const totalPages = data[4];
   const tableClassName = theme === "" || theme === "bg-dark" ? "dark" : "light";
 
   const [activePage, setActivePage] = useState(page || 1);
 
   const handlePageChange = (newPage) => {
-    setActivePage(newPage); // Mettre à jour l'état local de la page active
-    setPage(newPage); // Mettre à jour la page dans le contexte
+    setActivePage(newPage);
+    setPage(newPage);
   };
 
   const renderPageButtons = () => {
@@ -67,12 +62,12 @@ const Pagination = ({ theme}) => {
 
         <button className={`button-${tableClassName} ${activePage === 1 ? 'active' : ''}`}
         onClick={() => handlePageChange(activePage - 1)}
-        > <FontAwesomeIcon icon={faMinus}/>
+        > <FontAwesomeIcon icon={faArrowLeft}/>
         </button>
         {renderPageButtons()}
         <button className={`button-${tableClassName} ${activePage === data[4] ? 'active' : ''}`}
         onClick={() => handlePageChange(activePage + 1)}
-        > <FontAwesomeIcon icon={faPlus}/>
+        > <FontAwesomeIcon icon={faArrowRight}/>
         </button>
         </div>
       </>

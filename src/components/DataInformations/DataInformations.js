@@ -29,11 +29,12 @@ const DataInformations = ({data}) => {
 return (
     <>
     <div className="data-infos-container">
-        <div className="counter-total-results">résultats trouvés:{counter < totalResults ? counter : totalResults} 
-        </div>
+        <p>résultats trouvés:{counter < totalResults ? counter : totalResults} 
+        </p>
         <p>page: {currentPage}</p>
         <p>résultats par page: {resultsPerPage}</p>
         <p>pages total: {totalPages}</p>
+      
 
 
     </div>

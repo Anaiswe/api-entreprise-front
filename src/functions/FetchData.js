@@ -11,8 +11,10 @@ function deepCopy(data) {
         copiedObject[key] = deepCopy(data[key]);
       }
     }
+    // console.log(copiedObject);
     return copiedObject;
   } else {
+    
     return data;
   }
 }
@@ -35,7 +37,9 @@ const FetchData = async (
 
   if (search) {
     url += `search=${search}${link}`;
-
+  } else {
+    throw new Error("No search value provided");
+    
   }
 
   if (departement) {
@@ -61,7 +65,7 @@ const FetchData = async (
 
   if (limitMatchingEtablissments) {
     url += `limitMatchingEtablissments=${limitMatchingEtablissments}${link}`;
-    console.log(url);
+    // console.log(url);
   }
 
   try {
@@ -78,6 +82,7 @@ const FetchData = async (
  
 
     // return Object.values(response.data);
+    console.log("this values returned in FtchData", copiedValues)
     return copiedValues;
   } catch (error) {
     // console.log("THIS ERROR", error);

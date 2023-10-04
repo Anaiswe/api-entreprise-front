@@ -1,4 +1,7 @@
-.counter-total-results {
-  font-weight: bold;
-  color: #b393d3;
+.data-infos-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
 }

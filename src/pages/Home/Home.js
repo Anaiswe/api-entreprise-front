@@ -15,33 +15,18 @@ import "./home.css";
 
   const {
     data, 
-    search,
-    departement,
-    page,
-    perPage,
-    postalCode,
-    isIdcc,
-    limitMatchingEtablissments
-
   } = useData();
   
 
   return (
     <>
     <div className="home-container">
-      <div className="home-search">
         <SearchContainer
         theme = {theme}
      />
-     </div>
       <div className="home-text">
-        <span>PER PAGE : {perPage}</span>
-        <span>PAGE : {page}</span>
-        <span>SEARCH : {search}</span>
-        <span>DEPARTEMENT: {departement}</span>
-        <span>POSTALCODE: {postalCode}</span>
-        <span>isIdcc : {isIdcc}</span>
-        <span>limitMatchingEtablissments : {limitMatchingEtablissments}</span>
+        Entrez un nom, numéro de siret, ou numéro de siren, cliquer sur le menu déroulant où appuyer sur entrer.
+        Sélectionner une entreprise puis cliquer sur "détails" pour afficher les informations et accéder aux textes applicables.
       </div>
       <div className="data-informations">
         <DataInformations

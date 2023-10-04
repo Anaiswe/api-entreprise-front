@@ -13,7 +13,6 @@ const FilterDepartements = ({  theme }) => {
   const [isDepDropdownOpen, setIsDepDropdownOpen] = useState(false);
 
   const className = theme === "bg-dark" ? "-dark" : "-light";
-  console.log("this THEME", theme)
 
     const {
         setDepartement,
@@ -51,39 +50,44 @@ const FilterDepartements = ({  theme }) => {
     return (
 <>
 <div className={`filter-selector${className}`}>
-  <input
-    className="input-filter"
+  <div className="filter-container">
+    <div className="input-container">
+      <div className="filter-wrapper">
+        <span className="icon-filter" onClick={toggleDepDropdown}>
+      <FontAwesomeIcon icon={faCaretDown }/>
+      </span>
+
+      <div className="input-container">
+      <input
+    className= {`input-filter${className}`}
     placeholder="département"
     value={inputDepValue}
     onChange={handleInputChange}
     />
-
-<div className="suggestions-list">
-{isDepDropdownOpen && (
-            <div className="suggestions-list" style={{ maxHeight: '300px', overflowY: 'auto'}}>
+    </div>
+    {isDepDropdownOpen && (
+            <div className="suggestion-data">
+              <div className={`list-container${className}`}>
               {filteredDepartments.map((department) => (
-                <div
+                <div className={`card-container${className}`}>
+                  <div
                   key={department.num_dep}
-                  className="suggestion"
+                  className={`card-content${className}`}
                   onClick={() => handleDepClick(department)}
                   >
                   <div>{department.num_dep}</div>
                   <div>{department.dep_name}</div>
                   <div>{department.region_name}</div>
                 </div>
-              ))}
+                </div>
+                ))}
+              </div>
             </div>
           )}
-</div>
-
-<div className="btn-filter">
-  <span className="icon-filter" onClick={toggleDepDropdown}>
-     <div className="caret-icon">
-      <FontAwesomeIcon icon={faCaretDown }/>
+          </div>
       </div>
-      </span>
-      </div>
-      </div>
+    </div>
+  </div>
        </>
     );
 };

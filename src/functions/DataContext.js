@@ -8,8 +8,8 @@ const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const storedSearch = localStorage.getItem("currentSearch") || "";
-  const [search, setSearch] = useState(storedSearch);
+  // const storedSearch = localStorage.getItem("currentSearch") || "";
+  const [search, setSearch] = useState("");
   const [departement, setDepartement] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [isIdcc, setIdcc] = useState(true);
@@ -17,8 +17,6 @@ export const DataProvider = ({ children }) => {
   const [perPage, setPerpage] = useState(12);
   const [limitMatchingEtablissments, setLimitMatchingEtablissments] = useState(100);
   const [selectedItem, setSelectedItem] = useState({});
-
-
 
   useEffect(() => {
     localStorage.setItem("currentSearch", search);
@@ -47,7 +45,7 @@ export const DataProvider = ({ children }) => {
             
  
          setData(response);
-         console.log("THIS AATTAAADDD", response);
+        //  console.log(response);
           setIsLoading(false);
  
        } catch (error) {
@@ -72,14 +70,14 @@ export const DataProvider = ({ children }) => {
     limitMatchingEtablissments,
   ]);
 
-  console.log("this search", 
-  search,
-   departement, 
-   postalCode, 
-   isIdcc,
-  page,
-  perPage,
-  limitMatchingEtablissments,);
+  // console.log("this search", 
+  // search,
+  //  departement, 
+  //  postalCode, 
+  //  isIdcc,
+  // page,
+  // perPage,
+  // limitMatchingEtablissments,);
 
   // const updateIdccData = (siret, fetchedIdccData) => {
   //   setIdccData(prevIdccData => {
@@ -91,7 +89,8 @@ export const DataProvider = ({ children }) => {
   // };
 
   return (
-    <DataContext.Provider value={{ data, 
+    <DataContext.Provider value={{ 
+      data, 
       setData, 
       isLoading, 
       setIsLoading,

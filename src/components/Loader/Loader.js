@@ -12,7 +12,6 @@ const Loader = ({theme}) => {
             <p className= "c-skeleton-line"/>
             <p className="c-skeleton-line"/> 
             <p className="c-skeleton-line"/> 
-            <p className="c-skeleton-line"/> 
           </div>
         </div>
       ))}

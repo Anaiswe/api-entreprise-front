@@ -1,9 +1,7 @@
 
 .home-text {
-  display: flex;
-  flex-direction: column;
-  color:rgb(196, 147, 186);
-  font-weight: 900;
+font-weight: 900;
+text-align: center;
 }
 
 

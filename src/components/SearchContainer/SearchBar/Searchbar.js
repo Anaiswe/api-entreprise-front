@@ -1,7 +1,9 @@
+import { useState, useEffect } from "react";
+
 //pkg
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-//hooks
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import DataList from "../../DataList/DataList";
 import { useData } from "../../../functions/DataContext";
 
 
@@ -9,49 +11,108 @@ import "./searchbar.css";
 
 
 const SearchBar = ({  theme }) => {
-  const {
-    search,
-    setSearch,
-  } = useData();
-
-
-  // const [showResults, setShowResults] = useState(false); 
-  // const [searchResults, setSearchResults] = useState([]);
+  const { data, setSearch } = useData();
+  console.log("this data", data[0]);
+  const [extractedData, setExtractedData] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const [shouldExtract, setShouldExtract] = useState(false);
 
   const className = theme === "bg-dark" ? "-dark" : "-light";
-  console.log("THEME", theme)
 
+  useEffect(() => {
 
+    const extractData = (inputValue) => {
+        if (data && data[0]) {
+            const filteredData = data[0].filter((item) => {
+                const nomComplet = item.nom_complet || "";
+                const raisonSociale = item.raison_sociale || "";
+                const siren = item.siren || "";
+                const siegeSiret = item.siege ? item.siege.siret || "" : "";
+
+                return (
+                    nomComplet.toLowerCase().includes(inputValue.toLowerCase()) ||
+                    raisonSociale.toLowerCase().includes(inputValue.toLowerCase()) ||
+                    siren.toLowerCase().includes(inputValue.toLowerCase()) ||
+                    siegeSiret.toLowerCase().includes(inputValue.toLowerCase())
+                );
+            });
+
+            setExtractedData(filteredData.slice(0, 10));
+        }
+    };
+
+    if (shouldExtract) {
+        extractData(inputValue);
+        setShouldExtract(false);
+    }
+}, [shouldExtract, inputValue, data]);
+
+  
+  
   const handleInputChange = (event) => {
-    const inputValue = event.target.value;
-    setSearch(inputValue);
-  };
+    const newValue = event.target.value;
+    console.log("this new value", newValue)
+    setInputValue(newValue);
+    setSearch(newValue);
+    if(newValue !== inputValue) {
+        setShouldExtract(true);
+    } else {
+        setExtractedData([]);
+    }
+};
+
+
+  // const handleKeyDown = (event) => {
+  //   if (event.key === "Enter") {
+  //     setShouldExtract(false);
+  //   }
+  // };
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      setSearch(event.target.value);
+      setInputValue("");
+      setExtractedData([]);
     }
   };
+  
+  console.log("SEARCHRESULT", extractedData);
 
   return (
     <div className={`search-bar${className}`} >
-      <input className="input-search"
+      <div className="search-container">
+        <div className="input-container">
+          <div className="search-wrapper">
+            <span className="icon-search">
+          <FontAwesomeIcon icon={faSearch} size="xl" className="glass-icon" />
+          </span>
+     
+        <div className="input-container">
+        <input className={`input-search${className}`}
         id="search-bar"
         type="text"
-        placeholder="nom, siret"
-        value={search}
+        placeholder="nom, siret, siren"
+        value={inputValue}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       />
-
-      <div className="btn-search" >
-        <span className="icon-search"
-        onChange={handleInputChange}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} size="l" className="glass-icon" />
-        </span>
+      </div>
+      {inputValue && extractedData && (
+        <div className="suggestion-data">
+          <DataList 
+          theme = {theme}
+          
+          onSelect={(selectedItem) => {
+            setSearch(selectedItem);
+            setInputValue('');
+            setShouldExtract(true);
+          
+          }} />
+          </div>
+      )}
       </div>
       </div>
-
+      </div>
+      </div>
   );
 };
 

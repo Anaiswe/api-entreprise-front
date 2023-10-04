@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { useData } from "../../functions/DataContext";
-// import fetchCodesNaf from "../../functions/FetchNaf";
+// import fetchCodesNaf from "../../functions/FetchCodesNaf"
 // import fetchIdcc from "../../functions/FetchIdcc";
 import DetailsHeader from "../../components/Details/DetailsHeader";
 import EtablissementsDisplay from "../../components/Details/EtablissementsDisplay";
@@ -50,8 +50,6 @@ const Details = ({ theme }) => {
     return <div>Chargement...</div>;
   };
 
-  console.log("this item", selectedDataItem)
-
   const headquarters = selectedDataItem.matching_etablissements.find(
     (etablissement) => etablissement.est_siege
   );
@@ -70,13 +68,15 @@ if (headquarters) {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentEtablissements = allEtablissements.slice(indexOfFirstItem, indexOfLastItem);
-  console.log("this currentEtablissements", currentEtablissements)
   const totalPages = Math.ceil(allEtablissements.length / itemsPerPage);
-  console.log("this total page", totalPages)
+
   
   return (
     <div className={`details-container${className}`}>
+      <div className="details-header">
       <DetailsHeader selectedDataItem={selectedDataItem} />
+      </div>
+      
       <button
       className={`btn-toggle${className}`}
       onClick={toggleEtablissements}
