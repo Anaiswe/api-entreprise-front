@@ -1,0 +1,40 @@
+.etablissements-list {
+    padding-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.etablissement-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-basis: calc(33.33% - 20px);  /* Pour 3 cartes par ligne */
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+}
+
+.pagination-controls {
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-page:hover {
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 900px) {
+    .etablissement-card {
+        flex-basis: calc(50% - 20px);  /* Pour 2 cartes par ligne */
+    }
+}
+
+@media (max-width: 600px) {
+    .etablissement-card {
+        flex-basis: 100%;  /* Pour 1 carte par ligne */
+    }
+}

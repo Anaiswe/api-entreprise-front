@@ -3,27 +3,21 @@ import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { useData } from "../../functions/DataContext";
-// import fetchCodesNaf from "../../functions/FetchCodesNaf"
-// import fetchIdcc from "../../functions/FetchIdcc";
 import DetailsHeader from "../../components/Details/DetailsHeader";
 import EtablissementsDisplay from "../../components/Details/EtablissementsDisplay";
-
-
-// import { trancheEffectifData, activitePrincipaleData } from "../../functions/ExportDefinitions";
 
 
 import "./details.css";
 
 const Details = ({ theme }) => {
   const { id } = useParams(); 
-  const { data, idccData } = useData();
-  // const { data, idccData, updateIdccData } = useData(); 
-  console.log("this idccData", idccData)
+  const { data } = useData();
   const [showEtablissements, setShowEtablissements] = useState(false);
   const [selectedEtablissementIndex, setSelectedEtablissementIndex] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const className = theme === "bg-dark" ? "-dark" : "-light";
+
 
   const toggleEtablissements = () => {
     setShowEtablissements(!showEtablissements);
@@ -39,16 +33,23 @@ const Details = ({ theme }) => {
 
 
   let selectedDataItem;
+
   if (data && data.length > 0) {
     selectedDataItem = data[0].find((item) => item.id === Number(id));
+    
+    // Stocker dans le localStorage
+    localStorage.setItem("selectedDataItem", JSON.stringify(selectedDataItem));
+    
   } else {
-    const storedData = JSON.parse(localStorage.getItem("storedData")) || [];
-    selectedDataItem = storedData.find((item) => item.id === Number(id));
+    // Essayez d'obtenir l'item du localStorage
+    selectedDataItem = JSON.parse(localStorage.getItem("selectedDataItem"));
+    
+    if (!selectedDataItem || selectedDataItem.id !== Number(id)) {
+      const storedData = JSON.parse(localStorage.getItem("storedData")) || [];
+      selectedDataItem = storedData.find((item) => item.id === Number(id));
+    }
   }
-
-  if (!selectedDataItem) {
-    return <div>Chargement...</div>;
-  };
+  
 
   const headquarters = selectedDataItem.matching_etablissements.find(
     (etablissement) => etablissement.est_siege
@@ -74,7 +75,7 @@ if (headquarters) {
   return (
     <div className={`details-container${className}`}>
       <div className="details-header">
-      <DetailsHeader selectedDataItem={selectedDataItem} />
+      <DetailsHeader selectedDataItem={selectedDataItem} theme={theme} />
       </div>
       
       <button
@@ -83,14 +84,14 @@ if (headquarters) {
     >
       {showEtablissements ? (
         <>
-          Masquer les établissements affiliés
+          Masquer les établissement
           <span className="icon-display">
             <FontAwesomeIcon icon={faCaretUp} />
           </span>
         </>
       ) : (
         <>
-          Afficher les établissements affiliés
+          Afficher les établissements
           <span className="icon-display">
             <FontAwesomeIcon icon={faCaretDown} />
           </span>

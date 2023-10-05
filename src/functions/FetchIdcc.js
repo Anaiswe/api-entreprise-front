@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const fetchIdcc = async (siret) => {
+const FetchIdcc = async (siret) => {
   let idccUrl = process.env.REACT_APP_IDCCURL;
 //   const siret = "70201772400072";
 
@@ -15,4 +15,4 @@ const fetchIdcc = async (siret) => {
 };
 
 
-export default fetchIdcc;
+export default FetchIdcc;
