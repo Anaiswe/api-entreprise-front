@@ -11,7 +11,7 @@ import "./detailsHeader.css"
 
 const DetailsHeader = ({ selectedDataItem, theme }) => {
 
-  console.log(theme)
+  // console.log(theme)
   const [fetchCodesNafData, setFetchCodesNafData] = useState(null);
   const [idccData, setIdccData] = useState(null);
 

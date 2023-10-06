@@ -18,9 +18,9 @@ export const DataProvider = ({ children }) => {
   const [limitMatchingEtablissments, setLimitMatchingEtablissments] = useState(100);
   const [selectedItem, setSelectedItem] = useState({});
 
-  useEffect(() => {
-    localStorage.setItem("currentSearch", search);
-}, [search]);
+//   useEffect(() => {
+//     localStorage.setItem("currentSearch", search);
+// }, [search]);
 
   useEffect(() => {
     localStorage.setItem("storedData", JSON.stringify(data));
