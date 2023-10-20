@@ -38,7 +38,6 @@ useEffect(() => {
   const fetchData = async () => {
     try {
       const data = await FetchCodesNaf();
-      console.log("helloe", data[0])
       setFetchCodesNafData(data);
     } catch (error) {
       console.error("Error fetching codes NAF:", error);

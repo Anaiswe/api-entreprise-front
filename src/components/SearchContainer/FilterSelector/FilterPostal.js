@@ -26,6 +26,11 @@ const FilterPostal = ({  theme }) => {
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputPostalValue(value);
+
+    if (value.length === 0) {
+      setPostalCode(null);
+    }
+
     if (value.length >= 1) {
       setIsPostalDropdownOpen(true);
     } else {

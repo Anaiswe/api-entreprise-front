@@ -1,8 +1,9 @@
 import React from "react";
 import { useData } from "../../functions/DataContext";
+import { Link } from "react-router-dom";
 
 // //components
-import SearchContainer from "../../components/SearchContainer/SearchContainer";
+import SearchHome from "../../components/SearchContainer/SearchHome"
 import DataContainer from "../../components/DataContainer/DataContainer";
 import Pagination from "../../components/Pagination/Pagination";
 import DataInformations from "../../components/DataInformations/DataInformations";
@@ -16,35 +17,23 @@ import "./home.css";
   const {
     data, 
   } = useData();
+
+  const className = theme === "bg-dark" ? "-dark" : "-light";
   
 
   return (
     <>
     <div className="home-container">
-        <SearchContainer
+        <SearchHome
         theme = {theme}
      />
       <div className="home-text">
-        Entrez un nom, numéro de siret, ou numéro de siren, cliquer sur le menu déroulant où appuyer sur entrer.
-        Sélectionner une entreprise puis cliquer sur "détails" pour afficher les informations et accéder aux textes applicables.
+        Entrez un nom, numéro de siret, ou numéro de siren, sélectionnez une entreprise puis cliquer sur "détails" pour afficher les informations et accéder aux textes applicables sur Legifrance.
       </div>
-      <div className="data-informations">
-        <DataInformations
-        data={data} />
+      <Link to="/recherche">
+          <button className={`btn-home${className}`}>Recherche détaillée</button>
+           </Link>
       </div>
-       <div className="pagination">
-        <Pagination 
-        theme={theme}/>
-        </div>
-        <div className="table-data">
-          <DataContainer 
-            theme={theme}/>
-        </div>
-        <div className="pagination">
-          <Pagination
-              theme={theme}/>
-         </div>
-        </div>
         </>
       );
     };

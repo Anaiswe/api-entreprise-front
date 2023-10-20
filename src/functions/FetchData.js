@@ -3,17 +3,20 @@ import axios from "axios";
 // Fonction pour effectuer une copie profonde d'un objet ou d'un tableau
 function deepCopy(data) {
   if (Array.isArray(data)) {
+    // console.log("this array",Array.isArray(data) )
     return data.map((item) => deepCopy(item));
   } else if (typeof data === 'object' && data !== null) {
     const copiedObject = {};
+
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
         copiedObject[key] = deepCopy(data[key]);
       }
     }
-    // console.log(copiedObject);
+    // console.log("this data", copiedObject);
     return copiedObject;
   } else {
+    // console.log("this data", data)
     
     return data;
   }
@@ -82,7 +85,7 @@ const FetchData = async (
  
 
     // return Object.values(response.data);
-    console.log("this values returned in FtchData", copiedValues)
+    console.log("this values returned in FtchData", copiedValues, "this response", response.data)
     return copiedValues;
   } catch (error) {
     // console.log("THIS ERROR", error);

@@ -10,6 +10,7 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Details from "./pages/Details/Details";
+import Recherche from "./pages/Recherche/Recherche";
 
 
 
@@ -28,7 +29,8 @@ function App() {
             <Header theme={theme} toggleTheme={toggleTheme} />
             <DataProvider>
             <Routes>
-            <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />}></Route> 
+            <Route path="/" element={<Home theme={theme}  />}></Route> 
+            <Route path="/recherche" element={<Recherche theme={theme} />}></Route>
             <Route path="/Details/:id"
                   element={<Details theme={theme} toggleTheme={toggleTheme} />}
                 />

@@ -39,7 +39,11 @@ const FilterDepartements = ({  theme }) => {
     const handleInputChange = (event) => {
       const value = event.target.value;
       setInputDepValue(value);
-    
+
+      if (value.length === 0) {
+        setDepartement(null);
+      }
+
       if (value.length >= 1) {
         setIsDepDropdownOpen(true);
       } else {

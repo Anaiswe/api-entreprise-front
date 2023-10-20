@@ -6,23 +6,18 @@ import { useData } from "../../functions/DataContext";
 
 import "./pagination.css";
 
-
-const Pagination = ({ theme}) => {
-
-  const {
-    data,
-    page,
-    setPage
-  } = useData();
-
+const Pagination = ({ theme }) => {
+  const { data, page, setPage } = useData();
   const totalPages = data[4];
   const tableClassName = theme === "" || theme === "bg-dark" ? "dark" : "light";
 
   const [activePage, setActivePage] = useState(page || 1);
 
   const handlePageChange = (newPage) => {
-    setActivePage(newPage);
-    setPage(newPage);
+    if (newPage >= 1 && newPage <= totalPages) {
+      setActivePage(newPage);
+      setPage(newPage);
+    }
   };
 
   const renderPageButtons = () => {
@@ -55,23 +50,28 @@ const Pagination = ({ theme}) => {
     return pageButtons;
   };
 
-
   return (
-   <>
+    <>
       <div className={`pagination-container-${tableClassName}`}>
-
-        <button className={`button-${tableClassName} ${activePage === 1 ? 'active' : ''}`}
-        onClick={() => handlePageChange(activePage - 1)}
-        > <FontAwesomeIcon icon={faArrowLeft}/>
+        <button
+          className={`button-${tableClassName} ${
+            activePage === 1 ? "active" : ""
+          }`}
+          onClick={() => handlePageChange(activePage - 1)}
+        >
+          <FontAwesomeIcon icon={faArrowLeft} />
         </button>
         {renderPageButtons()}
-        <button className={`button-${tableClassName} ${activePage === data[4] ? 'active' : ''}`}
-        onClick={() => handlePageChange(activePage + 1)}
-        > <FontAwesomeIcon icon={faArrowRight}/>
+        <button
+          className={`button-${tableClassName} ${
+            activePage === totalPages ? "active" : ""
+          }`}
+          onClick={() => handlePageChange(activePage + 1)}
+        >
+          <FontAwesomeIcon icon={faArrowRight} />
         </button>
-        </div>
-      </>
-   
+      </div>
+    </>
   );
 };
 

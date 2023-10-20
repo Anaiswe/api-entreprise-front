@@ -6,113 +6,89 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import DataList from "../../DataList/DataList";
 import { useData } from "../../../functions/DataContext";
 
-
 import "./searchbar.css";
 
-
-const SearchBar = ({  theme }) => {
+const SearchBar = ({ theme }) => {
   const { data, setSearch } = useData();
-  console.log("this data", data[0]);
-  const [extractedData, setExtractedData] = useState([]);
+  // console.log("this data", data[0]);
   const [inputValue, setInputValue] = useState("");
-  const [shouldExtract, setShouldExtract] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const [filteredData, setFilteredData] = useState([]);
 
   const className = theme === "bg-dark" ? "-dark" : "-light";
 
-  useEffect(() => {
+  const handleInputChange = (newValue) => {
+    if (newValue) {
+      setIsSearching(true);
 
-    const extractData = (inputValue) => {
-        if (data && data[0]) {
-            const filteredData = data[0].filter((item) => {
-                const nomComplet = item.nom_complet || "";
-                const raisonSociale = item.raison_sociale || "";
-                const siren = item.siren || "";
-                const siegeSiret = item.siege ? item.siege.siret || "" : "";
+      // Filtrer les données ici et mettre à jour extractedData en utilisant la newValue (inputValue)
+      const filteredData = data[0].filter((item) => {
+        const nomComplet = item.nom_complet || "";
+        // console.log("nom complet", nomComplet);
+        return nomComplet.toLowerCase().includes(newValue.toLowerCase());
+      });
 
-                return (
-                    nomComplet.toLowerCase().includes(inputValue.toLowerCase()) ||
-                    raisonSociale.toLowerCase().includes(inputValue.toLowerCase()) ||
-                    siren.toLowerCase().includes(inputValue.toLowerCase()) ||
-                    siegeSiret.toLowerCase().includes(inputValue.toLowerCase())
-                );
-            });
-
-            setExtractedData(filteredData.slice(0, 10));
-        }
-    };
-
-    if (shouldExtract) {
-        extractData(inputValue);
-        setShouldExtract(false);
-    }
-}, [shouldExtract, inputValue, data]);
-
-  
-  
-  const handleInputChange = (event) => {
-    const newValue = event.target.value;
-    console.log("this new value", newValue)
-    setInputValue(newValue);
-    setSearch(newValue);
-    if(newValue !== inputValue) {
-        setShouldExtract(true);
+      setSearch(newValue); // Mettre à jour la recherche dans votre contexte
+      setFilteredData(filteredData.slice(0, 10));
     } else {
-        setExtractedData([]);
-    }
-};
-
-
-  // const handleKeyDown = (event) => {
-  //   if (event.key === "Enter") {
-  //     setShouldExtract(false);
-  //   }
-  // };
-
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      setInputValue("");
-      setExtractedData([]);
+      setIsSearching(false);
+      setSearch(""); // Remise à zéro de la recherche dans votre contexte
+      setFilteredData([]);
     }
   };
-  
-  console.log("SEARCHRESULT", extractedData);
+
+  useEffect(() => {
+    handleInputChange(inputValue);
+  }, [inputValue]);
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" && isSearching) {
+      setSearch(inputValue);
+      setInputValue("");
+    }
+  };
+
+  // console.log("this filter search", filteredData.slice(0, 10))
+  // console.log("this input", inputValue)
 
   return (
-    <div className={`search-bar${className}`} >
+    <div className={`search-bar${className}`}>
       <div className="search-container">
         <div className="input-container">
           <div className="search-wrapper">
             <span className="icon-search">
-          <FontAwesomeIcon icon={faSearch} size="xl" className="glass-icon" />
-          </span>
-     
-        <div className="input-container">
-        <input className={`input-search${className}`}
-        id="search-bar"
-        type="text"
-        placeholder="nom, siret, siren"
-        value={inputValue}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-      />
-      </div>
-      {inputValue && extractedData && (
-        <div className="suggestion-data">
-          <DataList 
-          theme = {theme}
-          
-          onSelect={(selectedItem) => {
-            setSearch(selectedItem);
-            setInputValue('');
-            setShouldExtract(true);
-          
-          }} />
+              <FontAwesomeIcon icon={faSearch} size="xl" className="glass-icon" />
+            </span>
+            <div className="input-container">
+              <input
+                className={`input-search${className}`}
+                id="search-bar"
+                type="text"
+                placeholder="nom, siret, siren"
+                value={inputValue}
+                onChange={(e) => {
+                  setInputValue(e.target.value);
+                  handleInputChange(e.target.value);
+                }}
+                onKeyDown={handleKeyDown}
+              />
+            </div>
+            {/* {inputValue && filteredData && (
+              <div className="suggestion-data">
+                <DataList
+                  theme={theme}
+                  // extractedData={filteredData}
+                  // onSelect={(selectedItem) => {
+                  //   setSearch(selectedItem);
+                  //   setInputValue('');
+                  // }}
+                />
+              </div>
+            )} */}
           </div>
-      )}
+        </div>
       </div>
-      </div>
-      </div>
-      </div>
+    </div>
   );
 };
 
