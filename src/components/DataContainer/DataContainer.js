@@ -11,7 +11,6 @@ const DataContainer = ({ theme }) => {
   const {
     data,
     isLoading,
-    search,
     setSelectedItem,
   } = useData();
 
