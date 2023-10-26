@@ -1,12 +1,8 @@
 import React from "react";
-import { useData } from "../../functions/DataContext";
 import { Link } from "react-router-dom";
 
 // //components
 import SearchHome from "../../components/SearchContainer/SearchHome"
-import DataContainer from "../../components/DataContainer/DataContainer";
-import Pagination from "../../components/Pagination/Pagination";
-import DataInformations from "../../components/DataInformations/DataInformations";
 
 // styles
 import "./home.css";
@@ -14,9 +10,6 @@ import "./home.css";
 
  const Home = ({theme}) => {
 
-  const {
-    data, 
-  } = useData();
 
   const className = theme === "bg-dark" ? "-dark" : "-light";
   
