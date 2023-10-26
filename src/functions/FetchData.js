@@ -1,26 +1,26 @@
 import axios from "axios";
 
-// Fonction pour effectuer une copie profonde d'un objet ou d'un tableau
-function deepCopy(data) {
-  if (Array.isArray(data)) {
-    // console.log("this array",Array.isArray(data) )
-    return data.map((item) => deepCopy(item));
-  } else if (typeof data === 'object' && data !== null) {
-    const copiedObject = {};
+// // Fonction pour effectuer une copie profonde d'un objet ou d'un tableau
+// function deepCopy(data) {
+//   if (Array.isArray(data)) {
+//     // console.log("this array",Array.isArray(data) )
+//     return data.map((item) => deepCopy(item));
+//   } else if (typeof data === 'object' && data !== null) {
+//     const copiedObject = {};
 
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        copiedObject[key] = deepCopy(data[key]);
-      }
-    }
-    // console.log("this data", copiedObject);
-    return copiedObject;
-  } else {
-    // console.log("this data", data)
+//     for (const key in data) {
+//       if (data.hasOwnProperty(key)) {
+//         copiedObject[key] = deepCopy(data[key]);
+//       }
+//     }
+//     // console.log("this data", copiedObject);
+//     return copiedObject;
+//   } else {
+//     // console.log("this data", data)
     
-    return data;
-  }
-}
+//     return data;
+//   }
+// }
 
 
 const FetchData = async (
@@ -73,20 +73,21 @@ const FetchData = async (
 
   try {
     const response = await axios.get(url);
+    console.log("this response data", response.data)
     const valuesOfData = Object.values(response.data);
-    const copiedValues = deepCopy(valuesOfData);
+    // const copiedValues = deepCopy(valuesOfData);
 
     // console.log(copiedValues);
 
     // Calculer des ID uniques basés sur le numéro de page et l'index
-    copiedValues[0].forEach((item, index) => {
-      item.id = (page - 1) * perPage + index + 1;
-    });
+    // valuesOfData[0].forEach((item, index) => {
+    //   item.id = (page - 1) * perPage + index + 1;
+    // });
  
 
     // return Object.values(response.data);
-    console.log("this values returned in FtchData", copiedValues, "this response", response.data)
-    return copiedValues;
+    console.log("this values returned in FtchData", valuesOfData, "this response", response.data)
+    return valuesOfData;
   } catch (error) {
     // console.log("THIS ERROR", error);
     return null;

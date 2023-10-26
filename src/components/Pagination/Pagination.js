@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -7,11 +7,22 @@ import { useData } from "../../functions/DataContext";
 import "./pagination.css";
 
 const Pagination = ({ theme }) => {
-  const { data, page, setPage } = useData();
+  const { data, search, page, setPage } = useData();
   const totalPages = data[4];
   const tableClassName = theme === "" || theme === "bg-dark" ? "dark" : "light";
 
   const [activePage, setActivePage] = useState(page || 1);
+  const [initialSearch, setInitialSearch] = useState(search);
+
+  console.log("search = ", search)
+
+  useEffect(() => {
+    if (search !== initialSearch) {
+      setActivePage(1);
+      setPage(1);
+      setInitialSearch(search);
+    }
+  }, [search, initialSearch, setPage]);
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {

@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-import { Link } from "react-router-dom";
-
 //pkg
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -60,14 +58,6 @@ const SearchHome = ({  theme }) => {
         setExtractedData([]);
     }
 };
-
-
-  // const handleKeyDown = (event) => {
-  //   if (event.key === "Enter") {
-  //     setShouldExtract(false);
-  //   }
-  // };
-
 
   
   console.log("SEARCHRESULT", extractedData);

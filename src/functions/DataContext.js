@@ -1,8 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import FetchData from "./FetchData";
 
-// import fetchIdcc from "./FetchIdcc";
-
 const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
@@ -69,24 +67,6 @@ export const DataProvider = ({ children }) => {
     perPage,
     limitMatchingEtablissments,
   ]);
-
-  // console.log("this search", 
-  // search,
-  //  departement, 
-  //  postalCode, 
-  //  isIdcc,
-  // page,
-  // perPage,
-  // limitMatchingEtablissments,);
-
-  // const updateIdccData = (siret, fetchedIdccData) => {
-  //   setIdccData(prevIdccData => {
-  //     return {
-  //       ...prevIdccData,
-  //       [siret]: fetchedIdccData
-  //     };
-  //   });
-  // };
 
   return (
     <DataContext.Provider value={{ 
