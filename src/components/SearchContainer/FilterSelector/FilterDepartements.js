@@ -70,7 +70,7 @@ const FilterDepartements = ({  theme }) => {
     />
     </div>
     {isDepDropdownOpen && (
-            <div className="suggestion-data">
+            <div className="suggestion-filters">
               <div className={`list-container${className}`}>
               {filteredDepartments.map((department) => (
                 <div className={`card-container${className}`}>

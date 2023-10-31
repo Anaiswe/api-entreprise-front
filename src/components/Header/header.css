@@ -24,16 +24,17 @@ cursor: pointer;
 
 .container-fluid-bg-dark {
   background-color: #202123;
+  font-size: 19px;
   color: #ffffff;
 }
         
 .container-fluid-light {
-  color: #525f7f;
+  color: #202123;
+  font-size: 19px;
   background-color: #ffffff;
         }
 
 .switch {
-font-size: 17px;
 position: relative;
 display: inline-block;
 width: 3.5em;

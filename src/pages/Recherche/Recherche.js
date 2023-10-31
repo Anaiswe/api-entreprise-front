@@ -18,13 +18,12 @@ const Recherche = ({ theme }) => {
 
     return (
         <div className='rech-container'>
-            <h1>Page de Recherche</h1>
+         
             <SearchContainer
         theme = {theme}
      />
       <div className="rech-text">
-        Entrez un nom, numéro de siret, ou numéro de siren, cliquer sur le menu déroulant où appuyer sur entrer.
-        Sélectionner une entreprise puis cliquer sur "détails" pour afficher les informations et accéder aux textes applicables.
+
       </div>
       <div className="data-informations">
         <DataInformations

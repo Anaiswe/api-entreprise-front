@@ -1,97 +1,51 @@
 import axios from "axios";
 
-// // Fonction pour effectuer une copie profonde d'un objet ou d'un tableau
-// function deepCopy(data) {
-//   if (Array.isArray(data)) {
-//     // console.log("this array",Array.isArray(data) )
-//     return data.map((item) => deepCopy(item));
-//   } else if (typeof data === 'object' && data !== null) {
-//     const copiedObject = {};
-
-//     for (const key in data) {
-//       if (data.hasOwnProperty(key)) {
-//         copiedObject[key] = deepCopy(data[key]);
-//       }
-//     }
-//     // console.log("this data", copiedObject);
-//     return copiedObject;
-//   } else {
-//     // console.log("this data", data)
-    
-//     return data;
-//   }
-// }
-
-
-const FetchData = async (
-  search,
-  departement,
-  postalCode,
-  isIdcc,
-  page,
-  perPage,
-  limitMatchingEtablissments
-) => {
-
-  let url = process.env.REACT_APP_URL;
-  
-  const link = "&";
-
-
-  if (search) {
-    url += `search=${search}${link}`;
-  } else {
+const FetchData = async (search, departement, postalCode, isIdcc, page, perPage, limitMatchingEtablissments) => {
+  if (!search) {
     throw new Error("No search value provided");
-    
   }
 
-  if (departement) {
-    url += `departement=${departement}${link}`;
+  const params = {};
 
+  params.search = search;
+
+  if (departement) {
+    params.departement = departement;
   }
 
   if (postalCode) {
-    url += `postalCode=${postalCode}${link}`;
+    params.postalCode = postalCode;
   }
 
   if (isIdcc !== undefined) {
-    url += `isIdcc=${isIdcc}${link}`;
+    params.isIdcc = isIdcc;
   }
 
   if (page) {
-    url += `page=${page}${link}`;
+    params.page = page;
   }
 
   if (perPage) {
-    url += `perPage=${perPage}${link}`;
+    params.perPage = perPage;
   }
 
   if (limitMatchingEtablissments) {
-    url += `limitMatchingEtablissments=${limitMatchingEtablissments}${link}`;
-    // console.log(url);
+    params.limitMatchingEtablissments = limitMatchingEtablissments;
   }
+
+  const url = process.env.REACT_APP_URL + new URLSearchParams(params).toString();
+  //"http://localhost:3000/entreprise?"
 
   try {
     const response = await axios.get(url);
-    console.log("this response data", response.data)
+    console.log("this response data", response.data);
     const valuesOfData = Object.values(response.data);
-    // const copiedValues = deepCopy(valuesOfData);
-
-    // console.log(copiedValues);
-
-    // Calculer des ID uniques basés sur le numéro de page et l'index
-    // valuesOfData[0].forEach((item, index) => {
-    //   item.id = (page - 1) * perPage + index + 1;
-    // });
- 
-
-    // return Object.values(response.data);
-    console.log("this values returned in FtchData", valuesOfData, "this response", response.data)
+    console.log("this values returned in FetchData", valuesOfData, "this response", response.data);
     return valuesOfData;
   } catch (error) {
-    // console.log("THIS ERROR", error);
+    console.error("Error fetching data:", error);
     return null;
   }
 };
 
-export default FetchData ;
+export default FetchData;

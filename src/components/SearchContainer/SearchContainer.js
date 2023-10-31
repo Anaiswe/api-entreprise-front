@@ -16,25 +16,32 @@ const SearchContainer = ({ theme }) => {
   };
 
   return (
+    <>
     <div className={`search-container-${tableClassName}`}>
+      <div className="main-search">
       <SearchBar theme={theme} />
-
-      <div className="button-container">
-        {!isMenuOpen && (
-          <div className="advanced-filters">filtres avancés</div>
-        )}
-        <button
-          className={`burger-button${isMenuOpen ? " open" : ""}`}
-          onClick={toggleMenu}
-        >
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </button>
       </div>
-      {isMenuOpen && <FilterDepartements theme={theme} />}
-      {isMenuOpen && <FilterPostal theme={theme} />}
-    </div>
-  );
-};
+
+      <div className="advanced-filters">
+      <div className="filters-text">filtres avancés
+      </div>
+      <div className="button-container">
+        <button
+        className={`burger-button${isMenuOpen ? " open" : ""}`}
+        onClick={toggleMenu}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          </button>
+          </div>
+          <div className="filters">
+            {isMenuOpen && <FilterDepartements theme={theme} />}
+            {isMenuOpen && <FilterPostal theme={theme} />}
+            </div>
+            </div>
+            </div>
+            </>
+            );
+          };
+
 export default SearchContainer;

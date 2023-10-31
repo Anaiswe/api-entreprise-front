@@ -1,22 +1,20 @@
 /* dataContainer.css */
 
 .data-container-dark {
-    border: solid #1e1e2f 0.5px;
-    box-shadow: 0 0 10px #1e1e2f;
-    color: #525f7f;
+    border: none;
+
+  
     margin: 20px;
     padding: 20px;
   }
   
   .data-container-light {
-    border: 1px solid #e4e4e4;
-    box-shadow: 0 0 10px #e4e4e4;
-    color: #525f7f;
+    border: none;
+  
     margin: 20px;
     padding: 20px;
   }
-  
-  /* Styles for the cards container */
+
   .cards-container-dark {
     background-color: var(--bgColor-default, var(--color-canvas-default));
     display: flex;
@@ -29,7 +27,6 @@
     flex-wrap: wrap;
   }
   
-  /* Styles for the card */
   .card-dark {
     display: flex;
     flex-direction: column;
@@ -46,7 +43,7 @@
   
   .card-light {
     background-color: #e4e4e4;
-    color : #525f7f;
+ 
     border-radius: 34px;
     background: #ffffff;
     box-shadow:  9px 9px 18px #c7c7c7,
@@ -81,7 +78,6 @@
   padding: 15px;
   margin-left: 30px;
   height: 50px;
-  color : #525f7f;
   border-radius: 9px;
   box-shadow:  10px 10px 39px #a6a6a6,
   -10px -10px 39px #ffffff;

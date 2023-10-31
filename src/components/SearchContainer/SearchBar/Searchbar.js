@@ -2,7 +2,7 @@ import { useState } from "react";
 
 //pkg
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faArrowTurnDown } from "@fortawesome/free-solid-svg-icons";
 import { useData } from "../../../functions/DataContext";
 
 import "./searchbar.css";
@@ -24,17 +24,18 @@ const SearchBar = ({ theme }) => {
     setInputValue(e.target.value);
   };
 
+  const performSearch = () => {
+    setSearch(inputValue);
+  };
+
 
 
   return (
     <div className={`search-bar${className}`}>
-      <div className="search-container">
-        <div className="input-container">
           <div className="search-wrapper">
             <span className="icon-search">
               <FontAwesomeIcon icon={faSearch} size="xl" className="glass-icon" />
             </span>
-            <div className="input-container">
               <input
                 className={`input-search${className}`}
                 id="search-bar"
@@ -43,11 +44,11 @@ const SearchBar = ({ theme }) => {
                 value={inputValue}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
-              />
-            </div>
+              />         
+            <span className="icon-enter" onClick={performSearch}>
+            <FontAwesomeIcon icon={faArrowTurnDown} rotation={90} />
+            </span>
           </div>
-        </div>
-      </div>
     </div>
   );
 };

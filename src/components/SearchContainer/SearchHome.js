@@ -9,13 +9,21 @@ import { useData } from "../../functions/DataContext";
 import "./SearchBar/searchbar.css";
 
 const SearchHome = ({  theme }) => {
-  const { data, setSearch } = useData();
+  const { data, setSearch, setDepartement, setPostalCode, setPage } = useData();
   console.log("this data", data[0]);
   const [extractedData, setExtractedData] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [shouldExtract, setShouldExtract] = useState(false);
 
   const className = theme === "bg-dark" ? "-dark" : "-light";
+
+  useEffect(() => {
+    // Réinitialiser les états lorsque le composant est monté
+    setSearch("");
+    setDepartement("");
+    setPostalCode("");
+    setPage(1)
+  }, [setSearch, setDepartement, setPostalCode, setPage]);
 
   useEffect(() => {
 
@@ -66,21 +74,18 @@ const SearchHome = ({  theme }) => {
     <div className={`search-bar${className}`} >
       <div className="search-container">
         <div className="input-container">
-          <div className="search-wrapper">
-            <span className="icon-search">
+        <span className="icon-search">
           <FontAwesomeIcon icon={faSearch} size="xl" className="glass-icon" />
           </span>
-     
-        <div className="input-container">
-        <input className={`input-search${className}`}
+          <div className="search-engine">
+          <input className={`input-search${className}`}
         id="search-bar"
         type="text"
         placeholder="nom, siret, siren"
         value={inputValue}
         onChange={handleInputChange}
       />
-      </div>
-      {inputValue && extractedData && (
+            {inputValue && extractedData && (
         <div className="suggestion-data">
           <DataList 
           theme = {theme}

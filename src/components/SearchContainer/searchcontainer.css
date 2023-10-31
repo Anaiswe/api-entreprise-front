@@ -1,12 +1,13 @@
 .search-container-dark {
   width: 80%;
   margin-top: 40px;
+  flex-direction: column;
   margin-left: 40px;
   margin-bottom: 40px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
   border: none;
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
   padding: 20px;
   border-radius: 66px;
   background: linear-gradient(145deg, #222325, #1d1e20);
@@ -17,6 +18,7 @@
 .search-container-light {
   width: 80%;
   margin-top: 40px;
+  flex-direction: column;
   margin-left: 40px;
   margin-bottom: 40px;
   border: none;
@@ -30,24 +32,41 @@
                -9px -9px 43px #ffffff;
 }
 
-.button-container{
-  display:flex;
+.main-search {
+  padding-left: 70px;
+  padding-right: 70px;
 }
 
 .advanced-filters {
-  padding-top: 20px;
+  padding-top: 30px;
+  padding-left: 70px;
+  padding-right: 70px;
+  display: flex;
+  flex-wrap: wrap;
 }
+
+.filters-text {
+  padding-left: 20px;
+}
+
+.button-container{
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 40px;
+  border: none;
+  display:flex;
+  flex-direction: column;
+}
+
+
 
 .burger-button {
   background-color: transparent;
-  
   border: none;
   cursor: pointer;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  padding: 10px;
-  position: relative;
-  z-index: 1;
 }
 
 .burger-button.open .bar:nth-child(1) {
@@ -74,3 +93,9 @@
   transition: transform 0.3s, opacity 0.3s;
 }
 
+.filters{
+  display: flex;
+  border: none;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

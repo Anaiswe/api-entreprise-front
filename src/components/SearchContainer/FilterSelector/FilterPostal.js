@@ -88,7 +88,7 @@ const handlePostalClick = (codePostal) => {
       </div>
       {/* <div className="suggestions-list"> */}
       {isPostalDropdownOpen && (
-          <div className="suggestion-data">
+          <div className="suggestion-filters">
             <div className={`list-container${className}`}>
             {filteredPostalCodes.map((codePostal) => (
               <div className={`card-container${className}`}>
