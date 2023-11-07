@@ -3,7 +3,10 @@
 import { Link } from "react-router-dom";
 import { useData } from "../../functions/DataContext";
 
+import "./dataList.css"
+
 const DataList = ({ theme }) => {
+  const MAX_RESULTS_TO_DISPLAY = 25; 
   const { data, setSelectedItem } = useData();
   const className = theme === "bg-dark" ? "-dark" : "-light";
 
@@ -13,66 +16,30 @@ const DataList = ({ theme }) => {
 
   return (
 
-      <div className={`list-container${className}`}>
-        {data[0]?.map((item, index) => (
-          <div className={`card-container${className}`} key={index}>
-            <div className={`card-content${className}`}>
-             
-                <Link
-                  to={`/Details/${item.id}`}
-                  className={`btn-link${className}`}
-                  onClick={() => handleSelectedItem(item)}
-                  style={{ textDecoration: 'none' }}
-                >
-                 <p>{item.nom_complet}</p>
-              <p>{item.siege.adresse}</p>   
-                </Link>
-            
+      <div className={`list-container${className}`} >
+      {data[0]?.slice(0, MAX_RESULTS_TO_DISPLAY).map((item, index) => (
+        <Link
+          to={`/Details/${item.id}`}
+          className={`btn-link${className}`}
+          onClick={() => handleSelectedItem(item)}
+          style={{ textDecoration: "none" }}
+        >
+          <div className="list-item">
+          <div className="left-content">
+          <p>{item.nom_complet} ({item.nom_raison_sociale})</p>
+          <p>{item.siege.activite_principale}</p>
+          </div>
+          <div className="right-content">
+          <p>{item.siege.code_postal} ({item.siege.libelle_commune})</p>
+          {/* <p>{item.siege.libelle_commune}</p> */}
             </div>
           </div>
-        ))}
+         
+        </Link>
+      ))}
       </div>
 
   );
 };
 
 export default DataList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import "./dataList.css";
-
-// const DataList = ({ onSelect, theme, extractedData }) => {
-
-//   const className = theme === "bg-dark" ? "-dark" : "-light";
-
-//   const handleSelect = (item) => {
-//     onSelect(item.nom_complet);
-//   };
-
-//   return (
-//     <div className={`list-container${className}`}>
-//       {extractedData?.map((item, index) => (
-//         <div className={`card-container${className}`} key={index} onClick={() => handleSelect(item)}>
-//           <div className={`card-content${className}`}>
-//             <p>{item.nom_complet} ({item.nom_raison_sociale})</p>
-//             <p>{item.siege.libelle_commune} ({item.siege.departement})</p>
-//           </div>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default DataList;

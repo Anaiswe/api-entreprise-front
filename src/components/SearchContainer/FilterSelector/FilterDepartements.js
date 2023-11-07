@@ -14,10 +14,7 @@ const FilterDepartements = ({  theme }) => {
 
   const className = theme === "bg-dark" ? "-dark" : "-light";
 
-    const {
-        setDepartement,
-      } = useData();
-
+  const {setDepartement} = useData();
 
   const filteredDepartments = departmentsdData.filter((department) =>
   department.num_dep.startsWith(inputDepValue) ||

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 //pkg
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import DataList from "../DataList/DataList"
-import { useData } from "../../functions/DataContext";
+import DataList from "../../DataList/DataList"
+import { useData } from "../../../functions/DataContext";
 
-import "./SearchBar/searchbar.css";
+import "./searchHome.css"
 
 const SearchHome = ({  theme }) => {
   const { data, setSearch, setDepartement, setPostalCode, setPage } = useData();
@@ -14,6 +15,9 @@ const SearchHome = ({  theme }) => {
   const [extractedData, setExtractedData] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [shouldExtract, setShouldExtract] = useState(false);
+  const [lastInputValue, setLastInputValue] = useState("");
+// état pour stocker la temporisation de recherche
+  const [searchTimeout, setSearchTimeout] = useState(null);
 
   const className = theme === "bg-dark" ? "-dark" : "-light";
 
@@ -42,8 +46,11 @@ const SearchHome = ({  theme }) => {
                     siegeSiret.toLowerCase().includes(inputValue.toLowerCase())
                 );
             });
+            if (inputValue === lastInputValue) {
+              setExtractedData(filteredData.slice(0, 10));
+            }
 
-            setExtractedData(filteredData.slice(0, 10));
+            // setExtractedData(filteredData.slice(0, 10));
         }
     };
 
@@ -51,42 +58,52 @@ const SearchHome = ({  theme }) => {
         extractData(inputValue);
         setShouldExtract(false);
     }
-}, [shouldExtract, inputValue, data]);
+}, [shouldExtract, inputValue, lastInputValue, data]);
 
-  
-  
-  const handleInputChange = (event) => {
-    const newValue = event.target.value;
-    console.log("this new value", newValue)
-    setInputValue(newValue);
-    setSearch(newValue);
-    if(newValue !== inputValue) {
-        setShouldExtract(true);
-    } else {
-        setExtractedData([]);
-    }
+
+const handleInputChange = (event) => {
+  const newValue = event.target.value;
+  setInputValue(newValue);
+  setLastInputValue(newValue); 
+
+  // Effacez le délai précédent
+  if (searchTimeout) {
+    clearTimeout(searchTimeout);
+  }
+
+  // nouveau délai pour déclencher setSearch après 2 secondes
+  setSearchTimeout(
+    setTimeout(() => {
+      setSearch(newValue);
+      setShouldExtract(true);
+    }, 1000) 
+  );
 };
 
+useEffect(() => {
+  // Réinitialiser les résultats de recherche si l'entrée change
+  setExtractedData([]);
+}, [inputValue]);
   
   console.log("SEARCHRESULT", extractedData);
 
   return (
-    <div className={`search-bar${className}`} >
-      <div className="search-container">
-        <div className="input-container">
-        <span className="icon-search">
+      <div className={`home-search-container`}>
+        <div className={`home-input-search${className}`}>
+        <span className="input-icon">
           <FontAwesomeIcon icon={faSearch} size="xl" className="glass-icon" />
           </span>
-          <div className="search-engine">
-          <input className={`input-search${className}`}
+          <input className="input-text"
         id="search-bar"
         type="text"
         placeholder="nom, siret, siren"
         value={inputValue}
         onChange={handleInputChange}
       />
-            {inputValue && extractedData && (
-        <div className="suggestion-data">
+        </div>
+        <div className="suggestion">
+                      {inputValue && extractedData && (
+        <div className={`home-suggestion-data${className}`}>
           <DataList 
           theme = {theme}
           
@@ -98,10 +115,16 @@ const SearchHome = ({  theme }) => {
           }} />
           </div>
       )}
+
+        </div>
+
+
+    
+  <Link to="/recherche">
+  <button className={`btn-home${className}`}>Effectuer une recherche détaillée</button>
+  </Link>
       </div>
-      </div>
-      </div>
-      </div>
+      
   );
 };
 

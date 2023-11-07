@@ -19,7 +19,7 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
  const fetchIdccForSiege = async (siret) => {
   try {
     const idccData = await FetchIdcc(siret);
-    // console.log("IDCC Data for Siège:", idccData);
+    console.log("IDCC Data for Siège:", idccData);
     setIdccData(idccData);
   } catch (error) {
     console.error("Error fetching IDCC data for Siège:", error);

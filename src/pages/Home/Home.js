@@ -1,15 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 // //components
-import SearchHome from "../../components/SearchContainer/SearchHome"
+import SearchHome from "../../components/SearchContainer/SearchHome/SearchHome"
 
 // styles
 import "./home.css";
 
 
  const Home = ({theme}) => {
-  const className = theme === "bg-dark" ? "-dark" : "-light";
 
   
 
@@ -22,18 +20,9 @@ import "./home.css";
   target="_blank" 
   rel="noopener noreferrer"> Légifrance</a>.
 </div>
-<div className="recherche-container">
-  <div className="input-home">
   <SearchHome
  theme = {theme}
  />
-  </div>
-  <div className="link-details-search">
-  <Link to="/recherche">
-  <button className={`btn-home${className}`}>Recherche détaillée</button>
-  </Link>
-  </div>
-</div>
   </div>
   </>
       );

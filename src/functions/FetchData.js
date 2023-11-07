@@ -34,7 +34,7 @@ const FetchData = async (search, departement, postalCode, isIdcc, page, perPage,
   }
 
   const url = process.env.REACT_APP_URL + new URLSearchParams(params).toString();
-  //"http://localhost:3000/entreprise?"
+  // const url = "http://localhost:3000/entreprise?" + new URLSearchParams(params).toString();
 
   try {
     const response = await axios.get(url);
