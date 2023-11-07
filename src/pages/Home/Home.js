@@ -20,9 +20,12 @@ import "./home.css";
   target="_blank" 
   rel="noopener noreferrer"> Légifrance</a>.
 </div>
-  <SearchHome
+<div className="home-search-engine">
+<SearchHome
  theme = {theme}
  />
+
+</div>
   </div>
   </>
       );

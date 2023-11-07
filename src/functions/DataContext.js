@@ -12,7 +12,7 @@ export const DataProvider = ({ children }) => {
   const [postalCode, setPostalCode] = useState("");
   const [isIdcc, setIdcc] = useState(true);
   const [page, setPage] = useState(1);
-  const [perPage, setPerpage] = useState(12);
+  const [perPage, setPerpage] = useState(20);
   const [limitMatchingEtablissments, setLimitMatchingEtablissments] = useState(100);
   const [selectedItem, setSelectedItem] = useState({});
 
