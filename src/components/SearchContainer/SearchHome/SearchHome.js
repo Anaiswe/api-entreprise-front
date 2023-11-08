@@ -93,7 +93,7 @@ useEffect(() => {
         <span className="input-icon">
           <FontAwesomeIcon icon={faSearch} size="xl" className="glass-icon" />
           </span>
-          <input className="input-text"
+          <input className={`input-text${className}`}
         id="search-bar"
         type="text"
         placeholder="nom, siret, siren"

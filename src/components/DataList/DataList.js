@@ -24,7 +24,7 @@ const DataList = ({ theme }) => {
           onClick={() => handleSelectedItem(item)}
           style={{ textDecoration: "none" }}
         >
-          <div className="list-item">
+          <div className={`list-item${className}`}>
           <div className="left-content">
           <p>{item.nom_complet} ({item.nom_raison_sociale})</p>
           <p>{item.siege.activite_principale}</p>
