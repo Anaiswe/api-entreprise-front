@@ -1,7 +1,5 @@
 .search-container-dark {
-  padding: 50px;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-top: 50px;
   gap: 30px;
   display: flex;
   flex-direction: column;
@@ -15,8 +13,6 @@
 
 .search-container-light {
   padding: 50px;
-  padding-left: 150px;
-  padding-right: 150px;
   gap: 30px;
   display: flex;
   flex-direction: column;
