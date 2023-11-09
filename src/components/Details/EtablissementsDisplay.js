@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink, faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faUpRightFromSquare, faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import "./etablissementsDisplay.css"
 
@@ -51,11 +51,12 @@ const EtablissementsDisplay = ({
                   <p className="link">
                     Consulter les accords d'entreprise:{" "}
                     <a
+                    className="legi-link"
                     href={`https://www.legifrance.gouv.fr/liste/acco?siret=${etablissement.siret}&sortValue=DATE_PUBLI_DESC&pageSize=10&page=1&tab_selection=all#acco`}
                     target="_blank"
                     rel="noopener noreferrer"
                     >
-                     <FontAwesomeIcon icon={faLink} size="xl" className="icon" />
+                     <FontAwesomeIcon icon={faUpRightFromSquare} size="xl" className="icon" />
                     </a>
                   </p>
                   </div>

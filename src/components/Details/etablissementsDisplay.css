@@ -25,6 +25,11 @@
     cursor: pointer;
 }
 
+.legi-link {
+  color: none;
+    margin-left: 5px;
+}
+
 
 
 @media (max-width: 900px) {

@@ -22,17 +22,7 @@ cursor: pointer;
   padding: 20px;
 }
 
-.container-fluid-bg-dark {
-  background-color: #202123;
-  font-size: 19px;
-  color: #ffffff;
-}
-        
-.container-fluid-light {
-  color: #202123;
-  font-size: 19px;
-  background-color: #ffffff;
-        }
+
 
 .switch {
 position: relative;

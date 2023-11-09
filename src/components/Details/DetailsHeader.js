@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 
 import FetchCodesNaf from "../../functions/FetchCodesNaf";
@@ -9,9 +9,8 @@ import { trancheEffectifData } from "../../functions/ExportDefinitions";
 
 import "./detailsHeader.css"
 
-const DetailsHeader = ({ selectedDataItem, theme }) => {
+const DetailsHeader = ({ selectedDataItem }) => {
 
-  // console.log(theme)
   const [fetchCodesNafData, setFetchCodesNafData] = useState(null);
   const [idccData, setIdccData] = useState(null);
 
@@ -19,7 +18,6 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
  const fetchIdccForSiege = async (siret) => {
   try {
     const idccData = await FetchIdcc(siret);
-    console.log("IDCC Data for Siège:", idccData);
     setIdccData(idccData);
   } catch (error) {
     console.error("Error fetching IDCC data for Siège:", error);
@@ -57,29 +55,23 @@ const getNafLabel = (id) => {
   return "Non renseigné";
 };
 
-
-
   if (!selectedDataItem|| !fetchCodesNafData) {
     return <div>Chargement...</div>;
   };
 
-    // const getActivitePrincipaleLabel = (codeActivite) => {
-    //   return activitePrincipaleData[codeActivite] || "Non renseigné";
-    // };
 
   return (
     <div>
-      <p>{selectedDataItem.nom_complet}</p>
+         <p>{selectedDataItem.nom_complet}</p>
         <p>Raison sociale : {selectedDataItem.nom_raison_sociale}</p>
         <p>{selectedDataItem.siege.geo_adresse}</p>
         <p>Siren : {selectedDataItem.siren}</p>
-        {/* <p>{getActivitePrincipaleLabel(selectedDataItem.section_activite_principale)}</p> */}
         <p>Naf/APE : {getNafLabel(selectedDataItem.activite_principale)}</p>
         <p>{trancheEffectifData[selectedDataItem.tranche_effectif_salarie]}</p>
         <p className="link"> Index d'égalité professionnelle: {selectedDataItem.complements.egapro_renseignee ?
           <div className="btn-link">
              <a href={`https://egapro.travail.gouv.fr/index-egapro/recherche?query=${selectedDataItem.siren}`} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faLink} size="xl" className="icon" />
+            <FontAwesomeIcon icon={faUpRightFromSquare} size="xl" className="icon" />
           </a>
           </div>
           : "non renseigné"}
@@ -91,7 +83,7 @@ const getNafLabel = (id) => {
             <div key={index} className="link">
               <p>{convention.title} ({convention.shortTitle}) 
               <a href={convention.url} target="_blank" rel="noopener noreferrer" className="btn-link">
-                    <FontAwesomeIcon icon={faLink} size="xl" className="icon" />
+                    <FontAwesomeIcon icon={faUpRightFromSquare} size="xl" className="icon" />
                   </a>
               
               </p>

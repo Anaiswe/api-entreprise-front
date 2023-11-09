@@ -6,6 +6,7 @@
 .list-container-dark p {
   padding-top: 10px;
   color: #ffffff;
+  font-size: smaller;
 }
 
 .list-container-light {
@@ -16,6 +17,8 @@
 .list-container-light p {
   padding-top: 10px;
   color: #202123;
+  font-size: smaller;
+  font-weight: bolder;
 }
 
 
@@ -40,12 +43,26 @@
   }
   
   .left-content {
+    width:65%;
     display: flex;
     flex-direction: column;
   }
+
+  .middle-content {
+    width: 5%;
+  }
   
   .right-content {
+    width: 30%;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+  }
+
+
+  .icon-fiche:hover {
+    color: inherit;
   }
   

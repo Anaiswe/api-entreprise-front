@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 // //components
 import SearchHome from "../../components/SearchContainer/SearchHome/SearchHome"
@@ -16,9 +18,21 @@ import "./home.css";
     <div className="home-container">
     <div className="home-text">
   Accédez en quelques clics aux conventions collectives et accords d'établissements applicables à une entreprise, et répertoriés sur
-  <a href="https://www.legifrance.gouv.fr/" 
+  <a 
+  className="home-link"
+  href="https://www.legifrance.gouv.fr/" 
   target="_blank" 
-  rel="noopener noreferrer"> Légifrance</a>.
+  rel="noopener noreferrer"> Légifrance 
+  <span className="icon-link">
+  <FontAwesomeIcon
+    
+    icon={faUpRightFromSquare} 
+ 
+/>
+
+  </span>
+   </a>.
+
 </div>
 <div className="home-search-engine">
 <SearchHome

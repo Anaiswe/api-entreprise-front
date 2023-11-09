@@ -5,3 +5,13 @@
 .btn-link {
     padding-left: 10px;
 }
+
+
+
+.btn-page {
+    border-radius: 50px;
+background: #ffffff;
+box-shadow:  5px 5px 5px #bababa,
+             -5px -5px 5px #ffffff;
+}
+

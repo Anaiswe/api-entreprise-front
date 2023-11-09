@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faCaretUp, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useData } from "../../functions/DataContext";
 import DetailsHeader from "../../components/Details/DetailsHeader";
 import EtablissementsDisplay from "../../components/Details/EtablissementsDisplay";
@@ -70,10 +71,20 @@ if (headquarters) {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentEtablissements = allEtablissements.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(allEtablissements.length / itemsPerPage);
+  
 
   
   return (
     <div className={`details-container${className}`}>
+            <div className={`back-button${className}`}>
+      <Link to="/recherche" className="btn-back">
+        <span className="icon-back">
+              <FontAwesomeIcon icon={faArrowLeft}/>
+              </span>
+        <button className="btn-back">Retourner à la recherche</button>
+      </Link>
+
+      </div>
       <div className="details-header">
       <DetailsHeader selectedDataItem={selectedDataItem} theme={theme} />
       </div>

@@ -27,6 +27,7 @@ function App() {
        <div className="App">
           <Router>
             <Header theme={theme} toggleTheme={toggleTheme} />
+            <div className="main-content">
             <DataProvider>
             <Routes>
             <Route path="/" element={<Home theme={theme}  />}></Route> 
@@ -36,6 +37,7 @@ function App() {
                 />
             </Routes>
             </DataProvider>
+            </div>
             <Footer />
           </Router>
         </div>
