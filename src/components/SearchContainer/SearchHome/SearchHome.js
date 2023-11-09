@@ -121,7 +121,7 @@ useEffect(() => {
 
     
   <Link to="/recherche">
-  <button className={`btn-home${className}`}>Effectuer une recherche détaillée</button>
+  <button className={`btn-home${className}`}>recherche détaillée</button>
   </Link>
       </div>
       

@@ -18,10 +18,7 @@ const SearchContainer = ({ theme }) => {
   return (
     <>
     <div className={`search-container-${tableClassName}`}>
-      <div className="main-search">
       <SearchBar theme={theme} />
-      </div>
-
       <div className="advanced-filters">
       <div className="filters-text">filtres avancés
       </div>

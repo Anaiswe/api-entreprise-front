@@ -1,11 +1,11 @@
 /* searchbar.css */
 
 .home-search-container {
-    border: solid hotpink 3px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    padding: 20px;
+    flex-wrap: nowrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
     align-items: center;
     justify-content: space-evenly;
     gap: 20px
@@ -13,7 +13,6 @@
 
   .home-input-search-dark {
     display:flex;
-    width: 70%;
     gap: 30px;
     padding: 15px;
     border-radius: 80px;
@@ -26,7 +25,6 @@
 
   .home-input-search-light {
     display:flex;
-    width: 70%;
     gap: 30px;
     padding: 15px;
     border-radius: 80px;
@@ -37,7 +35,7 @@
   }
 
   .input-text-dark {
-    width: 80%;
+
     color: #ffffff;
     border: none;
     background: transparent;
@@ -45,7 +43,7 @@
   }
 
   .input-text-light {
-    width: 80%;
+  
     color: #202123;
     border: none;
     background: transparent;
@@ -77,6 +75,7 @@
   
   .btn-home-dark {
     margin-top: 20px;
+   
     font-weight: bolder;
     border: none;
     height: 50px;
@@ -101,6 +100,7 @@
   
   .btn-home-light {
     margin-top: 20px;
+  
     font-weight: bolder;
     border: none;
     height: 50px;
