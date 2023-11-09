@@ -1,10 +1,11 @@
 /* searchbar.css */
 
 .search-bar-dark {
-  padding: 30px;
-  display: flex;
-  justify-content: space-around;
-  border-radius: 80px;
+ padding: 20px;
+ display: flex;
+ flex-wrap: nowrap;
+ justify-content: space-around;
+ border-radius: 80px;
  border: 1px solid #a8ccff; 
     box-shadow:
   0 0 5px #a8ccff,
@@ -12,71 +13,35 @@
   0 0 15px #a8ccff; 
 }
 
-
-/* .search-bar-light {
+.search-bar-light {
   border: none;
+  padding: 20px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   border-radius: 80px;
   box-shadow: inset 5px 5px 10px #cccccc,
   inset -5px -5px 10px #ffffff;
 
 }
 
-.search-wrapper {
-  border: none;
-  border: solid salmon 2px;
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  border-radius: 80px;
-
-}
-
-.icon-search {
-  padding: 15px;
-
-}
-
-.input-container{
-  display: flex;
-  width: 100%;
-}
-
-
-
-
-
 .input-search-dark {
-  max-width: 100%;
-  border: none;
   color: #ffffff;
-  font-size: 1rem;
+  border: none;
   background: transparent;
   outline: none;
-  
-  
 }
 
 .input-search-light {
-  padding-top: 15px;
-  width: 100%;
-  height: 35px;
+  color: #202123;
   border: none;
-  color: #525F7F;
-  font-size: 1rem;
   background: transparent;
   outline: none;
-}
-
-
-.icon-enter {
-  padding: 15px;
 }
 
 .icon-enter:hover {
   cursor: pointer;
 }
+
+
+/* 
  */

@@ -1,5 +1,7 @@
 .search-container-dark {
   padding: 50px;
+  padding-left: 150px;
+  padding-right: 150px;
   gap: 30px;
   display: flex;
   flex-direction: column;
@@ -13,6 +15,8 @@
 
 .search-container-light {
   padding: 50px;
+  padding-left: 150px;
+  padding-right: 150px;
   gap: 30px;
   display: flex;
   flex-direction: column;
@@ -27,25 +31,28 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  border : solid slateblue 4px;
+ 
 }
 
 .filters-text {
-  border: solid palegoldenrod 3px;
+  padding: 10px;
+  font-size: smaller;
+
 }
 
 .filters {
   display: flex;
   flex-wrap: wrap;
   max-width: 100%;
-  border: solid violet 4px;
+  /* border: solid violet 4px; */
 }
 
 
 /* burger menu */
 
 .button-container {
-border: solid cadetblue 4px;
+  padding: 10px;
+
 }
 
 .burger-button {

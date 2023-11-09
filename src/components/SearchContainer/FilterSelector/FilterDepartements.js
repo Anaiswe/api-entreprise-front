@@ -51,29 +51,24 @@ const FilterDepartements = ({  theme }) => {
     return (
 <>
 <div className={`filter-selector${className}`}>
-  <div className="filter-container">
-    <div className="input-container">
       <div className="filter-wrapper">
         <span className="icon-filter" onClick={toggleDepDropdown}>
       <FontAwesomeIcon icon={faCaretDown }/>
       </span>
-
-      <div className="input-container">
       <input
     className= {`input-filter${className}`}
     placeholder="département"
     value={inputDepValue}
     onChange={handleInputChange}
     />
-    </div>
+ 
     {isDepDropdownOpen && (
-            <div className="suggestion-filters">
-              <div className={`list-container${className}`}>
+            <div className={`suggestion-filters${className}`}>
               {filteredDepartments.map((department) => (
-                <div className={`card-container${className}`}>
+                <div className={`filter-card-container${className}`}>
                   <div
                   key={department.num_dep}
-                  className={`card-content${className}`}
+                  className={`filter-card-content${className}`}
                   onClick={() => handleDepClick(department)}
                   >
                   <div>{department.num_dep}</div>
@@ -82,12 +77,9 @@ const FilterDepartements = ({  theme }) => {
                 </div>
                 </div>
                 ))}
-              </div>
             </div>
           )}
           </div>
-      </div>
-    </div>
   </div>
        </>
     );

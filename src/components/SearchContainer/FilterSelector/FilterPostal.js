@@ -88,13 +88,13 @@ const handlePostalClick = (codePostal) => {
       </div>
       {/* <div className="suggestions-list"> */}
       {isPostalDropdownOpen && (
-          <div className="suggestion-filters">
-            <div className={`list-container${className}`}>
+          <div className={`suggestion-filters${className}`}>
+            <div className={`filter-list-container${className}`}>
             {filteredPostalCodes.map((codePostal) => (
-              <div className={`card-container${className}`}>
+              <div className={`filter-card-container${className}`}>
                 <div
                 key={codePostal._id}
-                className={`card-content${className}`}
+                className={`filter-card-content${className}`}
                 onClick={() => handlePostalClick(codePostal)}
               >
                 <div>{codePostal.Code_postal}</div>
