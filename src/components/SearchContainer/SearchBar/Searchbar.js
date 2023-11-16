@@ -31,8 +31,9 @@ const SearchBar = ({ theme }) => {
 
 
   return (
-    <div className={`search-bar${className}`}>
-            <span className="icon-search">
+    <div className={`search-bar-container${className}`}>
+      <div className={`search-bar${className}`}>
+      <span className="icon-search">
               <FontAwesomeIcon icon={faSearch} size="xl" className="glass-icon" />
             </span>
               <input
@@ -47,6 +48,9 @@ const SearchBar = ({ theme }) => {
             <span className="icon-enter" onClick={performSearch}>
             <FontAwesomeIcon icon={faArrowTurnDown} rotation={90} />
             </span>
+
+      </div>
+
           
     </div>
   );

@@ -43,7 +43,7 @@ const DataContainer = ({ theme }) => {
                     }}
                     style={{ textDecoration: 'none' }}
                   >
-                    détails
+                    Accéder à la fiche et consulter les textes applicables
                   </Link>
                 </div>
               </div>

@@ -1,28 +1,23 @@
 .filter-selector-light {
     border: none;
-    margin: 15px;
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     border-radius: 80px;
     box-shadow: inset 5px 5px 10px #cccccc,
     inset -5px -5px 10px #ffffff;
 }
 
 .filter-selector-dark {
-    
-    margin: 15px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 80px;
-    border: 1px solid #a8ccff; 
-    box-shadow:
-    0 0 5px #a8ccff,
-    0 0 10px #a8ccff,
-    0 0 15px #a8ccff;
+    background: #202123;
+    box-shadow: inset 5px 5px 4px #0d0d0e,
+                inset -5px -5px 4px #333538;
 }
 
 
@@ -79,11 +74,9 @@
     width: 100%;
     max-height: 300px;
     overflow-y: auto;
-    border: 1px solid #a8ccff; 
-    box-shadow:
-    0 0 5px #a8ccff,
-    0 0 10px #a8ccff,
-    0 0 15px #a8ccff;
+    background: #202123;
+    box-shadow: inset 5px 5px 4px #0d0d0e,
+                inset -5px -5px 4px #333538;
 
   }
 

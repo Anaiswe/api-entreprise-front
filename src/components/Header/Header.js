@@ -10,7 +10,15 @@ const Header = ({theme, toggleTheme }) => {
   return (
     <>
     <div className={`header-${tableClassName}`}>
-      <div className="theme-container">
+      <FontAwesomeIcon 
+      className={`home-btn-${tableClassName}`}
+         icon={faHouse} 
+         size="xl"
+         onClick={() => {
+          navigate("/")
+         }}/>
+         <div className={`home-btn-${tableClassName}`}>
+         <div className="theme-container">
          <label className="switch">
             <input
               type="checkbox"
@@ -20,14 +28,8 @@ const Header = ({theme, toggleTheme }) => {
             <span className="slider"></span>
           </label>
       </div>
-      <FontAwesomeIcon 
-      className="home-btn"
-         icon={faHouse} 
-         size="xl"
-         onClick={() => {
-          navigate("/")
-         }}/>
-    </div>
+         </div>
+         </div>
     </>
   );
 }

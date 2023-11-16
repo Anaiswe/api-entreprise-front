@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretUp, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useData } from "../../functions/DataContext";
 import DetailsHeader from "../../components/Details/DetailsHeader";
 import EtablissementsDisplay from "../../components/Details/EtablissementsDisplay";
@@ -13,24 +13,10 @@ import "./details.css";
 const Details = ({ theme }) => {
   const { id } = useParams(); 
   const { data } = useData();
-  const [showEtablissements, setShowEtablissements] = useState(false);
-  const [selectedEtablissementIndex, setSelectedEtablissementIndex] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const className = theme === "bg-dark" ? "-dark" : "-light";
 
-
-  const toggleEtablissements = () => {
-    setShowEtablissements(!showEtablissements);
-  };
-
-  const toggleSelectedEtablissement = (index) => {
-    if (selectedEtablissementIndex === index) {
-      setSelectedEtablissementIndex(null);
-    } else {
-      setSelectedEtablissementIndex(index);
-    }
-  };
 
 
   let selectedDataItem;
@@ -76,55 +62,31 @@ if (headquarters) {
   
   return (
     <div className={`details-container${className}`}>
-            <div className={`back-button${className}`}>
-      <Link to="/recherche" className="btn-back">
-        <span className="icon-back">
-              <FontAwesomeIcon icon={faArrowLeft}/>
-              </span>
-        <button className="btn-back">Retourner à la recherche</button>
-      </Link>
-
-      </div>
-      <div className="details-header">
-      <DetailsHeader selectedDataItem={selectedDataItem} theme={theme} />
+      <div className={`back-button${className}`}>
+        <Link to="/recherche" className="btn-back">
+          <span className="icon-back">
+            <FontAwesomeIcon icon={faArrowLeft}/>
+            </span>
+            <button className="btn-back">Retourner à la recherche</button>
+        </Link>
       </div>
       
-      <button
-      className={`btn-toggle${className}`}
-      onClick={toggleEtablissements}
-    >
-      {showEtablissements ? (
-        <>
-          Masquer les établissement
-          <span className="icon-display">
-            <FontAwesomeIcon icon={faCaretUp} />
-          </span>
-        </>
-      ) : (
-        <>
-          Afficher les établissements
-          <span className="icon-display">
-            <FontAwesomeIcon icon={faCaretDown} />
-          </span>
-        </>
-      )}
-    </button>
-    {showEtablissements && (
-        <EtablissementsDisplay
+      <div className={`details-data${className}`}>
+        <div className="details-header">
+          <DetailsHeader selectedDataItem={selectedDataItem} theme={theme} />
+          </div>
+          
+          <EtablissementsDisplay
           currentEtablissements={currentEtablissements}
-          selectedEtablissementIndex={selectedEtablissementIndex}
-          toggleSelectedEtablissement={toggleSelectedEtablissement}
+          selectedDataItem={selectedDataItem}
+          theme={theme}
           currentPage={currentPage}
           totalPages={totalPages}
           setCurrentPage={setCurrentPage}
           className={className}
         />
-      )}
-      
-
-
-
-  </div>
+        </div>
+      </div>
 );};
 
 export default Details;

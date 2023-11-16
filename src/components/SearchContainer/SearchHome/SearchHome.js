@@ -89,43 +89,36 @@ useEffect(() => {
 
   return (
       <div className={`home-search-container`}>
+        <div className="home-search-bar">
         <div className={`home-input-search${className}`}>
-        <span className="input-icon">
-          <FontAwesomeIcon icon={faSearch} size="xl" className="glass-icon" />
-          </span>
-          <input className={`input-text${className}`}
-        id="search-bar"
-        type="text"
-        placeholder="nom, siret, siren"
-        value={inputValue}
-        onChange={handleInputChange}
-      />
-        </div>
-        <div className="suggestion">
-                      {inputValue && extractedData && (
-        <div className={`home-suggestion-data${className}`}>
-          <DataList 
-          theme = {theme}
-          
-          onSelect={(selectedItem) => {
-            setSearch(selectedItem);
-            setInputValue('');
-            setShouldExtract(true);
-          
-          }} />
-          </div>
-      )}
-
-        </div>
-
-
-    
-  <Link to="/recherche">
-  <button className={`btn-home${className}`}>recherche détaillée</button>
-  </Link>
-      </div>
-      
-  );
-};
+          <span className="input-icon">
+            <FontAwesomeIcon icon={faSearch} size="xl" className="glass-icon" />
+            </span>
+            <input className={`input-text${className}`}
+            id="search-bar"
+            type="text"
+            placeholder="nom, siret, siren"
+            value={inputValue}
+            onChange={handleInputChange}
+            />
+            </div>
+            <Link to="/recherche">
+              <button className={`btn-home${className}`}>recherche</button>
+              </Link>
+              </div>
+              <div className="suggestion">
+                {inputValue && extractedData && (
+                <div className={`home-suggestion-data${className}`}>
+                  <DataList 
+                  theme = {theme}
+                  onSelect={(selectedItem) => {
+                    setSearch(selectedItem);
+                    setInputValue('');
+                    setShouldExtract(true)}} />
+                    </div>)}
+                    </div>
+                    </div>
+                    );
+                  };
 
 export default SearchHome;

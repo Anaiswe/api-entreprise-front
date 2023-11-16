@@ -1,32 +1,39 @@
 .search-container-dark {
-  padding-top: 50px;
-  gap: 30px;
+  padding: 20px;
+  margin: 20px;
+  gap: 20px;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  border-radius: 66px;
+  align-items: center;
+  border-radius: 10px;
   background: linear-gradient(145deg, #222325, #1d1e20);
-  box-shadow:  31px 31px 76px #101112,
-               -31px -31px 76px #303134;
+  box-shadow:  8px 8px 19px #0f0f10,
+               -8px -8px 19px #313336;
+
                
 }
 
 .search-container-light {
-  padding: 50px;
-  gap: 30px;
+  padding: 20px;
+  margin: 20px;
+  gap: 20px;
   display: flex;
   flex-direction: column;
-  border-radius: 66px;
+  align-items: center;
+  border-radius: 10px;
   background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  box-shadow:  9px 9px 43px #c2c2c2,
-               -9px -9px 43px #ffffff;
+  box-shadow:  8px 8px 19px #757575,
+               -8px -8px 19px #ffffff;
     
 }
 
 .advanced-filters {
   display: flex;
+  align-items: center;
+  flex-direction: column;
   flex-wrap: wrap;
-  gap: 10px;
+  justify-content: center;
+  gap: 5px;
  
 }
 
@@ -38,9 +45,11 @@
 
 .filters {
   display: flex;
+  gap: 30px;
   flex-wrap: wrap;
-  max-width: 100%;
-  /* border: solid violet 4px; */
+  align-items: center;
+  justify-content: center;
+
 }
 
 
@@ -60,24 +69,48 @@
   flex-direction: column;
 }
 
-.burger-button.open .bar:nth-child(1) {
+.burger-button.open .bar-dark:nth-child(1) {
   transform: rotate(45deg);
   width: 30px;
   position: absolute;
 }
 
-.burger-button.open .bar:nth-child(2) {
+.burger-button.open .bar-dark:nth-child(2) {
   opacity: 0;
 }
 
-.burger-button.open .bar:nth-child(3) {
+.burger-button.open .bar-dark:nth-child(3) {
   transform: rotate(-45deg);
   width: 30px;
   position: absolute;
 }
 
-.bar {
-  background-color: #a8ccff;
+.bar-dark {
+  background-color: #ffffff;
+  height: 4px;
+  margin: 4px 0;
+  width: 20px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.burger-button.open .bar-light:nth-child(1) {
+  transform: rotate(45deg);
+  width: 30px;
+  position: absolute;
+}
+
+.burger-button.open .bar-light:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-button.open .bar-light:nth-child(3) {
+  transform: rotate(-45deg);
+  width: 30px;
+  position: absolute;
+}
+
+.bar-light {
+  background-color: #202123;
   height: 4px;
   margin: 4px 0;
   width: 20px;

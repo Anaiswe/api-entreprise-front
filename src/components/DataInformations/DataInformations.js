@@ -4,9 +4,6 @@ import "./dataInformations.css";
 
 const DataInformations = ({data}) => {
     const totalResults = data[1];
-    const currentPage = data[2];
-    const resultsPerPage = data[3];
-    const totalPages = data[4];
 
     const [counter, setCounter] = useState(0);
 
@@ -28,16 +25,8 @@ const DataInformations = ({data}) => {
 
 return (
     <>
-    <div className="data-infos-container">
         <p>résultats trouvés:{counter < totalResults ? counter : totalResults} 
         </p>
-        <p>page: {currentPage}</p>
-        <p>résultats par page: {resultsPerPage}</p>
-        <p>pages total: {totalPages}</p>
-      
-
-
-    </div>
     </>
 )
 };

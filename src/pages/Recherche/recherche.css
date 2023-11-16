@@ -1,0 +1,38 @@
+.rech-container-light {
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+    padding: 25px;
+    margin: 25px;
+    border-radius: 45px;
+    background: #e1dfdf;
+    box-shadow: inset 5px 5px 6px #6c6c6c,
+                inset -5px -5px 6px #ffffff;
+}
+
+.rech-container-dark {
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+    padding: 25px;
+    margin: 25px;
+    border-radius: 45px;
+    background: #383b3d;
+    box-shadow: inset 5px 5px 6px #0d0d0e,
+                inset -5px -5px 6px #333538;
+}
+
+.rech-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.data-informations {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+
+

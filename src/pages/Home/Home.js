@@ -17,7 +17,7 @@ import "./home.css";
     <>
     <div className="home-container">
     <div className="home-text">
-  Accédez en quelques clics aux conventions collectives et accords d'établissements applicables à une entreprise, et répertoriés sur
+      Recherchez une entreprise, puis accédez en quelques clics aux conventions collectives et accords d'établissements qui lui sont applicables et répertoriés sur
   <a 
   className="home-link"
   href="https://www.legifrance.gouv.fr/" 

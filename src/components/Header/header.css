@@ -1,28 +1,53 @@
 .header-dark {
+  padding: 20px;
   display: flex;
+  justify-content: space-between;
+  gap: 50px;
 
   }
   
   .header-light {
+    padding: 20px;
     display: flex;
+    justify-content: space-between;
+    gap: 50px;
 
   }
 
-  .home-btn {
-    padding: 23px;
+  .home-btn-light {
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow:  5px 5px 6px #666666,
+                 -5px -5px 6px #ffffff;
   }
 
-.home-btn:hover {
-color: #a8ccff;
+  .home-btn-dark {
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #222325, #1d1e20);
+    box-shadow:  5px 5px 6px #0d0d0e,
+                 -5px -5px 6px #333538;
+  }
+
+.home-btn-dark:hover {
+
+  background: #202123;
+  box-shadow: inset 5px 5px 6px #0d0d0e,
+              inset -5px -5px 6px #333538;
 cursor: pointer;
 
 }
 
-.theme-container {
-  padding: 20px;
+.home-btn-light:hover {
+ 
+  background: #ffffff;
+  box-shadow: inset 5px 5px 6px #666666,
+              inset -5px -5px 6px #ffffff;
+cursor: pointer;
+
 }
-
-
 
 .switch {
 position: relative;

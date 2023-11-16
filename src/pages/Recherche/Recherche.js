@@ -15,24 +15,26 @@ const Recherche = ({ theme }) => {
         data, 
       } = useData();
 
+      const tableClassName = theme === "" || theme === "bg-dark" ? "dark" : "light";
 
     return (
-        <div className='rech-container'>
-         
-            <SearchContainer
+        <div className={`rech-container-${tableClassName}`}>
+          <div className='rech-bar'>
+          <SearchContainer
         theme = {theme}
-     />
-      <div className="rech-text">
-
-      </div>
-      <div className="data-informations">
-        <DataInformations
-        data={data} />
-      </div>
+        />
+        </div>
        <div className="pagination">
         <Pagination 
         theme={theme}/>
         </div>
+        {data && data.length > 0 && 
+        (
+          <div className="data-informations">
+          <DataInformations
+          data={data} />
+        </div>
+        )}
         <div className="table-data">
           <DataContainer 
             theme={theme}/>
@@ -41,7 +43,7 @@ const Recherche = ({ theme }) => {
           <Pagination
               theme={theme}/>
          </div>
-            {/* ... autres éléments de la page */}
+            {/**/}
         </div>
     );
 };
