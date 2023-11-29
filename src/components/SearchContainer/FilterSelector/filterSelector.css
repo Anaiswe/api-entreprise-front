@@ -5,8 +5,7 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 80px;
-    box-shadow: inset 5px 5px 10px #cccccc,
-    inset -5px -5px 10px #ffffff;
+    border: solid #181818 2px;
 }
 
 .filter-selector-dark {
@@ -15,9 +14,7 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 80px;
-    background: #202123;
-    box-shadow: inset 5px 5px 4px #0d0d0e,
-                inset -5px -5px 4px #333538;
+    border: solid #ffffff 2px;
 }
 
 
@@ -66,7 +63,6 @@
 
 .suggestion-filters-dark {
     margin-top: 20px;
-    background: #202123;
     z-index: 999;
     position: absolute;
     top: 100%;
@@ -74,9 +70,9 @@
     width: 100%;
     max-height: 300px;
     overflow-y: auto;
+    border-radius: 10px;
     background: #202123;
-    box-shadow: inset 5px 5px 4px #0d0d0e,
-                inset -5px -5px 4px #333538;
+    border: solid #f1f1f2 2px;
 
   }
 
@@ -92,8 +88,7 @@
     max-height: 300px;
     overflow-y: auto;
     border-radius: 10px;
-    box-shadow: inset 5px 5px 10px #cccccc,
-    inset -5px -5px 10px #ffffff;
+    border: solid #181818 2px;
   }
 
   .filter-card-container-dark {

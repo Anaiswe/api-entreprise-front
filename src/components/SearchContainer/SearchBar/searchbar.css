@@ -18,20 +18,16 @@
  justify-content: space-between;
  border-radius: 80px;
  background: #202123;
- box-shadow: inset 5px 5px 4px #0d0d0e,
-             inset -5px -5px 4px #333538;
+ border: solid #ffffff 2px;
 }
 
 .search-bar-light {
   gap : 30px;
-  border: none;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   border-radius: 80px;
-  box-shadow: inset 5px 5px 10px #cccccc,
-  inset -5px -5px 10px #ffffff;
-
+  border: solid #181818 2px;
 }
 
 .input-search-dark {
@@ -42,7 +38,7 @@
 }
 
 .input-search-light {
-  color: #202123;
+  color: #181818;
   border: none;
   background: transparent;
   outline: none;

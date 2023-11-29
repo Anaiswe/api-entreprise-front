@@ -1,29 +1,23 @@
 .search-container-dark {
-  padding: 20px;
-  margin: 20px;
+  padding: 30px;
+  width: 100%;
   gap: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border-radius: 10px;
-  background: linear-gradient(145deg, #222325, #1d1e20);
-  box-shadow:  8px 8px 19px #0f0f10,
-               -8px -8px 19px #313336; */
+
+
 
                
 }
 
 .search-container-light {
-  padding: 20px;
-  margin: 20px;
+  padding: 30px;
+  width: 100%;
   gap: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border-radius: 10px;
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  box-shadow:  8px 8px 19px #757575,
-               -8px -8px 19px #ffffff; */
     
 }
 
@@ -56,7 +50,7 @@
 /* burger menu */
 
 .button-container {
-  padding: 10px;
+  padding: 15px;
 
 }
 
@@ -110,7 +104,7 @@
 }
 
 .bar-light {
-  background-color: #202123;
+  background-color: #181818;
   height: 4px;
   margin: 4px 0;
   width: 20px;

@@ -22,9 +22,7 @@
     gap: 30px;
     padding: 15px;
     border-radius: 80px;
-background: #202123;
-box-shadow: inset 5px 5px 4px #0d0d0e,
-            inset -5px -5px 4px #333538;
+    border: solid #ffffff 2px;
 
   }
 
@@ -33,9 +31,7 @@ box-shadow: inset 5px 5px 4px #0d0d0e,
     gap: 30px;
     padding: 15px;
     border-radius: 80px;
-    border: none;
-    box-shadow: inset 5px 5px 10px #cccccc,
-    inset -5px -5px 10px #ffffff;
+    border: solid #202123 2px;
  
   }
 
@@ -60,11 +56,7 @@ box-shadow: inset 5px 5px 4px #0d0d0e,
     max-height: 400px;
     overflow-y: auto;
     border-radius:10px;
-    border: 1px solid #a8ccff; 
-       box-shadow:
-     0 0 5px #a8ccff,
-     0 0 10px #a8ccff,
-     0 0 15px #a8ccff; 
+    border: solid #ffffff 2px;
  
   }
 
@@ -72,9 +64,7 @@ box-shadow: inset 5px 5px 4px #0d0d0e,
     max-height: 400px;
     overflow-y: auto;
     border-radius:10px;
-    background: #ffffff;
-    box-shadow:  20px 20px 60px #d9d9d9,
-                 -20px -20px 60px #ffffff;
+    border: solid #202123 2px;
  
   }
   
@@ -83,33 +73,31 @@ box-shadow: inset 5px 5px 4px #0d0d0e,
     border: none;
     height: 50px;
     color: #ffffff;
+    background: #118571;
   border-radius: 10px;
-  background: linear-gradient(145deg, #222325, #1d1e20);
-  box-shadow:  5px 5px 6px #0d0d0e,
-               -5px -5px 6px #333538;
+
   }
   
   .btn-home-dark:hover {
     border: none; 
-    background: #202123;
-    box-shadow: inset 5px 5px 4px #0d0d0e,
-                inset -5px -5px 4px #333538;
+    background: #11D99B;
+
   }
   
   .btn-home-light {
     font-weight: bolder;
     border: none;
+    background: #118571;
+    color: #ffffff;
     height: 50px;
     border-radius: 10px;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  box-shadow:  12px 12px 19px #cccccc,
-               -12px -12px 19px #ffffff;
+ 
   }
   
   .btn-home-light:hover {
-    background: #ffffff;
-    box-shadow: inset 12px 12px 19px #cccccc,
-                inset -12px -12px 19px #ffffff;
+    border: none; 
+    background: #11D99B;
+
   }
   
   

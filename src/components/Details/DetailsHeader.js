@@ -31,8 +31,8 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await FetchCodesNaf();
-        setFetchCodesNafData(data);
+        const nafData = await FetchCodesNaf();
+        setFetchCodesNafData(nafData);
       } catch (error) {
         console.error("Error fetching codes NAF:", error);
       }
@@ -43,9 +43,9 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
 
   const getNafLabel = (id) => {
     if (Array.isArray(fetchCodesNafData)) {
-      const foundItem = fetchCodesNafData.find((item) => item.id === id);
-      if (foundItem) {
-        return foundItem.label;
+      const convertNafData = fetchCodesNafData.find((item) => item.id === id);
+      if (convertNafData) {
+        return convertNafData.label;
       }
     }
     return "Non renseigné";
@@ -56,21 +56,25 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
   }
 
   return (
-    <div className="details-header-container">
-      <div className="details-top">
-        <div className={`top-header${className}`}>
-          <div className="left">
-            <p>{selectedDataItem.nom_complet} ({selectedDataItem.nom_raison_sociale})</p>
+    <div className={`details-header-container${className}`}>
+
+          <div className="top">
+            <div className="main-informations-entreprise">
+            <p className="entreprise-title">{selectedDataItem.nom_complet} ({selectedDataItem.nom_raison_sociale})</p>
             <p>{selectedDataItem.siege.geo_adresse}</p>
             <p>{getNafLabel(selectedDataItem.activite_principale)}</p>
             <p>{trancheEffectifData[selectedDataItem.tranche_effectif_salarie]}</p>
-          </div>
-          <div className="egapro">
+
+            <div className="egapro-link">
             {selectedDataItem.complements.egapro_renseignee ? (
-              <div className={`link${className}`}>
-                <a href={`https://egapro.travail.gouv.fr/index-egapro/recherche?query=${selectedDataItem.siren}`} target="_blank" rel="noopener noreferrer" className="link-link">
+              <div>
+                <a href={`https://egapro.travail.gouv.fr/index-egapro/recherche?query=${selectedDataItem.siren}`} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="egapro-link-link" 
+                style={{ textDecoration: 'none' }}>
                   <div className="link-items">
-                    <div className="link-text">
+                    <div className="egapro-link-text">
                       Index d'égalité professionnelle
                     </div>
                     <FontAwesomeIcon icon={faUpRightFromSquare} size="xl" className="icon" />
@@ -81,20 +85,22 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
               <p>Index d'égalité professionnel non renseigné</p>
             )}
           </div>
-        </div>
-        <div className={`bottom-header${className}`}>
-          <div className="idcc">
+          <div className="idcc-container">
             {idccData && idccData[0]?.conventions && idccData[0].conventions.length > 0 ? (
               <>
-                <div className="idcc-text">
+                <div className="idcc-link-text">
                   Conventions collectives applicables
                 </div>
-                <div className="idcc-map">
+                <div className="idcc-link-details">
                   {idccData[0].conventions.map((convention, index) => (
-                    <div key={index} className={`link${className}`}>
-                      <a href={convention.url} target="_blank" rel="noopener noreferrer" className="link-link">
+                    <div key={index}>
+                      <a href={convention.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="idcc-link" 
+                      style={{ textDecoration: 'none' }}>
                         <div className="link-items">
-                          <div className="link-text">{convention.shortTitle}</div>
+                          <div className="idcc-link-id">{convention.shortTitle}</div>
                           <FontAwesomeIcon icon={faUpRightFromSquare} size="xl" className="icon" />
                         </div>
                       </a>
@@ -106,9 +112,9 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
               <p>Aucune convention collective répertoriée</p>
             )}
           </div>
-          <p className="etablissements-count">{selectedDataItem.nombre_etablissements_ouverts} établissement(s)</p>
-        </div>
-      </div>
+          </div>
+            </div>
+
     </div>
   );
 };

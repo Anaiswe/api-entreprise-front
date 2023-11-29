@@ -3,6 +3,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
+import "./paginationControls.css"
+
 const PaginationControls = ({ currentPage, totalPages, setCurrentPage, theme }) => {
   const className = theme === "bg-dark" ? "-dark" : "-light";
 

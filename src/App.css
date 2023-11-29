@@ -18,15 +18,15 @@
   }
 
   .container-fluid-bg-dark {
-    background-color: #202123;
+    background-color: #181818;
     font-size: 19px;
-    color: #ffffff;
+    color: #f1f1f2;
   }
           
   .container-fluid-light {
-    color: #202123;
+    color: #181818;
     font-size: 19px;
-    background-color: #ffffff;
+    background-color: #f1f1f2;
           }
 
 

@@ -1,34 +1,23 @@
-.pagination-container-dark {
+.pagination-container {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  margin: 10px;
 
-}
-
-
-.pagination-container-light {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
- 
 }
 
 .button-dark {
   color: #ffffff;
+  background: #212121;
   height: 40px;
   width: 40px;
-  border: none;
+  border: solid #ffffff 2px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #222325, #1d1e20);
-  box-shadow:  8px 8px 19px #0f0f10,
-               -8px -8px 19px #313336;
 }
 
 .button-dark:hover {
-  border-radius: 50%;
-  background: #1e1e2f;
-  box-shadow: inset -5px 5px 6px #0c0c13,
-              inset 5px -5px 6px #30304b;
+  cursor: pointer;
+  background: #323232;
 }
 
 
@@ -37,17 +26,15 @@
  
   height: 40px;
   width: 40px;
-  border: none;
+  border: solid #212121 2px;
   border-radius: 50px;
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  box-shadow:  8px 8px 19px #757575,
-               -8px -8px 19px #ffffff;
+  background: #eae9eb;
+
 }
 
 .button-light:hover {
-  border-radius: 50%;
-  box-shadow: inset 10px 10px 20px #cccccc,
-              inset -10px -10px 20px #ffffff;
+  cursor: pointer;
+  background: #c4c4c4;
 }
 
 
@@ -55,25 +42,17 @@
   color: #ffffff;
   height: 40px;
   width: 40px;
-  border: none;
+  border: solid #ffffff 2px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #222325, #1d1e20);
-  box-shadow:  8px 8px 19px #0f0f10,
-               -8px -8px 19px #313336;
+  background: #212121;
 }
 
 .pagination-button-dark:hover {
-  border-radius: 50%;
-  background: #202123;
-  box-shadow: inset 6px 6px 12px #0f0f10,
-              inset -6px -6px 12px #313336;
+  background: #323232;
 }
 
 .pagination-button-dark.active {
-  border-radius: 50%;
-  background: #202123;
-  box-shadow: inset 6px 6px 12px #0f0f10,
-              inset -6px -6px 12px #313336;
+  background: #323232;
 
 }
 
@@ -81,24 +60,18 @@
 
   height: 40px;
   width: 40px;
-  border: none;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  box-shadow:  8px 8px 19px #757575,
-               -8px -8px 19px #ffffff;
+  border: solid #212121 2px;
+  border-radius: 50px;
+  background: #eae9eb;
 }
 
 .pagination-button-light:hover {
-  border-radius: 50%;
-  box-shadow: inset 10px 10px 20px #cccccc,
-              inset -10px -10px 20px #ffffff;
+  background: #c4c4c4;
 
 }
 
 .pagination-button-light.active {
-  border-radius: 50%;
-  box-shadow: inset 10px 10px 20px #cccccc,
-              inset -10px -10px 20px #ffffff;
+  background: #c4c4c4;
 
 }
 

@@ -1,0 +1,29 @@
+.pagination-controls-dark {
+    display: flex;
+    justify-content: space-around;
+}
+
+.pagination-controls-light {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-page-dark {
+    padding: 15px;
+    border-radius: 88px;
+}
+
+.btn-page-light {
+    padding: 15px;
+    border-radius: 88px;
+}
+
+.btn-page-dark:hover {
+    cursor: pointer;
+}
+
+
+.btn-page-light:hover {
+    cursor: pointer;
+
+}

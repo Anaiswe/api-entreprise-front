@@ -63,7 +63,7 @@ const Pagination = ({ theme }) => {
 
   return (
     <>
-      <div className={`pagination-container-${tableClassName}`}>
+      <div className={`pagination-container`}>
         <button
           className={`button-${tableClassName} ${
             activePage === 1 ? "active" : ""

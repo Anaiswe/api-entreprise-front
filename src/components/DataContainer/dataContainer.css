@@ -3,59 +3,190 @@
 .cards-container-dark,
 .cards-container-light {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
 }
 
 .card-dark,
 .card-light {
-  margin: 20px;
-  padding: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out;
-  width:300px;
-  
-}
-
-.card-dark {
-  background: #202123;
-  box-shadow: inset 5px 5px 4px #0d0d0e,
-              inset -5px -5px 4px #333538;
+  width: 80%;
 }
 
 .card-light {
-    box-shadow: inset 5px 5px 10px #cccccc,
-  inset -5px -5px 10px #ffffff;
-}
+  border-bottom: solid #afafc6 0.2px;
+  border-top: solid #afafc6 0.2px;
+  background: #f1f1f2;
+  border-radius: 7px; 
 
-.card-dark:hover,
-.card-light:hover {
-  transform: scale(1.05);
+}
+.card-dark {
+  border-bottom: solid #afafc6 0.2px;
+  border-top: solid #afafc6 0.2px;
+  background: #212121;
 }
 
 .card-content-dark,
 .card-content-light {
-  padding: 5px;
+  /* display: flex; */
+  /* justify-content: space-between; */
+}
+
+.card-content-top {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.card-content-bottom {
+  /* border: solid salmon 4px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap:10px;
+  padding: 10px;
+
+}
+
+.raison-sociale {
+  font-weight: bolder;
+  font-size: smaller;
+}
+
+.other-infos {
+  
+  font-weight: bolder;
+  font-size: smaller;
+}
+
+
+    .name-link {
+      background-color: #FBB163;
+      border-radius: 7px; 
+      padding: 15px;
+      color: #181818;
+      font-weight: bolder;
+
+    }
+    .name-link:hover {
+      /* background-color: #7ab1f8; */
+      background-color: #ffc78b;
+      cursor: pointer;
+      color: initial;
+
+    }
+
+    .card-title:hover {
+      text-decoration: underline;
+
+    }
+
+    .egapro {
+      margin-bottom: 5px;
+    }
+
+    .link-egapro {
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 7px;
+
+    }
+
+
+    .link-egapro  :hover {
+      text-decoration: underline;
+      cursor: pointer;
+      background: #f4e4f5;
+
+    }
+
+.card-idcc {
+
+}
+
+.idcc-container {
+
+}
+
+.idcc-header {
+  font-weight: bolder;
+  font-size: smaller;
+  padding: 10px;
+  background: #DFCFE1;
+  color: #181818;
   text-align: center;
 }
 
+.idcc-map {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+}
+
+.idcc-button {
+
+text-decoration: none;
+
+}
+
+.idcc-links-item {
+  display: flex;
+  font-weight: bolder;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  border: solid #DFCFE1 2px;
+  border-radius: 7px;
+}
+
+
+.link-text {
+
+  text-decoration: none;
+}
+
+.idcc-url {
+  text-decoration: none;
+  color: inherit;
+  /* transition: color 0.3s ease-in-out; */
+}
+
+
+
+
+
 .btn-info-dark,
 .btn-info-light {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 5px;
-  background-color: #3498db;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  background-color: #118571;
+  padding: 20px;
+  border-radius: 7px;
+
 }
 
-.btn-info-dark:hover,
+.btn-info-dark {
+  color : #ffffff;
+}
+
+.btn-info-light {
+  color : #ffffff;
+}
+
+.btn-info-dark:hover {
+  background-color: #11D99B;
+  color : #ffffff;
+}
+
 .btn-info-light:hover {
-  background-color: #2980b9;
-
+  background-color: #11D99B;
+  color : #ffffff;
 }
+
+.more {
+  padding: 10px;
+}
+
+
+

@@ -16,35 +16,25 @@
 
   .home-btn-light {
     padding: 20px;
-    border: none;
+    border: solid #202123 2px;
     border-radius: 15px;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    box-shadow:  5px 5px 6px #666666,
-                 -5px -5px 6px #ffffff;
+
   }
 
   .home-btn-dark {
     padding: 20px;
     border-radius: 15px;
-    background: linear-gradient(145deg, #222325, #1d1e20);
-    box-shadow:  5px 5px 6px #0d0d0e,
-                 -5px -5px 6px #333538;
+    border: solid #ffffff 2px;
+
   }
 
 .home-btn-dark:hover {
-
-  background: #202123;
-  box-shadow: inset 5px 5px 6px #0d0d0e,
-              inset -5px -5px 6px #333538;
 cursor: pointer;
 
 }
 
 .home-btn-light:hover {
- 
-  background: #ffffff;
-  box-shadow: inset 5px 5px 6px #666666,
-              inset -5px -5px 6px #ffffff;
+
 cursor: pointer;
 
 }

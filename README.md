@@ -69,3 +69,46 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # api-entreprise-front
+
+<!-- # Your Application Name
+
+## Description
+[A brief description of your application]
+
+## Features
+- [List the main features of your search engine]
+
+## Screenshots
+[Include a few screenshots of your application, if possible]
+
+## Installation
+1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
+2. Navigate to the project directory: `cd directory-name`
+3. Install dependencies: `npm install`
+
+## Configuration
+[If your application requires specific configuration, explain it here]
+
+## Usage
+1. Start the application: `npm start`
+2. Access the application in your browser at: `http://localhost:3000` (or another URL depending on your configuration)
+
+## Technologies Used
+- [List the main technologies, frameworks, and libraries used in your application]
+
+## Contributors
+- [List the main contributors to your project]
+
+## How to Contribute
+1. Fork the project
+2. Create a branch for your feature: `git checkout -b feature/feature-name`
+3. Commit your changes: `git commit -m 'Add XYZ feature'`
+4. Push the branch: `git push origin feature/feature-name`
+5. Create a Pull Request
+
+## License
+[Specify the license of your choice, for example, MIT, Apache 2.0, etc.]
+
+---
+**Note:** This README.md file is an example; adapt it according to the specific needs of your project. -->
+

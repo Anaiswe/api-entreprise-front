@@ -1,0 +1,18 @@
+#map {
+    height: 40vh;
+    width: 300px;
+
+
+  }
+  
+  .leaflet-popup-content-wrapper .leaflet-popup-content {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 90px;
+      text-align: center; 
+      font-size: x-small;
+  
+  }
+  
+  
+  

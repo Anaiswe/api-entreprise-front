@@ -1,150 +1,166 @@
 .etablissements-container-dark {
     display: flex;
     flex-direction: column;
-    margin: 25px;
-    border-radius: 10px;
-    background: linear-gradient(145deg, #222325, #1d1e20);
-    box-shadow:  8px 8px 19px #0f0f10,
-                 -8px -8px 19px #313336;
+    flex-wrap: wrap;
+    background:#212121;
 }
 
 .etablissements-container-light {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 25px;
-    border-radius: 10px;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    box-shadow:  8px 8px 19px #757575,
-                 -8px -8px 19px #ffffff;
+    flex-wrap: wrap;
+    background:#eae9eb;
+
+}
+
+
+.etablissements-count {
+    text-align: center;
+    font-weight: bolder;
 }
 
 .etablissements-list-light {
-  
-    padding: 25px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    border-radius: 10px;
+    justify-content: center;
+  
+
    
 }
 
 .etablissements-list-dark {
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    border-radius: 10px;
     
  
 }
 
+
 .etablissement-cards-light {
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+  
+   
+
 }
 
 .etablissement-cards-dark {
-    border: none;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+
  
 }
 
 .etablissement-card-dark {
-    padding: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    border-radius: 10px;
-    background: #202123;
-    box-shadow: inset 5px 5px 4px #0d0d0e,
-              inset -5px -5px 4px #333538;
-    flex-basis: calc(33.33% - 20px); 
+    border-bottom: solid #afafc6 0.2px;
+    border-top: solid #afafc6 0.2px;
+    background: #181818;
+    font-weight: bolder;
+
 }
 
 .etablissement-card-light {
-    padding: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    margin-bottom: 30px;
+    gap: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    flex: 0 0 calc(33.33% - 20px);
-    border-radius: 10px;
-background: #ffffff;
-box-shadow: inset 13px 13px 57px #c2c2c2,
-            inset -13px -13px 57px #ffffff;
+    border-bottom: solid #afafc6 0.2px;
+    border-top: solid #afafc6 0.2px;
+    background: #f1f1f2;
+    font-weight: bolder;
+
 
 }
 
+.etablissement-header {
+    border: solid #FBB163 2px;
+    text-align: center;
+    border: solid #FBB163 2px;
+    color: #181818;
+    padding: 5px;
+    background: #FBB163;
+    border-radius: 7px;
 
-.pagination-controls-dark {
-    padding: 15px;
+}
+
+.etablissement-details-light {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
-.pagination-controls-light {
-    padding: 15px;
+.etablissement-details-dark {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.btn-page-dark {
-    padding: 15px;
-    border-radius: 88px;
-    background: linear-gradient(145deg, #1d1e20, #222325);
-    box-shadow:  8px 8px 19px #0f0f10,
-                 -8px -8px 19px #313336;
+.left-container {
+    display: flex;
+    justify-content: space-between;
 }
 
-.btn-page-light {
-    padding: 15px;
-    border-radius: 88px;
-    background: linear-gradient(145deg, #e6e6e6, #ffffff);
-    box-shadow:  8px 8px 19px #757575,
-                 -8px -8px 19px #ffffff;
+.entreprise-info{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.btn-page-dark:hover {
-    cursor: pointer;
-    border-radius: 88px;
-background: #202123;
-box-shadow: inset 8px 8px 19px #0f0f10,
-            inset -8px -8px 19px #313336;
+.map-container {
+    margin: 20px;
+
+}
+
+.link-light {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.link-text {
+    color: #eae9eb;
 }
 
 
-.btn-page-light:hover {
-    cursor: pointer;
-    border-radius: 88px;
-background: #ffffff;
-box-shadow: inset 8px 8px 19px #757575,
-            inset -8px -8px 19px #ffffff;
-}
+
 
 .legi-link {
-  color: inherit;
-    margin-left: 5px;
- text-decoration: none;
+    min-width: 30%;
+    background:#118571 ;
+    padding: 5px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+color: #f1f1f2;
+text-decoration: none;
+
+}
+
+.legi-link:hover {
+
+    cursor: pointer;
+    background:#11D99B ;
+
+
+}
+
+.idcc-card-container  {
+    border: solid fuchsia 3px;
 }
 
 
+.map {
+    border: solid #afafc6 1px;
+    border-radius: 7px;
 
-
-@media (max-width: 900px) {
-    .etablissement-card {
-        flex-basis: calc(50% - 20px);  /* Pour 2 cartes par ligne */
-    }
 }
 
-@media (max-width: 600px) {
-    .etablissement-card {
-        flex-basis: 100%;  /* Pour 1 carte par ligne */
-    }
+
+.paginate {
+    font-weight: bolder;
 }
+
+

@@ -1,51 +1,35 @@
 .details-container-dark {
-  font-weight: bolder;
-  margin: 15px;
-  padding: 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  border-radius: 66px;
-  background-color: #202123;
-  box-shadow: 6px 6px 12px #0d0e0f, -6px -6px 12px #2b2d31;
-  color: #ffffff;
+  background:#212121;
+
 }
 
 .details-container-light {
-  font-weight: bolder;
-  margin: 15px;
-  padding: 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  border-radius: 66px;
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  box-shadow:  9px 9px 43px #c2c2c2,
-               -9px -9px 43px #ffffff;
+  background: #eae9eb;
 }
 
 .back-button-light {
-  
+  margin: 10px;
   padding: 5px;
-  border: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: fit-content;
-  margin-bottom: 20px;
   border-radius: 50px;
-  background: #ffffff;
-  box-shadow:  5px 5px 10px #9c9c9c,
-               -5px -5px 10px #ffffff;
+  border: solid #181818;
+
  
 }
 
 .back-button-light:hover {
-  background: #ffffff;
-  box-shadow: inset -10px 10px 25px #d9d9d9,
-              inset 10px -10px 25px #ffffff;
+  background: #e1dfe3;
+  cursor: pointer;
+
 }
 
 .back-button-dark {
@@ -55,18 +39,15 @@
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: fit-content;
-  margin-bottom: 20px;
+  margin: 10px;
   border-radius: 50px;
-  background: #202123;
-  box-shadow:  5px 5px 10px #141415,
-               -5px -5px 10px #2c2e31;
+  border: solid #ffffffff;
  
 }
 
 .back-button-dark:hover {
-  background: #202123;
-  box-shadow: inset -5px 5px 0px #1b1c1d,
-              inset 5px -5px 0px #252629;
+  background: #cececf;
+  cursor: pointer;
 }
 
 .icon-back {
@@ -90,20 +71,10 @@
 
 }
 
-.details-data-dark {
-  display: flex;
-  flex-direction: column;
-  border-radius: 45px;
-  background: #383b3d;
-  box-shadow: inset 5px 5px 6px #0d0d0e,
-              inset -5px -5px 6px #333538;
-}
-
 .details-data-light {
-  border-radius: 45px;
-background: #e1dfdf;
-box-shadow: inset 5px 5px 6px #666666,
-            inset -5px -5px 6px #ffffff;
-  }
+ display: flex;
+ flex-direction: column;
+  background: #f1f1f2;
+}
 
 

@@ -17,7 +17,7 @@ const Header = ({theme, toggleTheme }) => {
          onClick={() => {
           navigate("/")
          }}/>
-         <div className={`home-btn-${tableClassName}`}>
+
          <div className="theme-container">
          <label className="switch">
             <input
@@ -28,7 +28,6 @@ const Header = ({theme, toggleTheme }) => {
             <span className="slider"></span>
           </label>
       </div>
-         </div>
          </div>
     </>
   );
