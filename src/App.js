@@ -1,5 +1,6 @@
 // import PKG
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 //function
 import { useTheme } from "./functions/SetTheme";
@@ -11,6 +12,7 @@ import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Details from "./pages/Details/Details";
 import Recherche from "./pages/Recherche/Recherche";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 
 
@@ -20,6 +22,7 @@ import "./App.css";
 
 function App() {
   const [theme, toggleTheme] = useTheme();
+  const [visible, setVisible] = useState(false);
 
   return (
     <>
@@ -38,7 +41,10 @@ function App() {
             </Routes>
             </DataProvider>
             </div>
-            <Footer />
+            <Footer visible={visible} setVisible={setVisible} />
+            {visible ? (
+                <ContactForm onClose={() => setVisible(false)} />
+                ) : null}
           </Router>
         </div>
       </div>

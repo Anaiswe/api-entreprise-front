@@ -115,19 +115,17 @@ const DataContainer = ({ theme }) => {
                   { item.complements.egapro_renseignee === true ? (
                     <>
                       <a href={`https://egapro.travail.gouv.fr/index-egapro/recherche?query=${item.siren}`} target="_blank" rel="noopener noreferrer" className="link-egapro">
-                      <div className="idcc-header">
+                      <div className="link-container">
                         Index d'égalité professionnelle
                         <div >
-                          <FontAwesomeIcon icon={faUpRightFromSquare} size="xl" className="icon" />
+                          <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
                         </div>
                       </div>
                     
                       </a>
                     </>
                   ) : (
-                    <div className="idcc-header">
-                      Egalité professionnelle non renseignée
-                    </div>
+                    null
                   )}
                 </div>
 
@@ -150,12 +148,12 @@ const DataContainer = ({ theme }) => {
                                         </div>
                                         <div className="idcc-map">
                                           {convention.conventions.map((singleConvention) => (
-                                            <div className="idcc-button" key={singleConvention.id}>
+                                            <div key={singleConvention.id}>
                                               <a href={singleConvention.url} target="_blank" rel="noopener noreferrer" className="idcc-url">
-                                                <div className="idcc-links-item">
+                                                <div className="link-container">
                                                   <div className="idcc-button">
                                                     <div className={`link-text${className}`}>{singleConvention.shortTitle}</div>
-                                                    <FontAwesomeIcon icon={faUpRightFromSquare} size="xl" className="icon" />
+                                                    <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
                                                   </div>
                                                 </div>
                                               </a>
@@ -164,9 +162,7 @@ const DataContainer = ({ theme }) => {
                                         </div>
                                       </>
                                     ) : (
-                                      <div className="idcc-header">
-                                        Convention collective non renseignée
-                                      </div>
+                                      null
                                     )}
                                   </div>
                                 ))}

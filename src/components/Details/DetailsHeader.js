@@ -82,7 +82,7 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
                 </a>
               </div>
             ) : (
-              <p>Index d'égalité professionnel non renseigné</p>
+              <p></p>
             )}
           </div>
           <div className="idcc-container">

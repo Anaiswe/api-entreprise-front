@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //pkg
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,8 +10,9 @@ import { useData } from "../../../functions/DataContext";
 import "./searchHome.css"
 
 const SearchHome = ({  theme }) => {
+  const navigate = useNavigate();
   const { data, setSearch, setDepartement, setPostalCode, setPage } = useData();
-  console.log("this data", data[0]);
+  // console.log("this data", data[0]);
   const [extractedData, setExtractedData] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [shouldExtract, setShouldExtract] = useState(false);
@@ -66,12 +67,12 @@ const handleInputChange = (event) => {
   setInputValue(newValue);
   setLastInputValue(newValue); 
 
-  // Effacez le délai précédent
+  // Effacer le délai précédent
   if (searchTimeout) {
     clearTimeout(searchTimeout);
   }
 
-  // nouveau délai pour déclencher setSearch après 2 secondes
+  // nouveau délai pour déclencher setSearch après x secondes
   setSearchTimeout(
     setTimeout(() => {
       setSearch(newValue);
@@ -80,12 +81,24 @@ const handleInputChange = (event) => {
   );
 };
 
+const handleEnterKeyPress = (event) => {
+  if (event.key === "Enter") {
+
+    setSearch(inputValue);
+    setShouldExtract(true);
+    navigate("/recherche");
+    event.preventDefault(); 
+  }
+};
+
+
+
 useEffect(() => {
   // Réinitialiser les résultats de recherche si l'entrée change
   setExtractedData([]);
 }, [inputValue]);
   
-  console.log("SEARCHRESULT", extractedData);
+  // console.log("SEARCHRESULT", extractedData);
 
   return (
       <div className={`home-search-container`}>
@@ -100,6 +113,7 @@ useEffect(() => {
             placeholder="nom, siret, siren"
             value={inputValue}
             onChange={handleInputChange}
+            onKeyDown={handleEnterKeyPress}
             />
             </div>
             <Link to="/recherche">

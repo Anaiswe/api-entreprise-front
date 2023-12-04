@@ -54,7 +54,8 @@ const FilterPostal = ({  theme }) => {
 const filteredPostalCodes = codesPostaux
   ? codesPostaux.filter((codePostal) => {
       const codePostalValue = codePostal.Code_postal.toString();
-      const doesStartWith = codePostalValue.startsWith(inputPostalValue);
+      const nomCommuneValue = codePostal.Nom_commune.toLowerCase();
+      const doesStartWith = codePostalValue.startsWith(inputPostalValue) || nomCommuneValue.startsWith(inputPostalValue);;
       return doesStartWith;
     })
   : [];
