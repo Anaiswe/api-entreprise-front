@@ -23,14 +23,9 @@
 .card-dark {
   border-bottom: solid #afafc6 0.2px;
   border-top: solid #afafc6 0.2px;
-  background: #212121;
+  background: #181818;
 }
 
-.card-content-dark,
-.card-content-light {
-  /* display: flex; */
-  /* justify-content: space-between; */
-}
 
 .card-content-top {
   display: flex;
@@ -81,112 +76,82 @@
 
     }
 
-    .egapro {
-      margin-bottom: 5px;
-    }
+    
 
-    .link-egapro {
-      text-decoration: none;
-      padding: 10px;
-      border-radius: 7px;
-
-    }
-
-
-    .link-egapro  :hover {
-      text-decoration: underline;
-      cursor: pointer;
-      background: #f4e4f5;
-
-    }
-
-.card-idcc {
-
-}
-
-.idcc-container {
-
-}
 
 .link-container {
-  font-weight: bolder;
-  font-size: smaller;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+border: solid violet 3px;
+  
+
+}
+
+.link {
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
   background: #DFCFE1;
-  color: #181818;
+}
+
+.idcc-header {
   text-align: center;
+  font-weight: bolder;
 }
 
 .idcc-map {
-  padding: 20px;
+  border: solid violet 2px;
   display: flex;
+  gap: 1px;
   flex-wrap: wrap;
-  gap: 10px;
 
 }
 
-.idcc-button {
 
-text-decoration: none;
-
-}
-
-.idcc-links-item {
-  display: flex;
-  font-weight: bolder;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  border: solid #DFCFE1 2px;
-  border-radius: 7px;
-}
-
-
-.link-text {
-
-  text-decoration: none;
-}
 
 .idcc-url {
   text-decoration: none;
   color: inherit;
-  /* transition: color 0.3s ease-in-out; */
+ 
+
 }
 
 
 
 
 
-.btn-info-dark,
-.btn-info-light {
+.btn-info {
   display: flex;
   background-color: #118571;
   padding: 20px;
   border-radius: 7px;
-
-}
-
-.btn-info-dark {
   color : #ffffff;
+
 }
 
-.btn-info-light {
-  color : #ffffff;
-}
 
-.btn-info-dark:hover {
+
+.btn-info:hover {
   background-color: #11D99B;
   color : #ffffff;
 }
 
-.btn-info-light:hover {
-  background-color: #11D99B;
-  color : #ffffff;
-}
+
 
 .more {
   padding: 10px;
 }
+
+.more a {
+  color: #118571;
+ 
+}
+
+
+
 
 
 

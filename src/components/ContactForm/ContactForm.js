@@ -12,6 +12,8 @@ const ContactForm = ({ onClose }) => {
     message: '',
   });
 
+  const [isMailSent, setIsMailSent] = useState(false);
+
   const formRef = useRef(null);
 
   const handleChange = (e) => {
@@ -25,9 +27,31 @@ const ContactForm = ({ onClose }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(process.env.REACT_APP_CONTACTFORM, formData);
+    await axios.post(process.env.REACT_APP_CONTACTFORM, formData);
 
-      console.log('Réponse du serveur:', response.data);
+      // console.log('Réponse du serveur:', response.data);
+
+
+
+        // Fermer le formulaire après un court délai 
+        setTimeout(() => {
+          onClose();
+        }, 3000);
+
+            // Afficher le message de succès
+            setIsMailSent(true);
+
+    // Réinitialiser le formulaire
+    setTimeout(() => {
+      setIsMailSent(false);
+      setFormData({
+        firstname: '',
+        lastname: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
+    }, 3000);
     } catch (error) {
       console.error('Erreur lors de la requête:', error.message);
     }
@@ -59,11 +83,17 @@ const ContactForm = ({ onClose }) => {
     <div className='contact-form-container-root'>
       <div className='contact-form-container'
       ref={formRef}>
-      <button 
+   
+        <form onSubmit={handleSubmit}>
+        <button 
       className='close-button'
       onClick={onClose}>X</button>
-        <form onSubmit={handleSubmit}>
           <div className='contact-form-fields'>
+          {isMailSent && (
+          <div className="success-message">
+            <p>Votre mail a bien été envoyé !</p>
+          </div>
+        )}
             <div className='contact-form-field'>
               <label>
                 Prénom:
@@ -93,11 +123,14 @@ const ContactForm = ({ onClose }) => {
                 Message:
                 <textarea name="message" value={formData.message} onChange={handleChange} />
               </label>
+              
             </div>
+            
           </div>
 
           <button className='contact-form-button' type="submit">Envoyer</button>
         </form>
+
       </div>
     </div>
   );

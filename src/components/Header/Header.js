@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+
 
 import "./header.css";
 const Header = ({theme, toggleTheme }) => {
@@ -11,12 +12,30 @@ const Header = ({theme, toggleTheme }) => {
     <>
     <div className={`header-${tableClassName}`}>
       <FontAwesomeIcon 
-      className={`home-btn-${tableClassName}`}
+      className="home-btn"
          icon={faHouse} 
          size="xl"
          onClick={() => {
           navigate("/")
          }}/>
+             <div className="home-text">
+      Recherchez une entreprise, puis accédez en quelques clics aux conventions collectives et accords d'établissements qui lui sont applicables et répertoriés sur
+  <a 
+  className="home-link"
+  href="https://www.legifrance.gouv.fr/" 
+  target="_blank" 
+  rel="noopener noreferrer"> Légifrance 
+  <span className="icon-link">
+  <FontAwesomeIcon
+    
+    icon={faUpRightFromSquare} 
+ 
+/>
+
+  </span>
+   </a>.
+
+</div>
 
          <div className="theme-container">
          <label className="switch">

@@ -2,7 +2,7 @@ import "./loader.css";
 
 const Loader = ({theme}) => {
   const className = theme === "bg-dark" ? "-dark" : "-light";
-  const skeletons = Array(12).fill(null);
+  const skeletons = Array(1).fill(null);
 
   return (
     <div className={`cards-container${className}`}>

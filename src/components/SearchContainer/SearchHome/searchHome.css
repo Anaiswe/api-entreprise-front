@@ -68,37 +68,24 @@
  
   }
   
-  .btn-home-dark {
+  .btn-home {
    font-weight: bolder;
     border: none;
     height: 50px;
     color: #ffffff;
     background: #118571;
   border-radius: 10px;
+  transition: transform 0.3s ease;
 
   }
   
-  .btn-home-dark:hover {
+  .btn-home:hover {
     border: none; 
-    background: #11D99B;
+    transform: translateY(-5px);
+    cursor: pointer;
 
   }
   
-  .btn-home-light {
-    font-weight: bolder;
-    border: none;
-    background: #118571;
-    color: #ffffff;
-    height: 50px;
-    border-radius: 10px;
- 
-  }
-  
-  .btn-home-light:hover {
-    border: none; 
-    background: #11D99B;
-
-  }
   
   
   

@@ -21,14 +21,16 @@
   justify-content: space-around;
   max-width: fit-content;
   border-radius: 50px;
-  border: solid #181818;
+  background-color: #118571;
+  color: #ffffff;
+  transition: transform 0.3s ease;
 
  
 }
 
 .back-button-light:hover {
-  background: #e1dfe3;
   cursor: pointer;
+  transform: translateY(-5px);
 
 }
 
@@ -41,13 +43,15 @@
   max-width: fit-content;
   margin: 10px;
   border-radius: 50px;
-  border: solid #ffffffff;
+  background-color: #118571;
+  color: #ffffff;
+  transition: transform 0.3s ease;
  
 }
 
 .back-button-dark:hover {
-  background: #cececf;
   cursor: pointer;
+  transform: translateY(-5px);
 }
 
 .icon-back {

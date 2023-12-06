@@ -77,7 +77,7 @@ const handleInputChange = (event) => {
     setTimeout(() => {
       setSearch(newValue);
       setShouldExtract(true);
-    }, 1000) 
+    }, 200) 
   );
 };
 
@@ -117,7 +117,7 @@ useEffect(() => {
             />
             </div>
             <Link to="/recherche">
-              <button className={`btn-home${className}`}>recherche</button>
+              <button className="btn-home">recherche</button>
               </Link>
               </div>
               <div className="suggestion">

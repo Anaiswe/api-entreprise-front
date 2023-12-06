@@ -67,7 +67,7 @@ if (headquarters) {
           <span className="icon-back">
             <FontAwesomeIcon icon={faArrowLeft}/>
             </span>
-            <button className="btn-back">Retourner à la recherche</button>
+            <button className="btn-back">Retour à la recherche</button>
         </Link>
       </div>
       

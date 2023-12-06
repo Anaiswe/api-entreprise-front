@@ -1,7 +1,7 @@
 .footer-container {
     display: flex;
     justify-content: space-around;
-    padding: 10px;
+    padding: 40px;
 }
 
 .footer-title {
@@ -14,4 +14,25 @@
     width: 50%;
     display: flex;
     justify-content: space-evenly;
+}
+
+.footer-link {
+
+    transition: transform 0.3s ease;
+}
+
+.footer-link:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+
+}
+
+.footer-link a {
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.footer-link a:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
 }

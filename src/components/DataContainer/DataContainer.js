@@ -88,7 +88,7 @@ const DataContainer = ({ theme }) => {
                 <div className="details-link">
                     <Link
                       to={`/Details/${item.id}`}
-                      className={`btn-info${className}`}
+                      className="btn-info"
                       onClick={() => {
                         console.log(item);
                         handleSelectedItem(item);
@@ -111,11 +111,11 @@ const DataContainer = ({ theme }) => {
                       <div className="other-infos">{trancheEffectifData[item.tranche_effectif_salarie]}</div>
                 </div>
 
-                <div className="egapro">
+                <div className="link-container">
                   { item.complements.egapro_renseignee === true ? (
                     <>
                       <a href={`https://egapro.travail.gouv.fr/index-egapro/recherche?query=${item.siren}`} target="_blank" rel="noopener noreferrer" className="link-egapro">
-                      <div className="link-container">
+                      <div className="link">
                         Index d'égalité professionnelle
                         <div >
                           <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
@@ -129,10 +129,9 @@ const DataContainer = ({ theme }) => {
                   )}
                 </div>
 
-                <div className="card-idcc">
+                <div className="link-container">
                   {idccData && (
                     <div> 
-                      <div className="idcc-container">
                         {idccData
                           .filter((idccItem) => idccItem.siret === item.siege.siret)
                           .map((matchedIdccItem) => (
@@ -150,11 +149,9 @@ const DataContainer = ({ theme }) => {
                                           {convention.conventions.map((singleConvention) => (
                                             <div key={singleConvention.id}>
                                               <a href={singleConvention.url} target="_blank" rel="noopener noreferrer" className="idcc-url">
-                                                <div className="link-container">
-                                                  <div className="idcc-button">
+                                                <div className="link">
                                                     <div className={`link-text${className}`}>{singleConvention.shortTitle}</div>
                                                     <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
-                                                  </div>
                                                 </div>
                                               </a>
                                             </div>
@@ -168,7 +165,6 @@ const DataContainer = ({ theme }) => {
                                 ))}
                             </div>
                           ))}
-                      </div>
                     </div>
                   )}
                 </div>
@@ -182,10 +178,9 @@ const DataContainer = ({ theme }) => {
                       }}
                    
                     >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                </svg> d'informations
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                        </svg>
                     </Link> 
                   </div>
             </div>

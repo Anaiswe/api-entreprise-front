@@ -1,5 +1,5 @@
 .header-dark {
-  padding: 20px;
+  padding: 40px;
   display: flex;
   justify-content: space-between;
   gap: 50px;
@@ -7,37 +7,28 @@
   }
   
   .header-light {
-    padding: 20px;
+    padding: 40px;
     display: flex;
     justify-content: space-between;
     gap: 50px;
 
   }
 
-  .home-btn-light {
+  .home-btn {
     padding: 20px;
-    border: solid #202123 2px;
     border-radius: 15px;
+    background-color: #118571;
+    color: #ffffff;
+    transition: transform 0.3s ease;
 
   }
 
-  .home-btn-dark {
-    padding: 20px;
-    border-radius: 15px;
-    border: solid #ffffff 2px;
-
-  }
-
-.home-btn-dark:hover {
+.home-btn:hover {
 cursor: pointer;
+transform: translateY(-5px);
 
 }
 
-.home-btn-light:hover {
-
-cursor: pointer;
-
-}
 
 .switch {
 position: relative;

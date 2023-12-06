@@ -14,8 +14,9 @@
 
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top:-10px;
+
+  right:100px;
   font-size: 18px;
   font-weight: bolder;
   color: white;
@@ -29,6 +30,7 @@
   font-weight: bolder;
   color: #ffffff;
   width: 700px;
+  position: relative;
 
   padding: 10px 50px;
   display: flex;
@@ -42,7 +44,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
 }
 
 .contact-form-fields {
@@ -75,12 +76,29 @@
 .contact-form-button {
   background-color: #118571;
   cursor: pointer;
-  color: gainsboro;
+  color: #ffffff;
   height: 40px;
   font-size: 18px;
   border: none;
   width: 100%;
   border-radius: 4px;
   font-weight: bolder;
+
+}
+
+.contact-form-button:hover {
+  cursor: pointer;
+  background-color:#11D99B ;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 1000;
 }
 
