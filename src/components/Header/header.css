@@ -1,16 +1,17 @@
 .header-dark {
-  padding: 40px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
-  gap: 50px;
+  gap: 10px;
 
   }
   
   .header-light {
-    padding: 40px;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
-    gap: 50px;
+    gap: 10px;
+    font-size: 12px;
 
   }
 

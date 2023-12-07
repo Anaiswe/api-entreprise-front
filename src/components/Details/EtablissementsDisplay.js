@@ -75,21 +75,6 @@ const EtablissementsDisplay = ({
         <div className={`etablissement-cards${className}`}>
           {currentEtablissements.map((etablissement, index) => {
             const idccData = idccDataList[index] || [];
-            // let shortTitle = 'N/A';
-            // let url = '';
-
-            // if (idccData.length > 0) {
-            //   // Check if idccData is not an empty array
-            //   shortTitle = idccData.map(item =>
-            //     item.conventions.map(convention => convention.shortTitle).join(', ')
-            //   ).join(', ');
-            //   url = idccData.map(item =>
-            //     item.conventions.map(convention => convention.url).join(', ')
-            //   ).join(', ');
-            // } else if (idccData.length === 0) {
-            //   // If idccData is an empty array
-            //   shortTitle = 'Aucune donnée';
-            // }
 
             return (
               <div key={index} className={`etablissement-card${className}`}>
@@ -114,29 +99,17 @@ const EtablissementsDisplay = ({
                       </a>
 
                       <div className="idcc-card-container">
-                      { idccData.map((item, idccIndex) => (
-    <div key={idccIndex} className="idcc-card-container">
-        {item.conventions.map((convention, conventionIndex) => (
-            <div key={conventionIndex}>
-                <a href={convention.url} target="_blank" rel="noopener noreferrer">
-                    {convention.shortTitle}
-                </a>
-            </div>
-        ))}
-    </div>
-))}
-
-                      {/* {idccData.map((item, idccIndex) => (
-                <div key={idccIndex}>
-                  <a href={item.conventions[0].url} target="_blank" rel="noopener noreferrer">
-                    {item.conventions[0].shortTitle}
-                  </a>
-                </div>
-              ))}
-                        
-                        
-                        <p>idcc: {shortTitle}</p>
-                        <p>URLs: {url}</p> */}
+                        {idccData.map((item, idccIndex) => (
+                          <div key={idccIndex} className="idcc-card-container">
+                            {item.conventions.map((convention, conventionIndex) => (
+                              <div key={conventionIndex}>
+                                <a href={convention.url} target="_blank" rel="noopener noreferrer">
+                                  {convention.shortTitle}
+                                </a>
+                              </div>
+                            ))}
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>

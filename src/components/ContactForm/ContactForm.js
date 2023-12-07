@@ -13,6 +13,7 @@ const ContactForm = ({ onClose }) => {
   });
 
   const [isMailSent, setIsMailSent] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const formRef = useRef(null);
 
@@ -25,6 +26,12 @@ const ContactForm = ({ onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+        // Vérifier si tous les champs requis sont remplis
+        if (!formData.firstname || !formData.lastname || !formData.email || !formData.message) {
+          setIsError(true);
+          return; // Ne pas envoyer le formulaire si des champs requis sont manquants
+        }
 
     try {
     await axios.post(process.env.REACT_APP_CONTACTFORM, formData);
@@ -44,6 +51,7 @@ const ContactForm = ({ onClose }) => {
     // Réinitialiser le formulaire
     setTimeout(() => {
       setIsMailSent(false);
+      setIsError(false);
       setFormData({
         firstname: '',
         lastname: '',
@@ -89,11 +97,15 @@ const ContactForm = ({ onClose }) => {
       className='close-button'
       onClick={onClose}>X</button>
           <div className='contact-form-fields'>
-          {isMailSent && (
-          <div className="success-message">
-            <p>Votre mail a bien été envoyé !</p>
-          </div>
-        )}
+          {isMailSent ? (
+              <div className='success-message'>
+                <p>Votre mail a bien été envoyé !</p>
+              </div>
+            ) : isError ? (
+              <div className='error-message'>
+                <p>Merci de remplir au moins les champs suivants : prénom - nom - Email - message</p>
+              </div>
+            ) : null}
             <div className='contact-form-field'>
               <label>
                 Prénom:

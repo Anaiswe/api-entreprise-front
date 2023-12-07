@@ -114,24 +114,25 @@ const DataContainer = ({ theme }) => {
                 <div className="link-container">
                   { item.complements.egapro_renseignee === true ? (
                     <>
-                      <a href={`https://egapro.travail.gouv.fr/index-egapro/recherche?query=${item.siren}`} target="_blank" rel="noopener noreferrer" className="link-egapro">
-                      <div className="link">
-                        Index d'égalité professionnelle
+                      <a href={`https://egapro.travail.gouv.fr/index-egapro/recherche?query=${item.siren}`} target="_blank" rel="noopener noreferrer" className="egapro-url">
+                        <div className="link-egapro">
+                          <div className="text">
+                          Index d'égalité professionnelle
+                          </div>
+                          
                         <div >
                           <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
                         </div>
-                      </div>
-                    
+
+                        </div>
                       </a>
                     </>
                   ) : (
                     null
                   )}
-                </div>
-
-                <div className="link-container">
+                  
                   {idccData && (
-                    <div> 
+                    <div className="iddcc-container"> 
                         {idccData
                           .filter((idccItem) => idccItem.siret === item.siege.siret)
                           .map((matchedIdccItem) => (
@@ -148,9 +149,9 @@ const DataContainer = ({ theme }) => {
                                         <div className="idcc-map">
                                           {convention.conventions.map((singleConvention) => (
                                             <div key={singleConvention.id}>
-                                              <a href={singleConvention.url} target="_blank" rel="noopener noreferrer" className="idcc-url">
+                                              <a href={singleConvention.url} target="_blank" rel="noopener noreferrer" className="link-url">
                                                 <div className="link">
-                                                    <div className={`link-text${className}`}>{singleConvention.shortTitle}</div>
+                                                    <div>{singleConvention.shortTitle}</div>
                                                     <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
                                                 </div>
                                               </a>
@@ -168,6 +169,7 @@ const DataContainer = ({ theme }) => {
                     </div>
                   )}
                 </div>
+
               </div>
               <div className="more">
               <Link

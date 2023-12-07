@@ -60,7 +60,8 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
 
           <div className="top">
             <div className="main-informations-entreprise">
-            <p className="entreprise-title">{selectedDataItem.nom_complet} ({selectedDataItem.nom_raison_sociale})</p>
+              <div className="basic-informations-entreprise">
+              <p className="entreprise-title">{selectedDataItem.nom_complet} ({selectedDataItem.nom_raison_sociale})</p>
             <p>{selectedDataItem.siege.geo_adresse}</p>
             <p>{getNafLabel(selectedDataItem.activite_principale)}</p>
             <p>{trancheEffectifData[selectedDataItem.tranche_effectif_salarie]}</p>
@@ -77,7 +78,7 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
                     <div className="egapro-link-text">
                       Index d'égalité professionnelle
                     </div>
-                    <FontAwesomeIcon icon={faUpRightFromSquare} size="xl" className="icon" />
+                    <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
                   </div>
                 </a>
               </div>
@@ -85,6 +86,9 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
               <p></p>
             )}
           </div>
+
+              </div>
+
           <div className="idcc-container">
             {idccData && idccData[0]?.conventions && idccData[0].conventions.length > 0 ? (
               <>
@@ -101,7 +105,7 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
                       style={{ textDecoration: 'none' }}>
                         <div className="link-items">
                           <div className="idcc-link-id">{convention.shortTitle}</div>
-                          <FontAwesomeIcon icon={faUpRightFromSquare} size="xl" className="icon" />
+                          <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
                         </div>
                       </a>
                     </div>
@@ -109,7 +113,7 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
                 </div>
               </>
             ) : (
-              <p>Aucune convention collective répertoriée</p>
+             null
             )}
           </div>
           </div>
