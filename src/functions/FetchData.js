@@ -38,9 +38,9 @@ const FetchData = async (search, departement, postalCode, isIdcc, page, perPage,
 
   try {
     const response = await axios.get(url);
-    console.log("this response data", response.data);
+    // console.log("this response data", response.data);
     const valuesOfData = Object.values(response.data);
-    console.log("this values returned in FetchData", valuesOfData, "this response", response.data);
+    // console.log("this values returned in FetchData", valuesOfData, "this response", response.data);
     return valuesOfData;
   } catch (error) {
     console.error("Error fetching data:", error);

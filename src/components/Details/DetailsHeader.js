@@ -115,7 +115,18 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
             ) : (
              null
             )}
+                      <div className="accords-link-siege">
+                      <a
+                href={`https://www.legifrance.gouv.fr/liste/acco?siret=${selectedDataItem.siege.siret}&sortValue=DATE_PUBLI_DESC&pageSize=10&page=1&tab_selection=all#acco`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="accords-link"
+              >
+                Consulter les accords du siège
+              </a>
           </div>
+          </div>
+
           </div>
             </div>
 

@@ -1,26 +1,31 @@
 .etablissements-container-dark {
+    border: solid firebrick 3px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     background:#212121;
 }
 
 .etablissements-container-light {
+    border: solid firebrick 3px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     background:#eae9eb;
 
 }
 
 
 .etablissements-count {
+    border: solid rgb(34, 178, 44) 3px;
     text-align: center;
     font-weight: bolder;
 }
 
 .etablissements-list-light {
+    border: solid rgb(96, 34, 178) 3px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
   
@@ -29,7 +34,11 @@
 }
 
 .etablissements-list-dark {
-    
+    border: solid rgb(96, 34, 178) 3px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
  
 }
 
@@ -41,8 +50,9 @@
 }
 
 .etablissement-cards-dark {
+display: flex;
+flex-direction: column;
 
- 
 }
 
 .etablissement-card-dark {
@@ -50,7 +60,7 @@
     margin-right: 40px;
     margin-bottom: 30px;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     border-bottom: solid #afafc6 0.2px;
     border-top: solid #afafc6 0.2px;
     background: #181818;
@@ -65,7 +75,8 @@
     margin-bottom: 30px;
     gap: 20px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
     border-bottom: solid #afafc6 0.2px;
     border-top: solid #afafc6 0.2px;
     background: #f1f1f2;
@@ -100,13 +111,22 @@
 
 .left-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    /* width: 50%; */
+
 }
 
 .entreprise-info{
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.right-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 30%; */
 }
 
 .map-container {

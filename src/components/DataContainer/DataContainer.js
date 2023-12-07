@@ -175,7 +175,7 @@ const DataContainer = ({ theme }) => {
               <Link
                       to={`/Details/${item.id}`}
                       onClick={() => {
-                        console.log(item);
+                        // console.log(item);
                         handleSelectedItem(item);
                       }}
                    

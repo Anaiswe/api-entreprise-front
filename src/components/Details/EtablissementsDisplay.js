@@ -113,8 +113,9 @@ const EtablissementsDisplay = ({
                       </div>
                     </div>
                   </div>
-
-                  <div className="map-container">
+                </div>
+                <div className="right-container">
+                <div className="map-container">
                     <div className="map">
                       <EtablissementMap
                         latitude={etablissement.latitude}
@@ -123,6 +124,7 @@ const EtablissementsDisplay = ({
                       />
                     </div>
                   </div>
+
                 </div>
               </div>
             );

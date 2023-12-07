@@ -14,7 +14,7 @@ const Pagination = ({ theme }) => {
   const [activePage, setActivePage] = useState(page || 1);
   const [initialSearch, setInitialSearch] = useState(search);
 
-  console.log("search = ", search)
+  // console.log("search = ", search)
 
   useEffect(() => {
     if (search !== initialSearch) {
