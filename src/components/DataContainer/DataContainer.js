@@ -112,10 +112,11 @@ const DataContainer = ({ theme }) => {
                 </div>
 
                 <div className="link-container">
+                  <div className="link-egapro">
                   { item.complements.egapro_renseignee === true ? (
                     <>
                       <a href={`https://egapro.travail.gouv.fr/index-egapro/recherche?query=${item.siren}`} target="_blank" rel="noopener noreferrer" className="egapro-url">
-                        <div className="link-egapro">
+                        <div className="link-egapro-item">
                           <div className="text">
                           Index d'égalité professionnelle
                           </div>
@@ -130,9 +131,12 @@ const DataContainer = ({ theme }) => {
                   ) : (
                     null
                   )}
+
+                  </div>
+
                   
                   {idccData && (
-                    <div className="iddcc-container"> 
+                    <div className="conventions-container"> 
                         {idccData
                           .filter((idccItem) => idccItem.siret === item.siege.siret)
                           .map((matchedIdccItem) => (

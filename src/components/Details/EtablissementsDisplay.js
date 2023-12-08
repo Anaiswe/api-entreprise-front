@@ -5,6 +5,7 @@ import PaginationControls from "./PaginationControls";
 import EtablissementMap from "../EtablissementMap/EtablissementMap";
 import FetchCodesNaf from "../../functions/FetchCodesNaf";
 import FetchIdcc from "../../functions/FetchIdcc";
+import { trancheEffectifData } from "../../functions/ExportDefinitions";
 
 import "./etablissementsDisplay.css";
 
@@ -87,6 +88,8 @@ const EtablissementsDisplay = ({
                     <div className={`etablissement-details${className}`}>
                       <p>{etablissement.adresse.toLowerCase()}</p>
                       <p>{getNafLabel(etablissement.activite_principale)}</p>
+                      {etablissement.tranche_effectif_salarie !== null && etablissement.tranche_effectif_salarie !== undefined && (
+                      <p>{trancheEffectifData[etablissement.tranche_effectif_salarie]}</p>)}
 
                       <a
                         className="legi-link"
@@ -94,7 +97,7 @@ const EtablissementsDisplay = ({
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <div className="link-text">accords d'établissement</div>
+                        <div className="link-text">consulter les accords d'établissement</div>
                         <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="link-icon" />
                       </a>
 

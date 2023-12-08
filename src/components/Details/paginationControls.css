@@ -1,29 +1,20 @@
-.pagination-controls-dark {
+.pagination-controls {
     display: flex;
     justify-content: space-around;
 }
 
-.pagination-controls-light {
-    display: flex;
-    justify-content: space-around;
+
+.btn-page {
+    padding: 5px;
+    color: #ffffff;
+    border-radius: 5px;
+    background: #118571;
+
 }
 
-.btn-page-dark {
-    padding: 15px;
-    border-radius: 88px;
-}
-
-.btn-page-light {
-    padding: 15px;
-    border-radius: 88px;
-}
-
-.btn-page-dark:hover {
+.btn-page:hover {
     cursor: pointer;
+    background: #11D99B;
 }
 
 
-.btn-page-light:hover {
-    cursor: pointer;
-
-}

@@ -62,9 +62,9 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
             <div className="main-informations-entreprise">
               <div className="basic-informations-entreprise">
               <p className="entreprise-title">{selectedDataItem.nom_complet} ({selectedDataItem.nom_raison_sociale})</p>
-            <p>{selectedDataItem.siege.geo_adresse}</p>
-            <p>{getNafLabel(selectedDataItem.activite_principale)}</p>
-            <p>{trancheEffectifData[selectedDataItem.tranche_effectif_salarie]}</p>
+            <p className="entreprise-infos">{selectedDataItem.siege.geo_adresse}</p>
+            <p className="entreprise-infos">{getNafLabel(selectedDataItem.activite_principale)}</p>
+            <p className="entreprise-infos">{trancheEffectifData[selectedDataItem.tranche_effectif_salarie]}</p>
 
             <div className="egapro-link">
             {selectedDataItem.complements.egapro_renseignee ? (
@@ -74,7 +74,7 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
                 rel="noopener noreferrer" 
                 className="egapro-link-link" 
                 style={{ textDecoration: 'none' }}>
-                  <div className="link-items">
+                  <div className="egapro-link-items">
                     <div className="egapro-link-text">
                       Index d'égalité professionnelle
                     </div>
@@ -85,6 +85,23 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
             ) : (
               <p></p>
             )}
+          </div>
+          <div className="accords-link-siege">
+                      <a
+                href={`https://www.legifrance.gouv.fr/liste/acco?siret=${selectedDataItem.siege.siret}&sortValue=DATE_PUBLI_DESC&pageSize=10&page=1&tab_selection=all#acco`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="accords-link"
+              >
+                <div className="accords-link-items">
+                  <div className="accords-link-text">
+                  consulter les accords d'entreprise du siège
+                  </div>
+                  <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
+                  </div>
+                
+               
+              </a>
           </div>
 
               </div>
@@ -115,16 +132,7 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
             ) : (
              null
             )}
-                      <div className="accords-link-siege">
-                      <a
-                href={`https://www.legifrance.gouv.fr/liste/acco?siret=${selectedDataItem.siege.siret}&sortValue=DATE_PUBLI_DESC&pageSize=10&page=1&tab_selection=all#acco`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="accords-link"
-              >
-                Consulter les accords du siège
-              </a>
-          </div>
+
           </div>
 
           </div>

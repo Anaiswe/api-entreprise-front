@@ -116,8 +116,8 @@
 }
 
 .idcc-map {
-
   display: flex;
+  justify-content: center;
   gap: 15px;
   flex-wrap: wrap;
 
@@ -126,15 +126,22 @@
 
 .link-egapro {
   padding: 7px;
-  display: flex;
-  flex-wrap: wrap;
   gap: 7px;
-  border-radius: 5px;
+
 
 }
 
 .link-egapro:hover {
   cursor: pointer;
+}
+
+.link-egapro-item {
+  display: flex;
+  justify-content: center;
+  padding: 7px;
+  gap: 7px;
+  border: solid #8dbcff 2px;
+  border-radius: 5px;
 }
 
 .text {

@@ -6,7 +6,7 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./paginationControls.css"
 
 const PaginationControls = ({ currentPage, totalPages, setCurrentPage, theme }) => {
-  const className = theme === "bg-dark" ? "-dark" : "-light";
+
 
   const handlePrevClick = () => {
     setCurrentPage((prev) => Math.max(prev - 1, 1));
@@ -17,9 +17,9 @@ const PaginationControls = ({ currentPage, totalPages, setCurrentPage, theme }) 
   };
 
   return (
-    <div className={`pagination-controls${className}`}>
+    <div className="pagination-controls">
       <div onClick={handlePrevClick} disabled={currentPage === 1}>
-        <span className={`btn-page${className}`}>
+        <span className="btn-page">
           <FontAwesomeIcon icon={faArrowLeft} />
         </span>
       </div>
@@ -27,7 +27,7 @@ const PaginationControls = ({ currentPage, totalPages, setCurrentPage, theme }) 
         Page {currentPage} sur {totalPages}
       </span>
       <div onClick={handleNextClick} disabled={currentPage === totalPages}>
-        <span className={`btn-page${className}`}>
+        <span className="btn-page">
           <FontAwesomeIcon icon={faArrowRight} />
         </span>
       </div>

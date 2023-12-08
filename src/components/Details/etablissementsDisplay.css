@@ -1,5 +1,5 @@
 .etablissements-container-dark {
-    border: solid firebrick 3px;
+    /* border: solid firebrick 3px; */
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -7,7 +7,7 @@
 }
 
 .etablissements-container-light {
-    border: solid firebrick 3px;
+    /* border: solid firebrick 3px; */
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -17,7 +17,7 @@
 
 
 .etablissements-count {
-    border: solid rgb(34, 178, 44) 3px;
+    padding: 20px;
     text-align: center;
     font-weight: bolder;
 }
@@ -141,7 +141,7 @@ align-items: center;
 }
 
 .link-text {
-    color: #eae9eb;
+    color: #181818;
 }
 
 
@@ -149,12 +149,12 @@ align-items: center;
 
 .legi-link {
     min-width: 30%;
-    background:#118571 ;
+    background: #a8ccff;
     padding: 5px;
     border-radius: 7px;
     display: flex;
     justify-content: space-between;
-color: #f1f1f2;
+color: #181818;
 text-decoration: none;
 
 }
@@ -162,13 +162,20 @@ text-decoration: none;
 .legi-link:hover {
 
     cursor: pointer;
-    background:#11D99B ;
+    background:#8dbcff;
 
 
 }
 
 .idcc-card-container  {
-    border: solid fuchsia 3px;
+    margin-top: 10px;
+    /* border: solid fuchsia 3px; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap:7px;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -181,6 +188,8 @@ text-decoration: none;
 
 .paginate {
     font-weight: bolder;
+    padding: 15px;
+    margin: 10px;
 }
 
 
