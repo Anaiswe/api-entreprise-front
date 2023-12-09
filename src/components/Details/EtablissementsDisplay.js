@@ -58,10 +58,11 @@ const EtablissementsDisplay = ({
 
   return (
     <div className={`etablissements-container${className}`}>
+
       <p className="etablissements-count">
         {selectedDataItem.nombre_etablissements_ouverts} établissement(s)
       </p>
-      <div className={`etablissements-list${className}`}>
+      <div className="etablissements-list">
         <div className="paginate">
           {currentEtablissements.length > 0 && (
             <PaginationControls
@@ -73,7 +74,8 @@ const EtablissementsDisplay = ({
           )}
         </div>
 
-        <div className={`etablissement-cards${className}`}>
+        <div className="etablissement-cards">
+          
           {currentEtablissements.map((etablissement, index) => {
             const idccData = idccDataList[index] || [];
 
@@ -86,6 +88,18 @@ const EtablissementsDisplay = ({
                       <p>{etablissement.libelle_commune}</p>
                     </div>
                     <div className={`etablissement-details${className}`}>
+                    <div className="right-container">
+                <div className="map-container">
+                    <div className="map">
+                      <EtablissementMap
+                        latitude={etablissement.latitude}
+                        longitude={etablissement.longitude}
+                        address={etablissement.adresse}
+                      />
+                    </div>
+                  </div>
+
+                </div>
                       <p>{etablissement.adresse.toLowerCase()}</p>
                       <p>{getNafLabel(etablissement.activite_principale)}</p>
                       {etablissement.tranche_effectif_salarie !== null && etablissement.tranche_effectif_salarie !== undefined && (
@@ -106,8 +120,12 @@ const EtablissementsDisplay = ({
                           <div key={idccIndex} className="idcc-card-container">
                             {item.conventions.map((convention, conventionIndex) => (
                               <div key={conventionIndex}>
-                                <a href={convention.url} target="_blank" rel="noopener noreferrer">
+                                <a href={convention.url} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="idcc-legi-link">
                                   {convention.shortTitle}
+                                  <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="link-icon" />
                                 </a>
                               </div>
                             ))}
@@ -117,18 +135,7 @@ const EtablissementsDisplay = ({
                     </div>
                   </div>
                 </div>
-                <div className="right-container">
-                <div className="map-container">
-                    <div className="map">
-                      <EtablissementMap
-                        latitude={etablissement.latitude}
-                        longitude={etablissement.longitude}
-                        address={etablissement.adresse}
-                      />
-                    </div>
-                  </div>
 
-                </div>
               </div>
             );
           })}
