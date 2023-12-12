@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,17 +7,12 @@ import { useData } from "../../functions/DataContext";
 import DetailsHeader from "../../components/Details/DetailsHeader";
 import EtablissementsDisplay from "../../components/Details/EtablissementsDisplay";
 
-
 import "./details.css";
 
 const Details = ({ theme }) => {
   const { id } = useParams(); 
   const { data } = useData();
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
   const className = theme === "bg-dark" ? "-dark" : "-light";
-
-
 
   let selectedDataItem;
 
@@ -26,7 +21,6 @@ const Details = ({ theme }) => {
     
     // Stocker dans le localStorage
     localStorage.setItem("selectedDataItem", JSON.stringify(selectedDataItem));
-    
   } else {
     // Essayez d'obtenir l'item du localStorage
     selectedDataItem = JSON.parse(localStorage.getItem("selectedDataItem"));
@@ -36,7 +30,6 @@ const Details = ({ theme }) => {
       selectedDataItem = storedData.find((item) => item.id === Number(id));
     }
   }
-  
 
   const headquarters = selectedDataItem.matching_etablissements.find(
     (etablissement) => etablissement.est_siege
@@ -48,45 +41,37 @@ const Details = ({ theme }) => {
 
   let allEtablissements;
 
-if (headquarters) {
-  allEtablissements = [headquarters, ...otherEtablissements];
-} else {
-  allEtablissements = otherEtablissements;
-}
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentEtablissements = allEtablissements.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(allEtablissements.length / itemsPerPage);
-  
+  if (headquarters) {
+    allEtablissements = [headquarters, ...otherEtablissements];
+  } else {
+    allEtablissements = otherEtablissements;
+  }
 
-  
   return (
     <div className={`details-container${className}`}>
       <div className={`back-button${className}`}>
         <Link to="/recherche" className="btn-back">
           <span className="icon-back">
             <FontAwesomeIcon icon={faArrowLeft}/>
-            </span>
-            <button className="btn-back">Retour à la recherche</button>
+          </span>
+          <button className="btn-back">Retour à la recherche</button>
         </Link>
       </div>
       
       <div className={`details-data${className}`}>
         <div className="details-header">
           <DetailsHeader selectedDataItem={selectedDataItem} theme={theme} />
-          </div>
-          
-          <EtablissementsDisplay
-          currentEtablissements={currentEtablissements}
+        </div>
+        
+        <EtablissementsDisplay
+          currentEtablissements={allEtablissements}
           selectedDataItem={selectedDataItem}
           theme={theme}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          setCurrentPage={setCurrentPage}
           className={className}
         />
-        </div>
       </div>
-);};
+    </div>
+  );
+};
 
 export default Details;

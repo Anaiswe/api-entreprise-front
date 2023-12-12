@@ -8,8 +8,9 @@ import 'leaflet/dist/leaflet.css';
 import './EtablissementMap.css'
 
 
-function EtablissementMap({ latitude, longitude, address }) {
+function EtablissementMap({ latitude, longitude, address}) {
   const position = [latitude, longitude];
+  
 
   if (latitude === null || longitude === null) {
     return <div>Informations manquantes</div>;

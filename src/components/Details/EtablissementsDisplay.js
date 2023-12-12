@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import PaginationControls from "./PaginationControls";
+import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"; 
 import EtablissementMap from "../EtablissementMap/EtablissementMap";
 import FetchCodesNaf from "../../functions/FetchCodesNaf";
 import FetchIdcc from "../../functions/FetchIdcc";
@@ -13,13 +12,13 @@ const EtablissementsDisplay = ({
   selectedDataItem,
   theme,
   currentEtablissements,
-  currentPage,
-  totalPages,
-  setCurrentPage,
+
 }) => {
   const [fetchCodesNafData, setFetchCodesNafData] = useState(null);
   const [idccDataList, setIdccDataList] = useState([]);
   const className = theme === "bg-dark" ? "-dark" : "-light";
+
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,6 +55,10 @@ const EtablissementsDisplay = ({
     fetchAllIdccData();
   }, [currentEtablissements]);
 
+
+
+  
+
   return (
     <div className={`etablissements-container${className}`}>
 
@@ -63,21 +66,12 @@ const EtablissementsDisplay = ({
         {selectedDataItem.nombre_etablissements_ouverts} établissement(s)
       </p>
       <div className="etablissements-list">
-        <div className="paginate">
-          {currentEtablissements.length > 0 && (
-            <PaginationControls
-              currentPage={currentPage}
-              totalPages={totalPages}
-              setCurrentPage={setCurrentPage}
-              theme={theme}
-            />
-          )}
-        </div>
-
+        <div className="etablissements-scroll">
         <div className="etablissement-cards">
           
           {currentEtablissements.map((etablissement, index) => {
             const idccData = idccDataList[index] || [];
+            // setCurrentAddress(etablissement.adresse);
 
             return (
               <div key={index} className={`etablissement-card${className}`}>
@@ -92,9 +86,11 @@ const EtablissementsDisplay = ({
                 <div className="map-container">
                     <div className="map">
                       <EtablissementMap
+                      
                         latitude={etablissement.latitude}
                         longitude={etablissement.longitude}
                         address={etablissement.adresse}
+                    
                       />
                     </div>
                   </div>
@@ -141,15 +137,6 @@ const EtablissementsDisplay = ({
           })}
         </div>
 
-        <div className="paginate">
-          {currentEtablissements.length > 0 && (
-            <PaginationControls
-              currentPage={currentPage}
-              totalPages={totalPages}
-              setCurrentPage={setCurrentPage}
-              theme={theme}
-            />
-          )}
         </div>
       </div>
     </div>
