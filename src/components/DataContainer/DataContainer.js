@@ -7,6 +7,7 @@ import FetchCodesNaf from "../../functions/FetchCodesNaf";
 import FetchIdcc from "../../functions/FetchIdcc";
 import { trancheEffectifData } from "../../functions/ExportDefinitions";
 import Loader from "../Loader/Loader";
+import DataMap from "./DataMap/DataMap";
 
 import "./dataContainer.css";
 
@@ -78,37 +79,58 @@ const DataContainer = ({ theme }) => {
             {data[0]?.map((item) => (
   <div className={`card${className}`} key={item.id}>
               <div className={`card-content${className}`}>
-                <div className="card-content-top">
-                  <Link 
-                  to={`/Details/${item.id}`}
-                  style={{ textDecoration: 'none' }}
-                  className="name-link">
-                    <div className="card-title">{item.nom_complet}</div>
-                  </Link>
-                <div className="details-link">
+
+                    <div className="card-top">
+                    
                     <Link
                       to={`/Details/${item.id}`}
-                      className="btn-info"
+                      className="card-btn-info"
                       onClick={() => {
                         console.log(item);
                         handleSelectedItem(item);
                       }}
                       style={{ textDecoration: 'none' }}
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
-                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
-                      </svg>
+                      <div className="card-title">
+                      {item.nom_complet} ({item.nom_raison_sociale})
+                      </div>
+                      
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                        <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+                        <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+</svg>
                     </Link>
-                  </div>
-                </div>
+                  
+                  
+
+
+                    </div>
 
                 <div className="card-content-bottom">
-                  <div className="raison-sociale">
-                  {item.nom_raison_sociale}
+                  <div className="map">
+                  <DataMap 
+                  latitude={item.siege.latitude} 
+                  longitude={item.siege.longitude}
+                  name={item.nom_complet}
+                  address={item.siege.geo_adresse} />
+                    {/* <DatatMap/> */}
                   </div>
-                      <div className="other-infos">{item.siege.geo_adresse ? item.siege.geo_adresse : item.siege.adresse.toLowerCase()}</div>
-                      <div className="other-infos">{getNafLabel(item.activite_principale)}</div>
-                      <div className="other-infos">{trancheEffectifData[item.tranche_effectif_salarie]}</div>
+                  <div className="main-infos">
+                    <span>
+                    {item.siege.geo_adresse ? item.siege.geo_adresse : item.siege.adresse.toLowerCase()}
+                    </span>
+                    <span>
+                    {getNafLabel(item.activite_principale)}
+                    </span>
+                    <span>
+                    {trancheEffectifData[item.tranche_effectif_salarie]}
+                    </span>
+                  </div>
+
                 </div>
 
                 <div className="link-container">
@@ -184,9 +206,7 @@ const DataContainer = ({ theme }) => {
                       }}
                    
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-                        </svg>
+
                     </Link> 
                   </div>
             </div>

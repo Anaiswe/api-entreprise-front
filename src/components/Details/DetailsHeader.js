@@ -125,6 +125,18 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
                           <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
                         </div>
                       </a>
+                      <div className="num-idcc">
+                      <a href={`https://code.travail.gouv.fr/convention-collective/${convention.num}`}
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="idcc-link" 
+                      style={{ textDecoration: 'none' }}>
+                        <div className="link-items">
+                          <div className="idcc-link-id">Q/R fréquents</div>
+                          <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
+                        </div>
+                      </a>
+                      </div>
                     </div>
                   ))}
                 </div>

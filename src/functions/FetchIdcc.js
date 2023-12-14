@@ -5,7 +5,7 @@ const FetchIdcc = async (siret) => {
 
   try {
     const response = await axios.get(`${idccUrl}${siret}`);
-   
+  //  console.log(response.data)
     return response.data;
   } catch (error) {
     return null;

@@ -31,57 +31,62 @@
   border-radius: 7px; 
 }
 
-
-.card-content-top {
+.card-top {
   display: flex;
   justify-content: space-between;
-  
+  background-color: #118571;
+  border-radius: 7px; 
+  padding: 15px;
+  color: #ffffff;
+  font-weight: bolder;
+  gap: 10px;
+}
+
+.card-top:hover {
+  background-color: #2fb09a;
+  cursor: pointer;
+}
+
+.card-title {
+display: flex;
+gap: 10px;
+}
+
+
+.card-title:hover {
+  text-decoration: underline;
+
+}
+
+
+
+.card-btn-info {
+  transition: transform 0.3s ease;
+}
+
+.card-btn-info:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
 }
 
 .card-content-bottom {
   /* border: solid salmon 4px; */
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap:10px;
+  gap:15px;
   padding: 10px;
 
 }
 
-.raison-sociale {
+.main-infos {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
   font-weight: bolder;
-  font-size: smaller;
 }
-
-.other-infos {
-  
-  font-weight: bolder;
-  font-size: smaller;
-}
-
-
-    .name-link {
-      background-color: #FBB163;
-      border-radius: 7px; 
-      padding: 15px;
-      color: #181818;
-      font-weight: bolder;
-
-    }
-    .name-link:hover {
-      /* background-color: #7ab1f8; */
-      background-color: #ffc78b;
-      cursor: pointer;
-      color: initial;
-
-    }
-
-    .card-title:hover {
-      text-decoration: underline;
-
-    }
-
-    
 
 
 .link-container {
@@ -98,16 +103,16 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 7px;
-
   align-items: center;
   text-align: center;
   border-radius: 5px;
-  background: #DFCFE1;
+  color: #ffffff;
+  background: #BD1E59;
 }
 
 .link:hover {
   cursor: pointer;
-  background: #f4e4f5;
+  background: #d08ca5;
 }
 
 .idcc-header {
@@ -140,8 +145,14 @@
   justify-content: center;
   padding: 7px;
   gap: 7px;
-  border: solid #8dbcff 2px;
+  background: #FBB163;
+  color: #181818;
   border-radius: 5px;
+}
+
+.link-egapro-item:hover {
+  background: #f5bd80;
+
 }
 
 .text {
@@ -169,21 +180,12 @@
 }
 
 
-.btn-info {
-  display: flex;
-  background-color: #118571;
-  padding: 20px;
-  border-radius: 7px;
-  color : #ffffff;
+.card-btn-info {
+
+  color : inherit;
 
 }
 
-
-
-.btn-info:hover {
-  background-color: #11D99B;
-  color : #ffffff;
-}
 
 
 
