@@ -58,45 +58,67 @@ const Home = ({ theme }) => {
             </span>
           </a> : <br />
           <div className="bullet-point">
+            <div className="scrap-link">
             <span className="convention"
             //  onMouseEnter={handleHoverConvention}
             //  onMouseLeave={handleHoverConvention}
              onClick={handleClickConvention}>
                 convention collective
-                {isConventionHovered && (
-              <div className="convention-info">
+            </span>
+            <div className="scrap-info-display">
+            {isConventionHovered && (
+              <div className="scrap-info">
                 <p>{conventionData.text}</p>
-                <p>Source: {conventionData.source}</p>
+                Source:{" "}
+                 <a href={conventionData.source} target="_blank" rel="noopener noreferrer">
+                  {conventionData.source}
+                  </a>
               </div>
             )}
-            </span>
+            </div>
+            </div>
 
+            <div className="scrap-link">
             <span className="accords-entreprise"
-            //  onMouseEnter={handleHoverAgreement}
-            //  onMouseLeave={handleHoverAgreement}
-             onClick={handleClickAgreement}>
-               accords d'entreprise
-               {isAgreementHovered && (
-              <div className="convention-info">
+            //  onMouseEnter={handleHoverConvention}
+            //  onMouseLeave={handleHoverConvention}
+            onClick={handleClickAgreement}>
+            accords d'entreprise
+            </span>
+            <div className="scrap-info-display">
+            {isAgreementHovered && (
+              <div className="scrap-info">
                  <p>{agreementData.text}</p>
-                <p>Source: {agreementData.source}</p>
+                 Source:{" "}
+                 <a href={agreementData.source} target="_blank" rel="noopener noreferrer">
+                  {agreementData.source}
+                  </a>
               </div>
             )}
-            </span>
+            </div>
+            </div>
 
+            <div className="scrap-link">
             <span className="egalite-pro"
-            // onMouseEnter={handleHoverIndex}
-            // onMouseLeave={handleHoverIndex} 
+            //  onMouseEnter={handleHoverConvention}
+            //  onMouseLeave={handleHoverConvention}
             onClick={handleClickIndex}>
               index égalité professionnelle
-              {isIndexHovered && (
-              <div className="convention-info">
+            </span>
+            <div className="scrap-info-display">
+            {isIndexHovered && (
+              <div className="scrap-info">
                  <p>{egaproData.text}</p>
-                <p>Source: {egaproData.source}</p>
+                 Source:{" "}
+                 <a href={egaproData.source} target="_blank" rel="noopener noreferrer">
+                  {egaproData.source}
+                  </a>
+                
               </div>
             )}
-            </span>
-
+            </div>
+            </div>
+ 
           </div>
         </div>
       </div>

@@ -34,6 +34,8 @@ text-align: center;
 }
 
 .egalite-pro {
+  display: flex;
+  justify-content: center;
   padding: 5px;
   border-radius: 5px;
 background: #FBB163;
@@ -48,6 +50,8 @@ transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .convention {
+  display: flex;
+  justify-content: center;
   padding: 5px;
   border-radius: 5px;
   background: #BD1E59;
@@ -62,6 +66,8 @@ transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .accords-entreprise  {
+  display: flex;
+  justify-content: center;
   padding: 5px;
   border-radius: 5px;
   background: #a8ccff;
@@ -83,8 +89,12 @@ transition: background-color 0.3s ease, transform 0.3s ease;
   /* gap: 5px; */
 }
 
-.text-with-background {
-  display: inline-block;
+.scrap-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: inherit;
+  padding: 10px;
 }
 
 

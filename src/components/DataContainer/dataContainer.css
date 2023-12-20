@@ -117,11 +117,13 @@
   border-radius: 5px;
   color: #ffffff;
   background: #BD1E59;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .link:hover {
-  cursor: pointer;
-  background: #d08ca5;
+  transform: translateY(-5px);
+  background: #961645;
+    cursor: pointer;
 }
 
 .idcc-header {
@@ -163,10 +165,13 @@
   border-radius: 5px;
   width: fit-content;
   margin: auto;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .link-egapro-item:hover {
-  background: #f5bd80;
+  transform: translateY(-5px);
+  background: #e69a48;
+    cursor: pointer;
 }
 
 
