@@ -16,17 +16,17 @@ const Home = ({ theme }) => {
   const [isIndexHovered, setIsIndexHovered] = useState(false);
   const { conventionData, agreementData, egaproData } = FetchScrapedData();
 
-  const handleHoverConvention = () => {
-    setIsConventionHovered(!isConventionHovered);
-  };
+  // const handleHoverConvention = () => {
+  //   setIsConventionHovered(!isConventionHovered);
+  // };
 
-  const handleHoverAgreement = () => {
-    setIsAgreementHovered(!isAgreementHovered);
-  };
+  // const handleHoverAgreement = () => {
+  //   setIsAgreementHovered(!isAgreementHovered);
+  // };
 
-  const handleHoverIndex =  () => {
-    setIsIndexHovered(!isIndexHovered)
-  }
+  // const handleHoverIndex =  () => {
+  //   setIsIndexHovered(!isIndexHovered)
+  // }
 
 
   const handleClickConvention = () => {
@@ -59,8 +59,8 @@ const Home = ({ theme }) => {
           </a> : <br />
           <div className="bullet-point">
             <span className="convention"
-             onMouseEnter={handleHoverConvention}
-             onMouseLeave={handleHoverConvention}
+            //  onMouseEnter={handleHoverConvention}
+            //  onMouseLeave={handleHoverConvention}
              onClick={handleClickConvention}>
                 convention collective
                 {isConventionHovered && (
@@ -72,8 +72,8 @@ const Home = ({ theme }) => {
             </span>
 
             <span className="accords-entreprise"
-             onMouseEnter={handleHoverAgreement}
-             onMouseLeave={handleHoverAgreement}
+            //  onMouseEnter={handleHoverAgreement}
+            //  onMouseLeave={handleHoverAgreement}
              onClick={handleClickAgreement}>
                accords d'entreprise
                {isAgreementHovered && (
@@ -85,8 +85,8 @@ const Home = ({ theme }) => {
             </span>
 
             <span className="egalite-pro"
-            onMouseEnter={handleHoverIndex}
-            onMouseLeave={handleHoverIndex} 
+            // onMouseEnter={handleHoverIndex}
+            // onMouseLeave={handleHoverIndex} 
             onClick={handleClickIndex}>
               index égalité professionnelle
               {isIndexHovered && (
