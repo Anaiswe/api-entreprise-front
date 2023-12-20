@@ -81,6 +81,7 @@ const EtablissementsDisplay = ({
                       <h2>{etablissement.est_siege ? "Siège" : "Établissement de"}</h2>
                       <p>{etablissement.libelle_commune}</p>
                     </div>
+                    <div className="voir-plus">voir plus</div>
                     <div className={`etablissement-details${className}`}>
                     <div className="right-container">
                 <div className="map-container">

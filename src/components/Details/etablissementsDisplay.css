@@ -110,12 +110,11 @@
 }
 
 .etablissement-header {
-    border: solid #FBB163 2px;
+
     text-align: center;
-    border: solid #FBB163 2px;
-    color: #181818;
+    color: #ffffff;
     padding: 5px;
-    background: #FBB163;
+    background: #118571;
     border-radius: 7px;
 
 }
@@ -161,21 +160,15 @@ justify-content: center;
 align-items: center;
 }
 
-.link-text {
-    color: #181818;
-}
-
-
-
 
 .legi-link {
     min-width: 30%;
-    background: #a8ccff;
+    background: #BD1E59;
     padding: 5px;
     border-radius: 7px;
     display: flex;
     justify-content: space-between;
-color: #181818;
+color: #ffffff;
 text-decoration: none;
 
 }
@@ -183,7 +176,7 @@ text-decoration: none;
 .legi-link:hover {
 
     cursor: pointer;
-    background:#8dbcff;
+    background:#d08ca5;
 
 
 }

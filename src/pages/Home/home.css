@@ -33,4 +33,58 @@ text-align: center;
   
 }
 
+.egalite-pro {
+  padding: 5px;
+  border-radius: 5px;
+background: #FBB163;
+color : #181818;
+transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.egalite-pro:hover {
+  transform: translateY(-5px);
+  background: #e69a48;
+    cursor: pointer;
+}
+
+.convention {
+  padding: 5px;
+  border-radius: 5px;
+  background: #BD1E59;
+  color : #ffffff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.convention:hover {
+  transform: translateY(-5px);
+  background: #961645;
+    cursor: pointer;
+}
+
+.accords-entreprise  {
+  padding: 5px;
+  border-radius: 5px;
+  background: #a8ccff;
+  color : #181818;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.accords-entreprise:hover  {
+  transform: translateY(-5px);
+  background: #85b8ff;
+  cursor: pointer;
+}
+
+.bullet-point {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  /* gap: 5px; */
+}
+
+.text-with-background {
+  display: inline-block;
+}
+
 

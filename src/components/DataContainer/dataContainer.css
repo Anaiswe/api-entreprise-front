@@ -10,7 +10,8 @@
 
 .card-dark,
 .card-light {
-  width: 80%;
+  width: 90%;
+  padding: 7px;
 }
 
 .card-light {
@@ -31,42 +32,50 @@
   border-radius: 7px; 
 }
 
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  background-color: #118571;
-  border-radius: 7px; 
-  padding: 15px;
-  color: #ffffff;
-  font-weight: bolder;
-  gap: 10px;
-}
-
-.card-top:hover {
-  background-color: #2fb09a;
-  cursor: pointer;
-}
-
-.card-title {
-display: flex;
-gap: 10px;
-}
-
-
 .card-title:hover {
   text-decoration: underline;
+}
 
+.more-infos {
+  display: flex;
+  gap: 10px;
 }
 
 
 
 .card-btn-info {
-  transition: transform 0.3s ease;
+  background-color: #118571;
+  border-radius: 7px; 
+  padding: 15px;
+  font-weight: bolder;
+  display: flex;
+  color: #ffffff;
+  justify-content: space-between;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
 }
 
 .card-btn-info:hover {
   cursor: pointer;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #0e6b5b;
   transform: translateY(-5px);
+}
+
+
+
+.btn-infos-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  padding: 7px;
+}
+
+.btn-infos-display:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .card-content-bottom {
@@ -140,20 +149,26 @@ gap: 10px;
   cursor: pointer;
 }
 
+
+
 .link-egapro-item {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   padding: 7px;
   gap: 7px;
   background: #FBB163;
   color: #181818;
   border-radius: 5px;
+  width: fit-content;
+  margin: auto;
 }
 
 .link-egapro-item:hover {
   background: #f5bd80;
-
 }
+
 
 .text {
   text-align: center;
@@ -179,24 +194,6 @@ gap: 10px;
   padding-bottom: 25px;
 }
 
-
-.card-btn-info {
-
-  color : inherit;
-
-}
-
-
-
-
-.more {
-  padding: 10px;
-}
-
-.more a {
-  color: inherit;
- 
-}
 
 
 

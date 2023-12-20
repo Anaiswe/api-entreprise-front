@@ -51,10 +51,9 @@
 
 .entreprise-title {
   text-align: center;
-  border: solid #FBB163 2px;
-  color: #181818;
-  padding: 5px;
-  background: #FBB163;
+  color: #ffffff;
+  padding: 10px;
+  background: #118571;
   border-radius: 7px;
 }
 
@@ -68,29 +67,35 @@
     justify-content: center;
     gap:5px;
     padding: 5px;
-    color: #181818;
+    color: #ffffff;
     text-decoration: none;
-    background: #DFCFE1;
+    background: #BD1E59;
     border-radius: 7px;
 
   }
 
   .link-items:hover {
-    background: #f4e4f5;
+    background: #d08ca5;
 
   }
 
-  /* .egapro-link {
-    border: solid magenta 3px;
-    display: flex;
-  } */
+  .egapro-link {
+    color: #181818;
+  }
 
   .egapro-link-items {
     display: flex ;
     gap: 7px;
     padding: 7px;
-    border: solid #8dbcff 2px;
+    background: #FBB163;
     border-radius: 5px;
+
+  }
+
+  .egapro-link-items:hover {
+  
+    background: #f5bd80;
+
 
   }
 
@@ -111,24 +116,31 @@
     margin-top: 10px;
     padding: 5px;
     border-radius: 5px;
-    background: #a8ccff;
-
+    background: #d08ca5;
+    
+    
   }
 
   .accords-link-siege:hover {
-    background: #8dbcff;
+    background: #BD1E59;
+    
 
   }
 
   .accords-link {
     text-decoration: none;
-    color: #181818;
+    color: #181818
   }
 
   .accords-link-items {
     display: flex;
     gap: 7px;
   }
+
+  .accords-link-text {
+    font-size: smaller;
+  }
+
 
   .idcc-container {
     display: flex;
@@ -141,6 +153,12 @@
 
    
   }
+.idcc-link-container {
+  /* border: solid greenyellow 4px; */
+  display: flex;
+  gap: 10px;
+}
+
 
   .idcc-link-details {
     display: flex;

@@ -114,14 +114,15 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
                 </div>
                 <div className="idcc-link-details">
                   {idccData[0].conventions.map((convention, index) => (
-                    <div key={index}>
+                    <div className= "idcc-link-container"
+                    key={index}>
                       <a href={convention.url} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="idcc-link" 
                       style={{ textDecoration: 'none' }}>
                         <div className="link-items">
-                          <div className="idcc-link-id">{convention.shortTitle}</div>
+                          <div className="idcc-link-id">{convention.shortTitle} (IDCC {convention.num})</div>
                           <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
                         </div>
                       </a>
@@ -132,7 +133,7 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
                       className="idcc-link" 
                       style={{ textDecoration: 'none' }}>
                         <div className="link-items">
-                          <div className="idcc-link-id">Q/R fréquents</div>
+                          <div className="idcc-link-id">Questions/réponses fréquentes (IDCC {convention.num})</div>
                           <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" className="icon" />
                         </div>
                       </a>
