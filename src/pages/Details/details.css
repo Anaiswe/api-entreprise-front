@@ -76,9 +76,18 @@
 }
 
 .details-data-light {
+  padding: 10px;
  display: flex;
  flex-direction: column;
   background: #f1f1f2;
+  flex-wrap: wrap;
 }
 
+.details-data-dark {
+  padding: 10px;
+ display: flex;
+ flex-direction: column;
+  background: #212121;
+  flex-wrap: wrap;
+}
 

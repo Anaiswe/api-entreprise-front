@@ -4,6 +4,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     background:#212121;
+   
 }
 
 .etablissements-container-light {
@@ -12,13 +13,13 @@
     flex-direction: column;
     flex-wrap: wrap;
     background:#eae9eb;
+    
 
 }
 
-
-.etablissements-count {
-    padding: 20px;
+.etablissements-title {
     text-align: center;
+    padding: 10px;
     font-weight: bolder;
 }
 
@@ -30,6 +31,7 @@
     flex-direction: column;
     justify-content: center;
     
+    
 
  
 }
@@ -39,8 +41,9 @@
     margin-left: 10px;
     margin-right: 10px;
     overflow-y: auto;
-      border: 1px solid #BD1E59;
+
   border-radius: 5px;
+   width: 100%;
 
 }
 
@@ -50,7 +53,7 @@
   }
   
   .etablissements-scroll::-webkit-scrollbar-thumb {
-    background-color: #4CAF50; /* Couleur de la poignée de défilement */
+    background-color: #b4c6b4; /* Couleur de la poignée de défilement */
     border-radius: 5px; /* Bordure arrondie de la poignée de défilement */
   }
   
@@ -67,15 +70,16 @@
 .etablissement-cards {
     display: flex;
     flex-direction: column;
+    
    
 
 }
 
 
 .etablissement-card-dark {
+    /* border : solid darkorchid 5px; */
     margin-left: 40px;
     margin-right: 40px;
-    margin-bottom: 30px;
     margin-bottom: 30px;
     padding: 10px;
     gap: 20px;
@@ -91,9 +95,9 @@
 }
 
 .etablissement-card-light {
+    /* border : solid darkorchid 5px; */
     margin-left: 40px;
     margin-right: 40px;
-    margin-bottom: 30px;
     margin-bottom: 30px;
     padding: 10px;
     gap: 20px;
@@ -107,16 +111,33 @@
     font-weight: bolder;
 
 
+
 }
 
-.etablissement-header {
 
+.etablissement-header {
+    /* border : solid darkorchid 5px; */
     text-align: center;
+    justify-content: center;
     color: #ffffff;
     padding: 5px;
     background: #118571;
     border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
 
+
+
+
+.see-more {
+    text-align: center;
+}
+
+.see-more:hover {
+    cursor: pointer;
 }
 
 .etablissement-details-light {

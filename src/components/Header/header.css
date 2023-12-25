@@ -1,6 +1,7 @@
 .header-dark {
   padding: 15px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
 
@@ -9,6 +10,7 @@
   .header-light {
     padding: 15px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px;
 
