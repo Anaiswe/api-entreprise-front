@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"; 
 import EtablissementMap from "../EtablissementMap/EtablissementMap";
 import FetchCodesNaf from "../../functions/FetchCodesNaf";
-import FetchIdcc from "../../functions/FetchIdcc";
+// import FetchIdcc from "../../functions/FetchIdcc";
 import { trancheEffectifData } from "../../functions/ExportDefinitions";
 
 import "./etablissementsDisplay.css";
@@ -13,7 +13,7 @@ const EtablissementsDisplay = ({
   currentEtablissements,
 }) => {
   const [fetchCodesNafData, setFetchCodesNafData] = useState(null);
-  const [idccDataList, setIdccDataList] = useState([]);
+  // const [idccDataList, setIdccDataList] = useState([]);
   const [showDetails, setShowDetails] = useState(Array(currentEtablissements.length).fill(false));
 
   const className = theme === "bg-dark" ? "-dark" : "-light";
@@ -41,34 +41,35 @@ const EtablissementsDisplay = ({
     return "Non renseigné";
   };
 
-  useEffect(() => {
-    const fetchAllIdccData = async () => {
-      const idccDataArray = await Promise.all(
-        currentEtablissements.map((etablissement) => FetchIdcc(etablissement.siret))
-      );
+  // useEffect(() => {
+  //   const fetchAllIdccData = async () => {
+  //     const idccDataArray = await Promise.all(
+  //       currentEtablissements.map((etablissement) => FetchIdcc(etablissement.siret))
+  //     );
 
-      setIdccDataList(idccDataArray);
-    };
+  //     setIdccDataList(idccDataArray);
+  //   };
 
-    fetchAllIdccData();
-  }, [currentEtablissements]);
+  //   fetchAllIdccData();
+  // }, [currentEtablissements]);
 
   const toggleDetails = (index) => {
     const newShowDetails = [...showDetails];
     newShowDetails[index] = !newShowDetails[index];
     setShowDetails(newShowDetails);
   };
+  
 
   return (
     <div className={`etablissements-container${className}`}>
     <div className="etablissements-title">
-      Etablissements répértoriés
+      Etablissements répertoriés
     </div>
       <div className="etablissements-list">
         <div className="etablissements-scroll">
           <div className="etablissement-cards">
             {currentEtablissements.map((etablissement, index) => {
-              const idccData = idccDataList[index] || [];
+              // const idccData = idccDataList[index] || [];
 
               return (
                 <div key={index} className={`etablissement-card${className}`}>
@@ -79,12 +80,13 @@ const EtablissementsDisplay = ({
                       </div>
                   <div className="left-container">
                     <div className="entreprise-info">
-                      <div
-                        className="see-more"
-                        onClick={() => toggleDetails(index)}
-                      >
-                        Afficher plus
+                    <div
+                    className="see-more"
+                    onClick={() => toggleDetails(index)}
+                    >
+                      {showDetails[index] ? "Masquer" : "Afficher plus"}
                       </div>
+
                       {showDetails[index] && (
                         <div className={`etablissement-details${className}`}>
                           <div className="right-container">
@@ -118,7 +120,7 @@ const EtablissementsDisplay = ({
                                 className="link-icon"
                               />
                             </a>
-                            <div className="idcc-card-container">
+                            {/* <div className="idcc-card-container">
                               {idccData.map((item, idccIndex) => (
                                 <div key={idccIndex} className="idcc-card-container">
                                   {item.conventions.map((convention, conventionIndex) => (
@@ -140,7 +142,7 @@ const EtablissementsDisplay = ({
                                   ))}
                                 </div>
                               ))}
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                       )}

@@ -1,4 +1,4 @@
-.header-dark {
+.header-container {
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -7,16 +7,6 @@
 
   }
   
-  .header-light {
-    padding: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
-
-
-  }
-
   .home-btn {
     padding: 20px;
     border-radius: 15px;

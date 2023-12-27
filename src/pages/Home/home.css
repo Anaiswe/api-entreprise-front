@@ -1,24 +1,28 @@
 .home-container {
-    display: flex;
-    padding: 60px;
-    flex-direction: column;
-    gap: 50px;
-    align-items: center;
-
-  }
-
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 10px;
+  flex-direction: column;
+  gap: 30px;
+}
 
 .home-text {
-font-weight: 900;
-text-align: center;
+  font-weight: 900;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  /* border: solid orangered 2px; */
+  display: flex;
+  flex-direction: column;
+
 }
 
 .home-link {
- color: inherit;
+  color: inherit;
   text-decoration: none;
 }
 
-.home-link:hover{
+.home-link:hover {
   text-decoration: underline;
 }
 
@@ -27,17 +31,35 @@ text-align: center;
 }
 
 .home-search-engine {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  
+  padding: 20px;
 }
 
-.egalite-pro {
+.bullet-point {
+  /* border: solid teal 4px; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.egalite-pro,
+.convention,
+.accords-entreprise {
   display: flex;
   justify-content: center;
   padding: 5px;
   border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  /* position: relative; */
+}
+
+.egalite-pro:hover,
+.convention:hover,
+.accords-entreprise:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.egalite-pro {
+
 background: #FBB163;
 color : #181818;
 transition: background-color 0.3s ease, transform 0.3s ease;
@@ -50,9 +72,6 @@ transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .convention {
-  display: flex;
-  justify-content: center;
-  padding: 5px;
   border-radius: 5px;
   background: #BD1E59;
   color : #ffffff;
@@ -66,10 +85,7 @@ transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .accords-entreprise  {
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-  border-radius: 5px;
+
   background: #a8ccff;
   color : #181818;
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -81,20 +97,62 @@ transition: background-color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
 }
 
+
 .bullet-point {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
   padding: 10px;
-  /* gap: 5px; */
 }
 
-.scrap-info {
+
+.bubble-info {
+  position: absolute;
+  /* top: -50px; */
+  /* right: 0; */
+  /* background-color: #22b235; */
+  color: #fff;
+  border-radius: 5px;
+  /* padding: 10px; */
+  z-index: 1;
+  display: none;
+  max-width: 200px;
+}
+
+.egalite-pro.active .bubble-info,
+.convention.active .bubble-info,
+.accords-entreprise.active .bubble-info {
+  display: block;
+}
+
+
+
+.scrap-link {
+  /* border: solid red 3px; */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background-color: inherit;
-  padding: 10px;
 }
 
+.scrap-info-display {
+  /* border: solid rgb(0, 47, 255) 3px; */
+  margin-top:20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
+/* Style pour la bulle d'information */
+.scrap-info {
+  /* border: solid rgb(0, 255, 4) 3px; */
+  border-radius: 5%;
+  font-size: small;
+  /* position:static; */
+  display: flex;
+  background: #eae3e3;
+  color: #181818;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: inherit; */
+  padding: 10px;
+}

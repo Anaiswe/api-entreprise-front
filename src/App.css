@@ -5,6 +5,8 @@
 
   
 
+  
+
   div {
     font-size: medium;
   }
@@ -12,7 +14,7 @@
   .App {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 150vh;
     position: relative;
   }
 
@@ -21,14 +23,19 @@
   }
 
   .container-fluid-bg-dark {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     background-color: #181818;
     font-size: 19px;
     color: #f1f1f2;
+    transition: background-color 0.3s, color 0.3s, font-size 0.3s;
   }
           
   .container-fluid-light {
     color: #181818;
     font-size: 19px;
     background-color: #f1f1f2;
+    transition: background-color 0.3s, color 0.3s, font-size 0.3s;
           }
 

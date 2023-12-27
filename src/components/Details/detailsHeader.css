@@ -1,5 +1,6 @@
 .details-header-container-dark {
-  border: solid crimson 3px;
+  /* border: solid crimson 3px; */
+  padding: 10px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -8,37 +9,27 @@
 
 } 
 .details-header-container-light {
-  border: solid crimson 3px;
+  /* border: solid rgb(20, 220, 20) 3px; */
   display: flex;
   flex-direction: column;
+  padding: 10px;
+  flex-wrap: wrap;
   height: 100%;
-  background:#eae9eb ;
-  
 
 } 
 
 
-.top {
- 
-  padding: 10px;
-  border-radius: 7px;
-  gap: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
 
 .main-informations-entreprise {
   /* border : solid slateblue 4px; */
   display:flex;
+  padding: 10px;
   gap: 10px;
-  flex-wrap: nowrap;
+flex-wrap: nowrap;
   justify-content: space-around;
-  /* flex-direction: column;
+  flex-direction: column;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
   font-weight: bolder;
   width: 100%;
 }
@@ -48,8 +39,9 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  /* flex-wrap: wrap; */
   flex-direction: column;
-  width: 50%;
+ 
 }
 
 .entreprise-title {
@@ -61,24 +53,30 @@
 }
 
 .entreprise-infos {
+  
   text-align: center;
 }
 
 
   .link-items {
+    /* border: solid navy 5px; */
     display: flex;
     justify-content: center;
     gap:5px;
     padding: 5px;
     color: #ffffff;
     text-decoration: none;
-    background: #BD1E59;
     border-radius: 7px;
+    background: #BD1E59;
+  color : #ffffff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 
   }
 
   .link-items:hover {
-    background: #d08ca5;
+    transform: translateY(-5px);
+    background: #961645;
+      cursor: pointer;
 
   }
 
@@ -90,16 +88,17 @@
     display: flex ;
     gap: 7px;
     padding: 7px;
-    background: #FBB163;
     border-radius: 5px;
+    background: #FBB163;
+    color : #181818;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 
   }
 
   .egapro-link-items:hover {
-  
-    background: #f5bd80;
-
-
+    transform: translateY(-5px);
+    background: #e69a48;
+      cursor: pointer;
   }
 
   .egapro-link-text {
@@ -114,18 +113,23 @@
 
   .accords-link-siege {
     display: flex;
+    text-decoration: none;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 10px;
     padding: 5px;
     border-radius: 5px;
-    background: #d08ca5;
+    background: #a8ccff;
+    color : #181818;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     
     
   }
 
   .accords-link-siege:hover {
-    background: #BD1E59;
+    transform: translateY(-5px);
+    background: #85b8ff;
+    cursor: pointer;
     
 
   }
@@ -146,19 +150,23 @@
 
 
   .idcc-container {
+    /* border: solid rgb(0, 128, 26) 5px; */
     display: flex;
+    /* flex-wrap: nowrap; */
     gap: 10px;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 50%;
+   
+  
 
    
   }
 .idcc-link-container {
   /* border: solid greenyellow 4px; */
   display: flex;
+  flex-wrap: nowrap;
   gap: 10px;
 }
 

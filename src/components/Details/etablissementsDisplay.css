@@ -1,35 +1,37 @@
 .etablissements-container-dark {
-    /* border: solid firebrick 3px; */
+    border: solid rgb(182, 191, 201) 0.5px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    background:#212121;
+
    
 }
 
 .etablissements-container-light {
-    /* border: solid firebrick 3px; */
+    border: solid rgb(182, 191, 201) 0.5px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    background:#eae9eb;
+ 
     
 
 }
 
 .etablissements-title {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 10px;
     font-weight: bolder;
 }
 
 
 .etablissements-list {
-    /* border: solid rgb(96, 34, 178) 3px; */
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
+    /* border: solid rgb(178, 123, 34) 3px; */
+    padding-right: 10px;
+    width: 100%;
     
     
 
@@ -61,18 +63,14 @@
     background-color: #f1f1f1; /* Couleur de la piste de défilement */
   }
   
-  /* Styles supplémentaires pour le contenu défilant */
-  .etablissements-list {
-    padding-right: 10px; /* Ajoute un espace pour ne pas cacher le contenu sous la barre de défilement */
-  }
-
 
 .etablissement-cards {
+    /* border : solid yellow 5px; */
+    width: 100%;
     display: flex;
+    gap: 10px;
     flex-direction: column;
-    
-   
-
+    flex-wrap: nowrap;
 }
 
 
@@ -81,11 +79,11 @@
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 30px;
-    padding: 10px;
+    /* padding: 10px; */
     gap: 20px;
     align-items: center;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
     border-bottom: solid #afafc6 0.2px;
     border-top: solid #afafc6 0.2px;
@@ -99,11 +97,11 @@
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 30px;
-    padding: 10px;
+    /* padding: 10px; */
     gap: 20px;
     align-items: center;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
     border-bottom: solid #afafc6 0.2px;
     border-top: solid #afafc6 0.2px;
@@ -140,6 +138,7 @@
     cursor: pointer;
 }
 
+
 .etablissement-details-light {
     display: flex;
     flex-direction: column;
@@ -170,41 +169,36 @@
 .right-container {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
     /* width: 30%; */
 }
 
 
-
-.link-light {
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-
 .legi-link {
-    min-width: 30%;
-    background: #BD1E59;
+    background: #a8ccff;
     padding: 5px;
+    gap: 7px;
     border-radius: 7px;
     display: flex;
     justify-content: space-between;
-color: #ffffff;
+color: #181818;
 text-decoration: none;
+transition: background-color 0.3s ease, transform 0.3s ease;
 
 }
 
 .legi-link:hover {
 
-    cursor: pointer;
-    background:#d08ca5;
-
+    transform: translateY(-5px);
+    background: #85b8ff;
+      cursor: pointer;
+      text-decoration: none;
 
 }
 
-.idcc-card-container  {
+/* .idcc-card-container  {
     margin-top: 10px;
-    /* border: solid fuchsia 3px; */
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -227,7 +221,7 @@ text-decoration: none;
 cursor: pointer;
 background: #d08ca5;
 color: #ffffff;
-}
+} */
 
 .map-container {
     width: 100%;
@@ -239,11 +233,11 @@ color: #ffffff;
 
 
 
-.paginate {
+/* .paginate {
     font-weight: bolder;
     padding: 15px;
     margin: 10px;
-}
+} */
 
   
   

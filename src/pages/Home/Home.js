@@ -1,47 +1,17 @@
-import React,  {useState} from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-
-// Components
 import SearchHome from "../../components/SearchContainer/SearchHome/SearchHome";
 import FetchScrapedData from "../../functions/FetchScrapedData";
-
-// Styles
 import "./home.css";
 
 const Home = ({ theme }) => {
-
-  const [isConventionHovered, setIsConventionHovered] = useState(false);
-  const [isAgreementHovered, setIsAgreementHovered] = useState(false);
-  const [isIndexHovered, setIsIndexHovered] = useState(false);
+  const [scrapedDataItem, setScrapedDataItem] = useState(null);
   const { conventionData, agreementData, egaproData } = FetchScrapedData();
 
-  // const handleHoverConvention = () => {
-  //   setIsConventionHovered(!isConventionHovered);
-  // };
-
-  // const handleHoverAgreement = () => {
-  //   setIsAgreementHovered(!isAgreementHovered);
-  // };
-
-  // const handleHoverIndex =  () => {
-  //   setIsIndexHovered(!isIndexHovered)
-  // }
-
-
-  const handleClickConvention = () => {
-    setIsConventionHovered(!isConventionHovered);
+  const handleClick = (item) => {
+    setScrapedDataItem(scrapedDataItem === item ? null : item);
   };
-
-  const handleClickAgreement = () => {
-    setIsAgreementHovered(!isAgreementHovered);
-  };
-
-  const handleClickIndex = () => {
-    setIsIndexHovered(!isIndexHovered);
-  };
-
-  // console.log (conventionData.text)
 
   return (
     <>
@@ -50,75 +20,92 @@ const Home = ({ theme }) => {
           <SearchHome theme={theme} />
         </div>
         <div className="home-text">
-          Recherchez une entreprise, puis accédez en quelques clics aux textes qui lui sont applicables et répertoriés sur {" "}
-          <a className="home-link" href="https://www.legifrance.gouv.fr/" target="_blank" rel="noopener noreferrer">
+          Recherchez une entreprise, puis accédez en quelques clics aux textes
+          qui lui sont applicables et répertoriés sur{" "}
+          <a
+            className="home-link"
+            href="https://www.legifrance.gouv.fr/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Légifrance
             <span className="icon-link">
               <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" />
             </span>
-          </a> : <br />
+          </a>{" "}
+          <br />
           <div className="bullet-point">
             <div className="scrap-link">
-            <span className="convention"
-            //  onMouseEnter={handleHoverConvention}
-            //  onMouseLeave={handleHoverConvention}
-             onClick={handleClickConvention}>
+              <span
+                className={`convention ${scrapedDataItem === "convention" && "active"}`}
+                onClick={() => handleClick("convention")}
+              >
                 convention collective
-            </span>
-            <div className="scrap-info-display">
-            {isConventionHovered && (
-              <div className="scrap-info">
-                <p>{conventionData.text}</p>
-                Source:{" "}
-                 <a href={conventionData.source} target="_blank" rel="noopener noreferrer">
-                  {conventionData.source}
-                  </a>
-              </div>
-            )}
-            </div>
-            </div>
-
-            <div className="scrap-link">
-            <span className="accords-entreprise"
-            //  onMouseEnter={handleHoverConvention}
-            //  onMouseLeave={handleHoverConvention}
-            onClick={handleClickAgreement}>
-            accords d'entreprise
-            </span>
-            <div className="scrap-info-display">
-            {isAgreementHovered && (
-              <div className="scrap-info">
-                 <p>{agreementData.text}</p>
-                 Source:{" "}
-                 <a href={agreementData.source} target="_blank" rel="noopener noreferrer">
-                  {agreementData.source}
-                  </a>
-              </div>
-            )}
-            </div>
+                <div className={`bubble-info scrap-info-display ${scrapedDataItem === "convention" && "active"}`}>
+                  {scrapedDataItem === "convention" && (
+                    <div className="scrap-info">
+                      <p>{conventionData.text}</p>
+                      Source:{" "}
+                      <a
+                        href={conventionData.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {conventionData.source}
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </span>
             </div>
 
             <div className="scrap-link">
-            <span className="egalite-pro"
-            //  onMouseEnter={handleHoverConvention}
-            //  onMouseLeave={handleHoverConvention}
-            onClick={handleClickIndex}>
-              index égalité professionnelle
-            </span>
-            <div className="scrap-info-display">
-            {isIndexHovered && (
-              <div className="scrap-info">
-                 <p>{egaproData.text}</p>
-                 Source:{" "}
-                 <a href={egaproData.source} target="_blank" rel="noopener noreferrer">
-                  {egaproData.source}
-                  </a>
-                
-              </div>
-            )}
+              <span
+                className={`accords-entreprise ${scrapedDataItem === "accords-entreprise" && "active"}`}
+                onClick={() => handleClick("accords-entreprise")}
+              >
+                accords d'entreprise
+                <div className={`bubble-info scrap-info-display ${scrapedDataItem === "accords-entreprise" && "active"}`}>
+                  {scrapedDataItem === "accords-entreprise" && (
+                    <div className="scrap-info">
+                      <p>{agreementData.text}</p>
+                      Source:{" "}
+                      <a
+                        href={agreementData.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {agreementData.source}
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </span>
             </div>
+
+            <div className="scrap-link">
+              <span
+                className={`egalite-pro ${scrapedDataItem === "egalite-pro" && "active"}`}
+                onClick={() => handleClick("egalite-pro")}
+              >
+                index égalité professionnelle
+                <div className={`bubble-info scrap-info-display ${scrapedDataItem === "egalite-pro" && "active"}`}>
+                  {scrapedDataItem === "egalite-pro" && (
+                    <div className="scrap-info">
+                      <p>{egaproData.text}</p>
+                      Source:{" "}
+                      <a
+                        href={egaproData.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {egaproData.source}
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </span>
             </div>
- 
           </div>
         </div>
       </div>

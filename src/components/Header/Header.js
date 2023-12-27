@@ -6,11 +6,10 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import "./header.css";
 const Header = ({theme, toggleTheme }) => {
   const navigate = useNavigate();
-  const tableClassName = theme === "" || theme === "bg-dark" ? "dark" : "light";
 
   return (
     <>
-    <div className={`header-${tableClassName}`}>
+    <div className="header-container">
       <FontAwesomeIcon 
       className="home-btn"
          icon={faHouse} 

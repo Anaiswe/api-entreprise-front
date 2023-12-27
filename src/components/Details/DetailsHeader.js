@@ -58,7 +58,7 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
   return (
     <div className={`details-header-container${className}`}>
 
-          <div className="top">
+          {/* <div className="top"> */}
             <div className="main-informations-entreprise">
               <div className="basic-informations-entreprise">
               <p className="entreprise-title">{selectedDataItem.nom_complet} ({selectedDataItem.nom_raison_sociale})</p>
@@ -149,7 +149,7 @@ const DetailsHeader = ({ selectedDataItem, theme }) => {
           </div>
 
           </div>
-            </div>
+            {/* </div> */}
 
     </div>
   );
