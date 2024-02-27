@@ -117,12 +117,17 @@ transition: background-color 0.3s ease, transform 0.3s ease;
   z-index: 1;
   display: none;
   max-width: 200px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+ 
 }
 
 .egalite-pro.active .bubble-info,
 .convention.active .bubble-info,
 .accords-entreprise.active .bubble-info {
   display: block;
+  
+
 }
 
 
@@ -131,6 +136,7 @@ transition: background-color 0.3s ease, transform 0.3s ease;
   /* border: solid red 3px; */
   flex: 1;
   display: flex;
+
   flex-direction: column;
 }
 
@@ -139,20 +145,27 @@ transition: background-color 0.3s ease, transform 0.3s ease;
   margin-top:20px;
   flex: 1;
   display: flex;
+  
   flex-direction: column;
 }
 
 /* Style pour la bulle d'information */
 .scrap-info {
-  /* border: solid rgb(0, 255, 4) 3px; */
+ 
   border-radius: 5%;
   font-size: small;
   /* position:static; */
   display: flex;
+  flex-wrap: nowrap;
   background: #eae3e3;
   color: #181818;
   flex-direction: column;
   justify-content: space-between;
   /* background-color: inherit; */
   padding: 10px;
+}
+
+.source {
+  
+  font-size: smaller;
 }
